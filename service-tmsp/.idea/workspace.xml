@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="285532c6-6cb0-452c-8c31-8d523167d28d" name="更改" comment="研究liqui中数据库不存在时的代码">
+    <list default="true" id="285532c6-6cb0-452c-8c31-8d523167d28d" name="更改" comment="将 tmsp 和 sa-token 项目移动到该 github 仓库中">
       <change afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/model/query/AssetQuery.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/common/MyCommonService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/common/PageQuery.java" afterDir="false" />
@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/model/AssetDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/model/AssetDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/AssetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/AssetService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/impl/AssetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/impl/AssetServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +49,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$PROJECT_DIR$/../../maven/apache-maven-3.8.5" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../maven/apache-maven-3.8.5" />
         <option name="useMavenConfig" value="false" />
         <option name="userSettingsFile" value="D:\maven\apache-maven-3.8.5\conf\settings.xml" />
       </MavenGeneralSettings>
@@ -72,7 +73,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/MyWorkProject/simple-project-collection/TMSP",
+    "last_opened_file_path": "D:/MyWorkProject/simple-project-collection/sa-token-demo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,7 +91,7 @@
       <recent name="D:\MyStudyProject\TMSP\src\main\java\com\njxnet\service\tmsp\util" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.MyTest">
+  <component name="RunManager" selected="Spring Boot.JavaplatformArchetypeApplication">
     <configuration name="MyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.njxnet.service.tmsp.util.MyTest" />
       <module name="service-tmsp" />
@@ -175,6 +176,7 @@
       <workItem from="1710741490426" duration="1206000" />
       <workItem from="1710817684508" duration="3300000" />
       <workItem from="1710827027353" duration="54000" />
+      <workItem from="1710827094063" duration="1032000" />
     </task>
     <task id="LOCAL-00001" summary="添加根据 word 模板生成 word 文件工具类">
       <option name="closed" value="true" />
@@ -224,7 +226,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708937114609</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="提交 gitignore">
+      <option name="closed" value="true" />
+      <created>1710827187605</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710827187605</updated>
+    </task>
+    <task id="LOCAL-00008" summary="将 tmsp 和 sa-token 项目移动到该 github 仓库中">
+      <option name="closed" value="true" />
+      <created>1710827516169</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710827516169</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +278,9 @@
     <MESSAGE value="调整 postprocessor 的写法" />
     <MESSAGE value="调整文件结构" />
     <MESSAGE value="研究liqui中数据库不存在时的代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="研究liqui中数据库不存在时的代码" />
+    <MESSAGE value="提交 gitignore" />
+    <MESSAGE value="将 tmsp 和 sa-token 项目移动到该 github 仓库中" />
+    <option name="LAST_COMMIT_MESSAGE" value="将 tmsp 和 sa-token 项目移动到该 github 仓库中" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

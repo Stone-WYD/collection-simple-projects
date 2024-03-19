@@ -1,9 +1,21 @@
 package com.njxnet.asset_manage.controller;
 
+import com.njxnet.asset_manage.common.AjaxResult;
+import com.njxnet.asset_manage.entity.Asset;
+import com.njxnet.asset_manage.model.AssetDTO;
+import com.njxnet.asset_manage.model.query.AssetQuery;
+import com.njxnet.asset_manage.service.AssetService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @program: asset-manage
@@ -17,7 +29,26 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class AssetController {
 
+    @Resource
+    private AssetService assetService;
 
+    @ApiOperation(value = "新增资产", notes = "新增资产")
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    public AjaxResult<?> insertAsset(@RequestBody @Validated(AssetDTO.insert.class) AssetDTO assetDTO) {
+        return assetService.insertAsset(assetDTO);
+    }
+
+    @ApiOperation(value = "更新资产信息", notes = "更新资产信息")
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public AjaxResult<?> updateAsset(@RequestBody @Validated(AssetDTO.update.class) AssetDTO assetDTO) {
+        return assetService.updateAsset(assetDTO);
+    }
+
+    @ApiOperation(value = "查询资产信息", notes = "查询资产信息")
+    @RequestMapping(value = "/query", method = RequestMethod.POST)
+    public AjaxResult<List<Asset>> queryAsset(@RequestBody AssetQuery query) {
+        return assetService.queryAsset(query);
+    }
     
 }
 

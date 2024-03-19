@@ -3,6 +3,8 @@ package com.njxnet.asset_manage.model;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -16,9 +18,11 @@ import java.time.LocalDateTime;
 public class AssetDTO implements Serializable {
     //主键
     @ApiModelProperty(notes = "主键", name = "id")
+    @NotNull(message = "更新时id不能为空", groups = {update.class})
     private Integer id;
     //项目名称
     @ApiModelProperty(notes = "项目名称", name = "projectName")
+    @NotBlank(message = "项目名称不能为空", groups = {insert.class})
     private String projectName;
     //客户名称
     @ApiModelProperty(notes = "客户名称", name = "customName")
@@ -41,5 +45,9 @@ public class AssetDTO implements Serializable {
     //合同额
     @ApiModelProperty(notes = "合同额", name = "amountContract")
     private Double amountContract;
+
+
+    public interface insert{}
+    public interface update{}
 }
 
