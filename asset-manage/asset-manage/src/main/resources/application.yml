@@ -1,0 +1,27 @@
+database:
+  name: asset_manage
+
+spring:
+  liquibase:
+    change-log: classpath:liquibase/master.xml
+    enabled: true # 当实际使用的数据库不支持 liquibase，如 mariadb 时，将这个参数设置为 false
+  datasource:
+    url: jdbc:mysql://192.168.20.28:3306/${database.name}?characterEncoding=utf8&usSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: ssfw
+    password: njxnet@1234
+    driverClassName: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+#mybatis:
+#  mapper-locations: classpath:mappers/*xml
+mybatis-plus:
+  mapper-locations: classpath:mappers/*xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开启sql日志
+    # org.apache.ibatis.logging.slf4j.Slf4jImpl 这个日志可以输出到日志文件中
+
+############## knife4j 配置 (官网: https://doc.xiaominfo.com/)，使用JRebel时，接口返回结果会缺失信息 ##############
+# knife4j的使用至少需要加入一个配置
+knife4j:
+  setting:
+    language: zh_cn
