@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="285532c6-6cb0-452c-8c31-8d523167d28d" name="更改" comment="研究liqui中数据库不存在时的代码">
+      <change afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/model/query/AssetQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/common/MyCommonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/common/PageQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/controller/AssetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/controller/AssetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/model/AssetDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/model/AssetDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/AssetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/AssetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/impl/AssetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/impl/AssetServiceImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Stone-WYD&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="311aac16-ba2e-4a87-bc35-314470a219da" />
+        <option name="url" value="https://github.com/Stone-WYD/TMSP.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../maven/apache-maven-3.8.5" />
+        <option name="useMavenConfig" value="false" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.8.5\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2aWdSapFuzH4gz5WmisRb1r7Jhv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/MyWorkProject/simple-project-collection/TMSP",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MyStudyProject\TMSP\src\main\resources" />
+      <recent name="D:\MyStudyProject\TMSP\src\main\java\com\njxnet\service\tmsp\util" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.MyTest">
+    <configuration name="MyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.njxnet.service.tmsp.util.MyTest" />
+      <module name="service-tmsp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.njxnet.service.tmsp.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordTemplateUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.njxnet.service.tmsp.util.word.WordTemplateUtil" />
+      <module name="service-tmsp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.njxnet.service.tmsp.util.word.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JavaplatformArchetypeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="service-tmsp" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.njxnet.service.tmsp.JavaplatformArchetypeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.MyTest" />
+        <item itemvalue="应用程序.WordTemplateUtil" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="285532c6-6cb0-452c-8c31-8d523167d28d" name="更改" comment="" />
+      <created>1704438088750</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704438088750</updated>
+      <workItem from="1704438271541" duration="1545000" />
+      <workItem from="1704848919359" duration="2590000" />
+      <workItem from="1704935042919" duration="599000" />
+      <workItem from="1705050882520" duration="103000" />
+      <workItem from="1705367329921" duration="1574000" />
+      <workItem from="1705478268610" duration="1219000" />
+      <workItem from="1705484734445" duration="1212000" />
+      <workItem from="1705628294935" duration="724000" />
+      <workItem from="1705885717794" duration="629000" />
+      <workItem from="1705979159424" duration="1699000" />
+      <workItem from="1706146304511" duration="1231000" />
+      <workItem from="1706164961404" duration="941000" />
+      <workItem from="1706232226381" duration="1197000" />
+      <workItem from="1707096534815" duration="7855000" />
+      <workItem from="1707115303867" duration="3621000" />
+      <workItem from="1707122271841" duration="2206000" />
+      <workItem from="1707181736707" duration="605000" />
+      <workItem from="1708394893935" duration="5044000" />
+      <workItem from="1708919674238" duration="14110000" />
+      <workItem from="1708996708459" duration="596000" />
+      <workItem from="1709111793862" duration="10000" />
+      <workItem from="1709272498079" duration="2056000" />
+      <workItem from="1709600904459" duration="2535000" />
+      <workItem from="1709611193840" duration="1768000" />
+      <workItem from="1709797823938" duration="2376000" />
+      <workItem from="1710149789053" duration="1226000" />
+      <workItem from="1710205419800" duration="1683000" />
+      <workItem from="1710210138215" duration="881000" />
+      <workItem from="1710212215680" duration="603000" />
+      <workItem from="1710315121044" duration="1000" />
+      <workItem from="1710484243696" duration="1356000" />
+      <workItem from="1710723968006" duration="976000" />
+      <workItem from="1710738583369" duration="1063000" />
+      <workItem from="1710741490426" duration="1206000" />
+      <workItem from="1710817684508" duration="3300000" />
+      <workItem from="1710827027353" duration="54000" />
+    </task>
+    <task id="LOCAL-00001" summary="添加根据 word 模板生成 word 文件工具类">
+      <option name="closed" value="true" />
+      <created>1705479431963</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705479431963</updated>
+    </task>
+    <task id="LOCAL-00002" summary="添加根据 word 模板生成 word 文件工具类：模板文档">
+      <option name="closed" value="true" />
+      <created>1705479450626</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705479450626</updated>
+    </task>
+    <task id="LOCAL-00003" summary="规范 PostProcessor 相关内容的泛型书写">
+      <option name="closed" value="true" />
+      <created>1707104856659</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707104856659</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix">
+      <option name="closed" value="true" />
+      <created>1707105437236</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707105437236</updated>
+    </task>
+    <task id="LOCAL-00005" summary="调整 postprocessor 的写法">
+      <option name="closed" value="true" />
+      <created>1707124514554</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707124514554</updated>
+    </task>
+    <task id="LOCAL-00006" summary="研究liqui中数据库不存在时的代码">
+      <option name="closed" value="true" />
+      <created>1708937114609</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708937114609</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="添加根据 word 模板生成 word 文件工具类" />
+    <MESSAGE value="添加根据 word 模板生成 word 文件工具类：模板文档" />
+    <MESSAGE value="规范 PostProcessor 相关内容的泛型书写" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="调整 postprocessor 的写法" />
+    <MESSAGE value="调整文件结构" />
+    <MESSAGE value="研究liqui中数据库不存在时的代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="研究liqui中数据库不存在时的代码" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.springframework.jdbc.CannotGetJdbcConnectionException" package="org.springframework.jdbc" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

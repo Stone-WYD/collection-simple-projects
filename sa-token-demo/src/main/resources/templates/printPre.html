@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>打印预览</title>
+</head>
+<style type="text/css">
+    body {
+        word-break: break-all;
+        width:580px;
+        margin: auto;
+
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 0;
+        font-size:28px;
+    }
+
+    div {
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    p {
+        text-indent: 33px;
+        -webkit-text-indent: 50px;
+        margin: 10px 0;
+    }
+
+    h3 {
+        margin-top: 40px;
+        margin-bottom: 0;
+        font-size:24px;
+    }
+    @page{
+        margin: 60px 80px;
+    }
+    .paragraph{
+        margin-top: 24px;
+    }
+    .paragraph h3{
+        font-size: 22px;
+        color: #404040;
+        text-align: left;
+        font-weight: 600;
+    }
+    .paragraph .fixed_part{
+        max-width: 500px;
+        margin: 30px auto 0;
+    }
+    .paragraph img{
+        width: 100%;
+    }
+    .paragraph .charts{
+        width: 100%;
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px auto 0;
+    }
+    @media print {
+        .fixed_part{ page-break-inside:avoid;}
+    }
+</style>
+<body>
+<h2>风险评估报告</h2>
+
+<div th:each="report : ${reports}">
+    <h3 th:text="${report.name}">name</h3>
+    <p th:each="content : ${report.contents}">[[${content}]]</p>
+</div>
+
+<div class="paragraph">
+    <h3>时间成本对比</h3>
+    <div class="fixed_part">
+        <img th:src="${durationUrl}">
+    </div>
+</div>
+
+<div class="paragraph">
+    <h3>信用记录对比</h3>
+    <p>调解影响:通过调解解决纠纷，双方达成调解书，不留不良信用记录。</p>
+    <p>诉讼影响:通过起诉解决纠纷，判决书会记载在个人信用记录里。</p>
+</div>
+<div class="paragraph" style="text-align: center;">
+    *此内容仅供参考
+</div>
+</body>
+</html>

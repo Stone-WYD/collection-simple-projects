@@ -1,0 +1,114 @@
+server:
+  # 端口
+  port: 8081
+
+# 默认的数据库名
+database:
+  name: tmsp
+
+spring:
+  # 当不加 dynamic 配置时，仍可以使用以下单一数据源配置，切换方便
+  datasource:
+    # url: jdbc:mysql://192.168.30.43:3306/${database.name}?characterEncoding=utf8&usSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    # username: ssfw
+    # password: njxnet1234
+    url: jdbc:mysql://127.0.0.1:3306/${database.name}?characterEncoding=utf8&usSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driverClassName: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  liquibase:
+    change-log: classpath:liquibase/master.xml
+    # 当使用的数据库不支持 liquibase，如 mariadb 时，将这个参数设置为 false
+    enabled: true
+
+#  dynamic: #动态数据源
+#    primary: tmsp #表示默认的数据源
+#    datasource:
+#      tmsp:
+#        # 短信发送平台数据源
+#        url: jdbc:mysql://192.168.30.43:3306/tmsp?characterEncoding=utf8&usSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+#        username: ssfw  root
+#        password: njxnet1234  123456
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        #druid自有属性
+#        filters: stat
+#        initialSize: 0
+#        minIdle: 1
+#        maxActive: 50
+#        maxWait: 10000
+#        timeBetweenEvictionRunsMillis: 60000
+#        minEvictableIdleTimeMillis: 200000
+#        testWhileIdle: true
+#        testOnBorrow: true
+#        validationQuery: select 1
+#      interface:
+#        # 接口平台数据源
+#        url: jdbc:mysql://192.168.30.42:3306/interface_platform?characterEncoding=utf8&usSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+#        username: root
+#        password:
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        #druid自有属性
+#        filters: stat
+#        initialSize: 0
+#        minIdle: 1
+#        maxActive: 50
+#        maxWait: 10000
+#        timeBetweenEvictionRunsMillis: 60000
+#        minEvictableIdleTimeMillis: 200000
+#        testWhileIdle: true
+#        testOnBorrow: true
+#        validationQuery: select 1
+
+
+
+
+#mybatis:
+#  mapper-locations: classpath:mappers/*xml
+mybatis-plus:
+  # 类型转换，主要是枚举类转换用
+  type-handlers-package: com.njxnet.service.tmsp.config.constant.mybatis
+  mapper-locations: classpath:mappers/*xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开启sql日志
+    # org.apache.ibatis.logging.slf4j.Slf4jImpl 这个日志可以输出到日志文件中
+
+
+############## Sa-Token 配置 (文档: https://sa-token.cc) ##############
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: satoken
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: -1
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: -1
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: true
+  # token风格
+  token-style: uuid
+  # 是否输出操作日志
+  is-log: false
+
+############## knife4j 配置 (官网: https://doc.xiaominfo.com/)，使用JRebel时，接口返回结果会缺失信息 ##############
+# knife4j的使用至少需要加入一个配置
+knife4j:
+  setting:
+    language: zh_cn
+
+config:
+  reactor:
+    enable: false
+  send:
+    type: rest # webclient
+  url:
+    base: http://192.168.30.43:8080
+    send: /phoneMsg/sendMsg
+  core:
+    version: 2
+
+wyd:
+  new:
+    usersvervice: true
