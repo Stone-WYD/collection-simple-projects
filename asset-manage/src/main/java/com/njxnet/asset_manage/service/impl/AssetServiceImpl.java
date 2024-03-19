@@ -1,6 +1,8 @@
 package com.njxnet.asset_manage.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.njxnet.asset_manage.common.AjaxResult;
 import com.njxnet.asset_manage.common.AjaxResultUtil;
@@ -12,6 +14,8 @@ import com.njxnet.asset_manage.service.AssetService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static com.njxnet.asset_manage.service.common.MyCommonService.queryForPage;
 
 /**
  * (Asset)表服务实现类
@@ -37,8 +41,17 @@ public class AssetServiceImpl extends ServiceImpl<AssetDao, Asset> implements As
     }
 
     @Override
-    public AjaxResult<List<Asset>> queryAsset(AssetQuery query) {
-        return null;
+    public AjaxResult<Page<AssetDTO>> queryAsset(AssetQuery query) {
+        return queryForPage(AssetDTO.class, () ->
+            page(new Page<>(query.getPage(), query.getSize()),
+                    query().like(StrUtil.isNotEmpty(query.getProjectName()),"project_name", "%" + query.getProjectName() + "%")
+                            .like(StrUtil.isNotEmpty(query.getCustomName()), "custom_name", "%" + query.getCustomName() + "%")));
+    }
+
+    @Override
+    public AjaxResult<?> deleteAsset(AssetDTO assetDTO) {
+        removeById(assetDTO.getId());
+        return AjaxResultUtil.getTrueAjaxResult(new AjaxResult<>());
     }
 
 

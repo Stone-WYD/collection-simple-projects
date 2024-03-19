@@ -13,6 +13,7 @@ import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * @program: TMSP
  * @description: 数据库确认 postprocessor
@@ -69,7 +70,8 @@ public class MyDataBaseConfirmPostProcessor implements BeanPostProcessor {
         URI url = URI.create(ApplicationContextUtil.getConfig("spring.datasource.url").substring(5));
         String uname = ApplicationContextUtil.getConfig("spring.datasource.username");
         String pwd = ApplicationContextUtil.getConfig("spring.datasource.password");
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://" + url.getHost() + ":" + url.getPort() +
+        try (
+                Connection connection = DriverManager.getConnection("jdbc:mysql://" + url.getHost() + ":" + url.getPort() +
                 "?useUnicode=true&characterEncoding=UTF-8&useSSL=false", uname, pwd);
              Statement statement = connection.createStatement()) {
             ResultSet set = statement.executeQuery("select schema_name from information_schema.schemata where schema_name = '" + database + "'");

@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="285532c6-6cb0-452c-8c31-8d523167d28d" name="更改" comment="将 tmsp 和 sa-token 项目移动到该 github 仓库中">
-      <change afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/model/query/AssetQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/common/MyCommonService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/common/PageQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/config/MyConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asset-manage/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/config/liqui_init/MyDataBaseConfirmPostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/config/liqui_init/MyDataBaseConfirmPostProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/controller/AssetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/controller/AssetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/model/AssetDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/model/AssetDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/AssetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/AssetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/common/MyCommonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/common/MyCommonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/impl/AssetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/service/impl/AssetServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +73,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/MyWorkProject/simple-project-collection/sa-token-demo",
+    "last_opened_file_path": "D:/MyWorkProject/simple-project-collection/service-tmsp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -177,6 +177,7 @@
       <workItem from="1710817684508" duration="3300000" />
       <workItem from="1710827027353" duration="54000" />
       <workItem from="1710827094063" duration="1032000" />
+      <workItem from="1710828770577" duration="1296000" />
     </task>
     <task id="LOCAL-00001" summary="添加根据 word 模板生成 word 文件工具类">
       <option name="closed" value="true" />

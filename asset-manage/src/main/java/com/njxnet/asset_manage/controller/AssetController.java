@@ -1,5 +1,6 @@
 package com.njxnet.asset_manage.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.njxnet.asset_manage.common.AjaxResult;
 import com.njxnet.asset_manage.entity.Asset;
 import com.njxnet.asset_manage.model.AssetDTO;
@@ -46,8 +47,14 @@ public class AssetController {
 
     @ApiOperation(value = "查询资产信息", notes = "查询资产信息")
     @RequestMapping(value = "/query", method = RequestMethod.POST)
-    public AjaxResult<List<Asset>> queryAsset(@RequestBody AssetQuery query) {
+    public AjaxResult<Page<AssetDTO>> queryAsset(@RequestBody AssetQuery query) {
         return assetService.queryAsset(query);
+    }
+
+    @ApiOperation(value = "删除资产信息", notes = "删除资产信息")
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public AjaxResult<?> deleteAsset(@RequestBody @Validated(AssetDTO.update.class) AssetDTO assetDTO) {
+        return assetService.deleteAsset(assetDTO);
     }
     
 }

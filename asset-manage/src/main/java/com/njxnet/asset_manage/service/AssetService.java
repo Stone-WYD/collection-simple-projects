@@ -1,5 +1,6 @@
 package com.njxnet.asset_manage.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.njxnet.asset_manage.common.AjaxResult;
 import com.njxnet.asset_manage.entity.Asset;
@@ -20,6 +21,8 @@ public interface AssetService extends IService<Asset> {
 
     AjaxResult<?> updateAsset(AssetDTO assetDTO);
 
-    AjaxResult<List<Asset>> queryAsset(AssetQuery query);
+    AjaxResult<Page<AssetDTO>> queryAsset(AssetQuery query);
+
+    AjaxResult<?> deleteAsset(AssetDTO assetDTO);
 }
 
