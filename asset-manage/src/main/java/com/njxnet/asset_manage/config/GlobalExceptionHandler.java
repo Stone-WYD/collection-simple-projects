@@ -13,15 +13,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
     
 
-    @ExceptionHandler(RuntimeException.class)
-    public AjaxResult<?> onRuntimeException(RuntimeException runtimeException) {
-        BaseException be;
-        // BaseException 在被抛出后会封装到 RuntimeException 中
-        Throwable cause = runtimeException.getCause();
-        if (cause instanceof BaseException) {
-            be = (BaseException) cause;
-        } else throw runtimeException;
-
+    @ExceptionHandler(BaseException.class)
+    public AjaxResult<?> onRuntimeException(BaseException be) {
         AjaxResult<?> ajaxResult = new AjaxResult<>();
         int errorCode = be.getCode();
         ajaxResult.setCode(errorCode);

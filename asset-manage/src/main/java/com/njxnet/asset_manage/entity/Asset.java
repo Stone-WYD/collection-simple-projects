@@ -1,6 +1,9 @@
 package com.njxnet.asset_manage.entity;
 
 import java.time.LocalDateTime;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.io.Serializable;
 
@@ -10,10 +13,10 @@ import java.io.Serializable;
  * @author makejava
  * @since 2024-03-19 10:56:55
  */
-@SuppressWarnings("serial")
 public class Asset extends Model<Asset> {
 //主键
-    private Integer id;
+    @TableId(type = IdType.AUTO)
+    private Long id;
 //项目名称
     private String projectName;
 //客户名称
@@ -31,14 +34,14 @@ public class Asset extends Model<Asset> {
 //合同额
     private Double amountContract;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getProjectName() {
         return projectName;

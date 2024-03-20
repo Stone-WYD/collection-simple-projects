@@ -23,7 +23,7 @@ import java.util.Map;
 @Slf4j
 public class MyDataBaseConfirmPostProcessor implements BeanPostProcessor {
 
-    private static boolean needInit = false;
+    private static volatile boolean needInit = false;
 
     public static boolean needInit() {
         return needInit;
@@ -33,12 +33,9 @@ public class MyDataBaseConfirmPostProcessor implements BeanPostProcessor {
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof DataSource) {
             DataSource dataSource = (DataSource) bean;
-            if (needInit(dataSource)) {
-                // 第一次启动该程序，需要进行一些初始化数据库的操作
-                needInit = true;
-            }
+            // 第一次启动该程序，需要进行一些初始化数据库的操作
+            needInit = needInit(dataSource);
         }
-        needInit = false;
         return bean;
     }
 
@@ -58,7 +55,7 @@ public class MyDataBaseConfirmPostProcessor implements BeanPostProcessor {
             return true;
         }
 
-        List<Map<String, Object>> list = jdbcTemplate.queryForList("SELECT table_name FROM information_schema.TABLES where table_name = 'user_info' and table_schema = '" + database + "';");
+        List<Map<String, Object>> list = jdbcTemplate.queryForList("SELECT table_name FROM information_schema.TABLES where /*table_name = 'user_info' and*/ table_schema = '" + database + "';");
         return CollectionUtils.isEmpty(list);
     }
 

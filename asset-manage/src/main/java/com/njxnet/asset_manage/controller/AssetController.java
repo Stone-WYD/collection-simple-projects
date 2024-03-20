@@ -2,7 +2,6 @@ package com.njxnet.asset_manage.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.njxnet.asset_manage.common.AjaxResult;
-import com.njxnet.asset_manage.entity.Asset;
 import com.njxnet.asset_manage.model.AssetDTO;
 import com.njxnet.asset_manage.model.query.AssetQuery;
 import com.njxnet.asset_manage.service.AssetService;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @program: asset-manage

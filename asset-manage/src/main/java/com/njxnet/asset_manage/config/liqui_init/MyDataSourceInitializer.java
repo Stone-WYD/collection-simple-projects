@@ -40,7 +40,6 @@ public class MyDataSourceInitializer {
         final DataSourceInitializer initializer = new DataSourceInitializer();
         // 设置数据源
         initializer.setDataSource(dataSource);
-
         // DataSourceInitializer 依赖 DataSource，在 DataSource 的 bean 创建完成后，是可以确认是否需要初始化的
         boolean enable = MyDataBaseConfirmPostProcessor.needInit();
         initializer.setEnabled(enable);
