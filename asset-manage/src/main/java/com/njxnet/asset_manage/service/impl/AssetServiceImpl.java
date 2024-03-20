@@ -13,8 +13,6 @@ import com.njxnet.asset_manage.model.query.AssetQuery;
 import com.njxnet.asset_manage.service.AssetService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 import static com.njxnet.asset_manage.service.common.MyCommonService.queryForPage;
 
 /**
@@ -44,8 +42,11 @@ public class AssetServiceImpl extends ServiceImpl<AssetDao, Asset> implements As
     public AjaxResult<Page<AssetDTO>> queryAsset(AssetQuery query) {
         return queryForPage(AssetDTO.class, () ->
             page(new Page<>(query.getPage(), query.getSize()),
-                    query().like(StrUtil.isNotEmpty(query.getProjectName()),"project_name", "%" + query.getProjectName() + "%")
-                            .like(StrUtil.isNotEmpty(query.getCustomName()), "custom_name", "%" + query.getCustomName() + "%")));
+                    query().ge(query.getBeginDate()!=null, "begin_time", query.getBeginDate())
+                            .le(query.getEndDate()!=null, "end_time", query.getEndDate())
+                            .like(StrUtil.isNotEmpty(query.getProjectName()),"project_name", "%" + query.getProjectName() + "%")
+                            .like(StrUtil.isNotEmpty(query.getCustomName()), "custom_name", "%" + query.getCustomName() + "%")
+                            .getWrapper()));
     }
 
     @Override
