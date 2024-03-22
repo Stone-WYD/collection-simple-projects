@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="285532c6-6cb0-452c-8c31-8d523167d28d" name="更改" comment="将 tmsp 和 sa-token 项目移动到该 github 仓库中">
-      <change afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/config/Knife4jConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/config/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/config/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/controller/AssetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/controller/AssetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/entity/Asset.java" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/java/com/njxnet/asset_manage/entity/Asset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../asset-manage/src/main/resources/liquibase/data/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/src/main/resources/liquibase/data/init.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,6 +172,7 @@
       <workItem from="1710827094063" duration="1032000" />
       <workItem from="1710828770577" duration="1296000" />
       <workItem from="1710906713846" duration="641000" />
+      <workItem from="1710923459225" duration="632000" />
     </task>
     <task id="LOCAL-00001" summary="添加根据 word 模板生成 word 文件工具类">
       <option name="closed" value="true" />

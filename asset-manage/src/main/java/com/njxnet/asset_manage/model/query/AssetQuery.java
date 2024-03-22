@@ -1,11 +1,8 @@
 package com.njxnet.asset_manage.model.query;
 
-import com.njxnet.asset_manage.model.AssetDTO;
 import com.njxnet.asset_manage.model.query.common.CommonQuery;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
-import javax.validation.constraints.NotBlank;
 
 /**
  * @program: asset-manage
@@ -23,6 +20,13 @@ public class AssetQuery extends CommonQuery {
     // 客户名称
     @ApiModelProperty(notes = "客户名称", name = "customName")
     private String customName;
+
+    @ApiModelProperty(notes = "是否存在应收账款：1.存在，0.不存在", name = "accountsReceivable")
+    private Integer accountsReceivable;
+
+    @ApiModelProperty(notes = "项目状态：1. 在保，0. 过保", name = "projectStatus")
+    private Integer projectStatus;
+
 
 }
 

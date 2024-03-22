@@ -6,7 +6,9 @@ import com.njxnet.asset_manage.common.AjaxResult;
 import com.njxnet.asset_manage.entity.Asset;
 import com.njxnet.asset_manage.model.AssetDTO;
 import com.njxnet.asset_manage.model.query.AssetQuery;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -24,5 +26,9 @@ public interface AssetService extends IService<Asset> {
     AjaxResult<Page<AssetDTO>> queryAsset(AssetQuery query);
 
     AjaxResult<?> deleteAsset(AssetDTO assetDTO);
+
+    void getExcelTemplate(HttpServletResponse response);
+
+    AjaxResult<?> importDataFromExcel(MultipartFile excelFile);
 }
 

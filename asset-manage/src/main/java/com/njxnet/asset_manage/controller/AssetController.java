@@ -9,12 +9,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @program: asset-manage
@@ -53,6 +52,18 @@ public class AssetController {
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public AjaxResult<?> deleteAsset(@RequestBody @Validated(AssetDTO.update.class) AssetDTO assetDTO) {
         return assetService.deleteAsset(assetDTO);
+    }
+
+    @ApiOperation(value = "导出 excel 表格模板", notes = "导出 excel 表格模板")
+    @RequestMapping(value = "/getExcel", method = RequestMethod.GET)
+    public void getExcelTemplate(HttpServletResponse response) {
+        assetService.getExcelTemplate(response);
+    }
+
+    @ApiOperation(value = "根据 excel 文件导入数据", notes = "根据 excel 文件导入数据")
+    @RequestMapping(value = "/importDataFromExcel", method = RequestMethod.POST)
+    public AjaxResult<?> importDataFromExcel(@RequestPart("excelFile") MultipartFile excelFile) {
+       return assetService.importDataFromExcel(excelFile);
     }
     
 }

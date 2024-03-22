@@ -1,11 +1,11 @@
 package com.njxnet.asset_manage.entity;
 
-import java.time.LocalDateTime;
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * (Asset)表实体类

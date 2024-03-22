@@ -7,6 +7,7 @@
     <groupId>com.njxnet</groupId>
     <artifactId>asset-manage</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -56,21 +57,22 @@
             <version>${satoken.version}</version>
         </dependency>
 
-        <!-- 可能需要war包启动 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <exclusions>
                 <exclusion>
+                    <!-- 可能需要war包启动 -->
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-tomcat</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope><!--由JDK或者容器提供-->
+            <scope>provided</scope><!-- 编译和运行时包含，打包后不存在，由外部的 JDK 或者容器提供 -->
         </dependency>
 
         <dependency>
@@ -208,6 +210,12 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
