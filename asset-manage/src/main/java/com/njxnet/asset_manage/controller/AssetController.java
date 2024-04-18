@@ -1,5 +1,7 @@
 package com.njxnet.asset_manage.controller;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.annotation.SaCheckRole;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.njxnet.asset_manage.common.AjaxResult;
 import com.njxnet.asset_manage.model.AssetDTO;
@@ -23,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  **/
 @RequestMapping(value = "/asset")
 @RestController
+@SaCheckLogin
 @Api(value = "应收账款管理", protocols = "http/https", tags = "应收账款管理")
 @Slf4j
 public class AssetController {
@@ -30,12 +33,14 @@ public class AssetController {
     @Resource
     private AssetService assetService;
 
+    @SaCheckRole( value = {"0"})
     @ApiOperation(value = "新增资产", notes = "新增资产")
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public AjaxResult<?> insertAsset(@RequestBody @Validated(AssetDTO.insert.class) AssetDTO assetDTO) {
         return assetService.insertAsset(assetDTO);
     }
 
+    @SaCheckRole( value = {"0"})
     @ApiOperation(value = "更新资产信息", notes = "更新资产信息")
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public AjaxResult<?> updateAsset(@RequestBody @Validated(AssetDTO.update.class) AssetDTO assetDTO) {
@@ -48,6 +53,7 @@ public class AssetController {
         return assetService.queryAsset(query);
     }
 
+    @SaCheckRole( value = {"0"})
     @ApiOperation(value = "删除资产信息", notes = "删除资产信息")
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public AjaxResult<?> deleteAsset(@RequestBody @Validated(AssetDTO.update.class) AssetDTO assetDTO) {

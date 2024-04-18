@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.lang.UUID;
 import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.njxnet.asset_manage.common.AjaxResult;
@@ -11,10 +12,14 @@ import com.njxnet.asset_manage.common.AjaxResultUtil;
 import com.njxnet.asset_manage.common.BaseException;
 import com.njxnet.asset_manage.common.ResultStatusCode;
 import com.njxnet.asset_manage.dao.AssetDao;
+import com.njxnet.asset_manage.dao.WbInfoDao;
 import com.njxnet.asset_manage.entity.Asset;
+import com.njxnet.asset_manage.entity.WbInfo;
 import com.njxnet.asset_manage.model.AssetDTO;
 import com.njxnet.asset_manage.model.query.AssetQuery;
 import com.njxnet.asset_manage.service.AssetService;
+import com.njxnet.asset_manage.service.WbInfoService;
+import liquibase.pro.packaged.L;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -31,6 +36,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URL;
@@ -38,6 +44,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.njxnet.asset_manage.service.common.MyCommonService.queryForPage;
 import static com.njxnet.asset_manage.util.PioUtil.getCellStringValue;
@@ -52,6 +59,8 @@ import static com.njxnet.asset_manage.util.PioUtil.getCellStringValue;
 @Service("assetService")
 public class AssetServiceImpl extends ServiceImpl<AssetDao, Asset> implements AssetService {
 
+    @Resource
+    private WbInfoService wbInfoService;
 
     @Override
     public AjaxResult<?> insertAsset(AssetDTO assetDTO) {
@@ -69,15 +78,28 @@ public class AssetServiceImpl extends ServiceImpl<AssetDao, Asset> implements As
 
     @Override
     public AjaxResult<Page<AssetDTO>> queryAsset(AssetQuery query) {
-        return queryForPage(AssetDTO.class, () ->
-            page(new Page<>(query.getPage(), query.getSize()),
-                    query().eq(query.getAccountsReceivable() != null, "accounts_receivable", query.getAccountsReceivable())
-                            .eq(query.getProjectStatus() != null, "project_status", query.getProjectStatus())
-                            .ge(query.getBeginDate()!=null, "begin_time", query.getBeginDate())
-                            .le(query.getEndDate()!=null, "end_time", query.getEndDate())
-                            .like(StrUtil.isNotEmpty(query.getProjectName()),"project_name", "%" + query.getProjectName() + "%")
-                            .like(StrUtil.isNotEmpty(query.getCustomName()), "custom_name", "%" + query.getCustomName() + "%")
-                            .getWrapper()));
+        AjaxResult<Page<AssetDTO>> result = queryForPage(AssetDTO.class, () ->
+                page(new Page<>(query.getPage(), query.getSize()),
+                        query().eq(query.getAccountsReceivable() != null, "accounts_receivable", query.getAccountsReceivable())
+                                .eq(query.getProjectStatus() != null, "project_status", query.getProjectStatus())
+                                .ge(query.getBeginDate() != null, "begin_time", query.getBeginDate())
+                                .le(query.getEndDate() != null, "end_time", query.getEndDate())
+                                .like(StrUtil.isNotEmpty(query.getProjectName()), "project_name", "%" + query.getProjectName() + "%")
+                                .like(StrUtil.isNotEmpty(query.getCustomName()), "custom_name", "%" + query.getCustomName() + "%")
+                                .getWrapper()));
+        if (result.getData() != null) {
+            List<AssetDTO> records = result.getData().getRecords();
+            if (records != null) {
+                // 添加维保信息
+                for (AssetDTO record : records) {
+                    Integer assetId = record.getId();
+                    AjaxResult<List<WbInfo>> wbInfoResult = wbInfoService.queryByAssetId(assetId);
+                    record.setWbInfoList(wbInfoResult.getData());
+                }
+            }
+        }
+
+        return result;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.njxnet.asset_manage.model;
 
+import com.njxnet.asset_manage.entity.WbInfo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -7,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @program: asset-manage
@@ -46,6 +48,7 @@ public class AssetDTO implements Serializable {
     @ApiModelProperty(notes = "合同额", name = "amountContract")
     private Double amountContract;
 
+    private List<WbInfo> wbInfoList;
 
     public interface insert{}
     public interface update{}

@@ -19,5 +19,12 @@
         <sqlFile dbms="mysql" endDelimiter=";" encoding="UTF-8" path="liquibase/data/ocp_test.sql"/>
     </changeSet>
 
+    <changeSet id="00000000000004" author="wyd">
+        <sqlFile dbms="mysql" endDelimiter=";" encoding="UTF-8" path="liquibase/data/company_fix.sql"/>
+    </changeSet>
+
+<!--    <changeSet id="00000000000005" author="wyd">
+        <sqlFile dbms="mysql" endDelimiter=";" encoding="UTF-8" path="liquibase/data/company_fix2.sql"/>
+    </changeSet>-->
 
 </databaseChangeLog>
