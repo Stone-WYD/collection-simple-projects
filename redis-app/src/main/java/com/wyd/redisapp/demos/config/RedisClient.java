@@ -23,6 +23,7 @@ import java.util.stream.IntStream;
  */
 public class RedisClient {
     private static final Charset CODE = StandardCharsets.UTF_8;
+    // TODO: 2024/5/9 不同项目此处应该带上不同的前缀
     private static final String KEY_PREFIX = "pai_";
     private static RedisTemplate<String, String> template;
 
