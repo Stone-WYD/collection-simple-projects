@@ -29,6 +29,7 @@ import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
@@ -67,6 +68,7 @@ public class AssetServiceImpl extends ServiceImpl<AssetDao, Asset> implements As
         return AjaxResultUtil.getTrueAjaxResult(new AjaxResult<>());
     }
 
+    @Transactional
     @Override
     public AjaxResult<Page<AssetDTO>> queryAsset(AssetQuery query) {
         return queryForPage(AssetDTO.class, () ->

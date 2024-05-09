@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49e6bd8f-732a-48d3-8834-edb5f66c6b73" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b3f76f4d-51a6-4988-b1a7-a586bfff6d83" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/../pdf-test/src/main/java/com/wyd/pdftest/PdfBoxTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pdf-test/src/main/java/com/wyd/pdftest/PdfProtectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/JavaSceneConfigState.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/njxnet/asset_manage/service/impl/AssetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/njxnet/asset_manage/service/impl/AssetServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,27 +21,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$PROJECT_DIR$/../../MyRepository/org/springframework/spring-beans/5.3.12/spring-beans-5.3.12-sources.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$PROJECT_DIR$/../../apache-maven-3.8.1" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../apache-maven-3.8.1" />
         <option name="useMavenConfig" value="false" />
         <option name="userSettingsFile" value="D:\apache-maven-3.8.1\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2emCeTzEJb6MoSbb2OTA6kjy3pw" />
+  <component name="ProjectId" id="2fWy28tbvG8dRHWXexGRDvDdhsk" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -44,7 +46,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/MyStudy-黑马学习/Spring2/代码/spring-wyd&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MyStudy/simple-projects-collection/asset-manage&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -53,17 +55,10 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Spring Boot.AssetManageApplication">
+  <component name="RunManager">
     <configuration name="AssetManageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="asset-manage" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.njxnet.AssetManageApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JavaplatformArchetypeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="service-tmsp" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.njxnet.service.tmsp.JavaplatformArchetypeApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -72,15 +67,15 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="49e6bd8f-732a-48d3-8834-edb5f66c6b73" name="更改" comment="" />
-      <created>1712500462419</created>
+      <changelist id="b3f76f4d-51a6-4988-b1a7-a586bfff6d83" name="更改" comment="" />
+      <created>1713930918916</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712500462419</updated>
-      <workItem from="1712500463488" duration="684000" />
-      <workItem from="1712540181217" duration="36000" />
-      <workItem from="1712572823500" duration="4312000" />
-      <workItem from="1712584506193" duration="4335000" />
+      <updated>1713930918916</updated>
+      <workItem from="1713930919998" duration="51000" />
+      <workItem from="1714093909166" duration="6614000" />
+      <workItem from="1715099638195" duration="179000" />
+      <workItem from="1715125612603" duration="605000" />
     </task>
     <servers />
   </component>
