@@ -4,6 +4,8 @@ import cn.hutool.core.util.StrUtil;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.wyd.redisapp.demos.config.RedisClient;
 import com.wyd.redisapp.demos.utils.JsonUtil;
+import com.wyd.redisapp.demos.web.cachetest.v3.extend.SynchronizeCache;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -30,12 +32,16 @@ import static com.wyd.redisapp.demos.web.cachetest.CacheConstant.REDIS_DOUBLE_CA
  * @create: 2024-05-09 18:32
  * @des: 双重缓存适用场景为查询很多更新很少的情况，这里没有讨论多线程多进程的情况（因为会涉及到很多一致性问题，比较复杂），根据具体业务场景（这种场景需要对一致性有比较高的容忍度或者基本不会出现一致性问题），再去判断是否使用双缓存
  */
+@Slf4j
 @Component
 @Aspect
 public class CacheAspect {
 
     @Autowired
     private Cache<String,Object> cache;
+
+    @Autowired
+    private SynchronizeCache synchronizeCache;
 
 
     @Pointcut("@annotation(com.wyd.redisapp.demos.web.cachetest.v3.DoubleCache)")
@@ -74,8 +80,8 @@ public class CacheAspect {
             Object result = point.proceed();
             cache.put(localKey, result);
             RedisClient.setStrWithExpire(redisKey, JsonUtil.toStr(result), timeOut * 1000);
-            // TODO: 2024/5/9 如果是分布式项目，要通知其他节点更新本地缓存
-
+            // 如果是分布式项目，要通知其他节点更新本地缓存
+            synchronizeCache.produceMessage(localKey);
             return result;
         }
         if (type == CacheType.DELETE) {
@@ -83,8 +89,8 @@ public class CacheAspect {
             Object result = point.proceed();
             cache.invalidate(localKey);
             RedisClient.del(redisKey);
-            // TODO: 2024/5/9 如果是分布式项目，要通知其他节点删除本地缓存
-
+            // 2024/5/9 如果是分布式项目，要通知其他节点删除本地缓存
+            synchronizeCache.produceMessage(localKey);
             return result;
         }
 
@@ -96,8 +102,8 @@ public class CacheAspect {
             RedisClient.expire(redisKey, timeOut * 1000);
             Object result = JsonUtil.toObj(redisResult, method.getReturnType());
             cache.put(localKey, result);
-            // 如果是分布式项目，此时的更新其实可以不考虑同步更新其他节点的本地缓存
-            // 因为一般查询走的就是这部分，访问得最多且数据并没有被改动，只是因为过期所以缓存中没有数据
+            // 如果是分布式项目，此时其实可以不考虑同步更新其他节点的本地缓存
+            // 因为一般查询走的就是这部分，访问得最多
             return result;
         }
         Object result = point.proceed();

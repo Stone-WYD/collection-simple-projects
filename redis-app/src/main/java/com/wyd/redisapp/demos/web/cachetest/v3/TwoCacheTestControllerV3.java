@@ -45,7 +45,7 @@ public class TwoCacheTestControllerV3 {
     }
 
     @PostMapping("/updateById")
-    @DoubleCache(cacheName = "testUser", key = "#id", type = CacheType.PUT)
+    @DoubleCache(cacheName = "testUser", key = "#user.id", type = CacheType.PUT)
     public User updateUser(@RequestBody User user) {
         log.info("update user data");
         AsyncUtil.sleep(1, TimeUnit.SECONDS);

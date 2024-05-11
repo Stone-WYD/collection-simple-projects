@@ -27,6 +27,10 @@ public class RedisClient {
     private static final String KEY_PREFIX = "pai_";
     private static RedisTemplate<String, String> template;
 
+    public static String getKeyPrefix() {
+        return KEY_PREFIX;
+    }
+
     public static void register(RedisTemplate<String, String> template) {
         RedisClient.template = template;
     }
