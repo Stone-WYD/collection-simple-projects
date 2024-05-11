@@ -12,7 +12,7 @@ import com.wyd.redisapp.demos.utils.SpringUtil;
  */
 public abstract class SynchronizeCache {
 
-    protected static final String localIp;
+    public static final String localIp;
 
     static {
         try {

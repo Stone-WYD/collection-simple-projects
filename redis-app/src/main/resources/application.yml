@@ -14,3 +14,10 @@ spring:
         time-between-eviction-runs: 10s
   jackson:
     default-property-inclusion: non_null # JSON处理时忽略非空字段
+  rabbitmq:
+    host: 192.168.31.76
+    port: 5672
+    virtual-host: /wyd
+    username: wyd
+    password: 123456
+

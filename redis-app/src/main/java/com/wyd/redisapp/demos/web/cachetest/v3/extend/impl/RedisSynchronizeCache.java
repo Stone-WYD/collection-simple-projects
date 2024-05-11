@@ -24,7 +24,7 @@ import static com.wyd.redisapp.demos.config.RedisClient.getKeyPrefix;
  * @create: 2024-05-10 14:44
  */
 @Slf4j
-@Component
+// @Component
 public class RedisSynchronizeCache extends SynchronizeCache {
 
     // RedisClient 中没有 Stream 相关操作，此处使用 StringRedisTemplate 进行操作，为了保持 key 前缀的一致性，要从 RedisClient 中获取 KeyPrefix。
