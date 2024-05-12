@@ -5,6 +5,7 @@ import com.github.benmanes.caffeine.cache.Cache;
 import com.wyd.redisapp.demos.utils.AsyncUtil;
 import com.wyd.redisapp.demos.web.cachetest.v3.extend.SynchronizeCache;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.redis.connection.stream.*;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
@@ -24,7 +25,8 @@ import static com.wyd.redisapp.demos.config.RedisClient.getKeyPrefix;
  * @create: 2024-05-10 14:44
  */
 @Slf4j
-// @Component
+@Component
+@ConditionalOnProperty(name = "double.cache.type", havingValue = "redis")
 public class RedisSynchronizeCache extends SynchronizeCache {
 
     // RedisClient 中没有 Stream 相关操作，此处使用 StringRedisTemplate 进行操作，为了保持 key 前缀的一致性，要从 RedisClient 中获取 KeyPrefix。

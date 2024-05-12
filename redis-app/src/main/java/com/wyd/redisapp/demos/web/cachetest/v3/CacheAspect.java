@@ -12,6 +12,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
@@ -35,6 +36,7 @@ import static com.wyd.redisapp.demos.web.cachetest.CacheConstant.REDIS_DOUBLE_CA
 @Slf4j
 @Component
 @Aspect
+@ConditionalOnProperty(name = "double.cache.enable", havingValue = "true")
 public class CacheAspect {
 
     @Autowired
