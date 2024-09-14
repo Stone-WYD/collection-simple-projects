@@ -18,11 +18,32 @@ public class CustomizedThreadPoolExecutor extends ThreadPoolExecutor {
 
     @Override
     protected void afterExecute(Runnable r, Throwable t) {
-        FutureTask futureTask = (FutureTask) r;
-        try {
-            futureTask.get();
-        } catch (Exception e) {
-            log.error("CustomizedThreadPoolExecutor occur error:{}", e.getLocalizedMessage());
+        if (t != null) {
+            log.error("线程池捕获到异常：{}", t.getMessage());
+        }
+    }
+
+    @Override
+    public void execute(Runnable command) {
+        RunWithLogHandle runWithLogHandle = new RunWithLogHandle(command);
+        super.execute(runWithLogHandle);
+    }
+
+    private static class RunWithLogHandle implements Runnable {
+
+        Runnable runnable;
+
+        public RunWithLogHandle(Runnable runnable) {
+            this.runnable = runnable;
+        }
+
+        @Override
+        public void run() {
+            try {
+                runnable.run();
+            } catch (Exception e) {
+                log.error(Thread.currentThread().getName() + "线程执行过程中遇到错误，异常信息为：{}", e.getMessage());
+            }
         }
     }
 
@@ -60,4 +81,45 @@ public class CustomizedThreadPoolExecutor extends ThreadPoolExecutor {
         return SingletonEnum.INSTANCE.getInstance();
     }
 
+    public static void main(String[] args) throws InterruptedException {
+        /*
+        // 1. 线程运行时的异常
+        new Thread(() -> {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
+            System.out.println("子线程开始执行了。。。");
+        }).start();
+        int i = 1 / 0;
+        System.out.println("main 执行完毕。。。");*/
+
+        /*// 2. 线程池运行时的异常
+        // 给线程命名
+        ThreadFactory threadFactory = new ThreadFactoryBuilder()
+                .setNameFormat("myThreadPoolExecutor-worker-%d").build();
+        // 通过核心数确定线程数
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MINUTES,
+                new LinkedBlockingDeque<>(1000),
+                threadFactory,
+                new AbortPolicy());
+        executor.execute(() -> {
+            log.info("当前线程为：{}", Thread.currentThread().getName());
+            int i = 1/0;
+        });
+        executor.execute(() -> {
+            log.info("当前线程为：{}", Thread.currentThread().getName());
+            int i = 1/0;
+        });*/
+
+        CustomizedThreadPoolExecutor executor = CustomizedThreadPoolExecutor.getInstance();
+        executor.execute(() -> {
+            log.info("当前线程为：{}", Thread.currentThread().getName());
+            int i = 1/0;
+        });
+        executor.execute(() -> {
+            log.info("当前线程为：{}", Thread.currentThread().getName());
+            int i = 1/0;
+        });
+    }
 }

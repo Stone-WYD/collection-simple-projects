@@ -6,9 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="asset-manage" />
+        <module name="redis-app" />
         <module name="service-tmsp" />
         <module name="sa-token-demo-springboot" />
+        <module name="pdf-test" />
+        <module name="asset-manage" />
       </profile>
     </annotationProcessing>
   </component>

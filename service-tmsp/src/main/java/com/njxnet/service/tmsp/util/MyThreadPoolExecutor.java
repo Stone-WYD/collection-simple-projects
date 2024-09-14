@@ -15,6 +15,30 @@ public class MyThreadPoolExecutor extends ThreadPoolExecutor {
     }
 
     @Override
+    public void execute(Runnable command) {
+        RunWithLogHandle runWithLogHandle = new RunWithLogHandle(command);
+        super.execute(runWithLogHandle);
+    }
+
+    private static class RunWithLogHandle implements Runnable {
+
+        Runnable runnable;
+
+        public RunWithLogHandle(Runnable runnable) {
+            this.runnable = runnable;
+        }
+
+        @Override
+        public void run() {
+            try {
+                runnable.run();
+            } catch (Exception e) {
+                log.error(Thread.currentThread().getName() + "线程执行过程中遇到错误，异常信息为：{}", e.getMessage());
+            }
+        }
+    }
+
+    /*@Override
     protected void afterExecute(Runnable r, Throwable t) {
         FutureTask futureTask = (FutureTask) r;
         try {
@@ -22,7 +46,7 @@ public class MyThreadPoolExecutor extends ThreadPoolExecutor {
         } catch (Exception e) {
             log.error("MyThreadPoolExecutor occur error:{}", e.getLocalizedMessage());
         }
-    }
+    }*/
 
 
 }
