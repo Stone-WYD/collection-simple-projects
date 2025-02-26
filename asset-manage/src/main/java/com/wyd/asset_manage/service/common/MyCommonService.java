@@ -25,8 +25,6 @@ import java.util.stream.Collectors;
         // 返回结果
         Page<DTO> resultPage = BeanUtil.copyProperties(pageResult, Page.class);
         resultPage.setRecords(dtoResult);
-        AjaxResult<Page<DTO>> result = new AjaxResult<>();
-        result.setData(resultPage);
-        return AjaxResultUtil.getTrueAjaxResult(result);
+        return AjaxResultUtil.getTrueAjaxResult(resultPage);
     }
 }

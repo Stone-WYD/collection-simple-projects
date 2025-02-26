@@ -30,7 +30,7 @@ public class GlobalExceptionHandler {
         // 将异常打印出来
         log.error(e.getMessage());
         // 将异常封装成result返回给前端
-        return AjaxResultUtil.getFalseAjaxResult(new AjaxResult<>());
+        return AjaxResultUtil.getFalseAjaxResult(e.getMessage());
     }
 
 

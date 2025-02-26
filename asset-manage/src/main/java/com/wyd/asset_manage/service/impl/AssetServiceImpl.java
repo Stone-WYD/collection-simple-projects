@@ -54,14 +54,14 @@ public class AssetServiceImpl extends ServiceImpl<AssetDao, Asset> implements As
     public AjaxResult<?> insertAsset(AssetDTO assetDTO) {
         Asset asset = BeanUtil.copyProperties(assetDTO, Asset.class);
         save(asset);
-        return AjaxResultUtil.getTrueAjaxResult(new AjaxResult<>());
+        return AjaxResultUtil.getTrueAjaxResult();
     }
 
     @Override
     public AjaxResult<?> updateAsset(AssetDTO assetDTO) {
         Asset asset = BeanUtil.copyProperties(assetDTO, Asset.class);
         updateById(asset);
-        return AjaxResultUtil.getTrueAjaxResult(new AjaxResult<>());
+        return AjaxResultUtil.getTrueAjaxResult();
     }
 
     @Transactional
@@ -81,7 +81,7 @@ public class AssetServiceImpl extends ServiceImpl<AssetDao, Asset> implements As
     @Override
     public AjaxResult<?> deleteAsset(AssetDTO assetDTO) {
         removeById(assetDTO.getId());
-        return AjaxResultUtil.getTrueAjaxResult(new AjaxResult<>());
+        return AjaxResultUtil.getTrueAjaxResult();
     }
 
     @Override
@@ -144,7 +144,7 @@ public class AssetServiceImpl extends ServiceImpl<AssetDao, Asset> implements As
                 }
             }
             saveBatch(assets);
-            return AjaxResultUtil.getTrueAjaxResult(new AjaxResult<>());
+            return AjaxResultUtil.getTrueAjaxResult();
         } catch (Exception e) {
             log.error(e.getMessage());
             throw new BaseException(ResultStatusCode.ERROR.getCode(), "获取文件流内容出错！");
