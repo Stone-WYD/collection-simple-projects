@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.njxnet.asset_manage.test.mybatis.ocp.OcpTestDao">
-
-    <select id="getOcpTest" resultType="com.njxnet.asset_manage.test.mybatis.ocp.OcpTest">
-        select * from ocp_test where id = #{id}
-    </select>
-</mapper>

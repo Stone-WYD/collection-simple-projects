@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3f76f4d-51a6-4988-b1a7-a586bfff6d83" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/../pdf-test/src/main/java/com/wyd/pdftest/PdfBoxTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pdf-test/src/main/java/com/wyd/pdftest/PdfProtectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/JavaSceneConfigState.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/njxnet/asset_manage/service/impl/AssetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/njxnet/asset_manage/service/impl/AssetServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="b3f76f4d-51a6-4988-b1a7-a586bfff6d83" name="更改" comment="调整关于 liquibase 使用的一些内容" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,9 +67,22 @@
       <workItem from="1715099638195" duration="179000" />
       <workItem from="1715125612603" duration="605000" />
     </task>
+    <task id="LOCAL-00001" summary="调整关于 liquibase 使用的一些内容">
+      <option name="closed" value="true" />
+      <created>1740556384059</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1740556384059</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="调整关于 liquibase 使用的一些内容" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整关于 liquibase 使用的一些内容" />
   </component>
 </project>

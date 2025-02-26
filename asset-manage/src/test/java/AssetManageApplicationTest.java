@@ -1,6 +1,6 @@
-import com.njxnet.AssetManageApplication;
-import com.njxnet.asset_manage.test.mybatis.ocp.OcpTest;
-import com.njxnet.asset_manage.test.mybatis.ocp.OcpTestDao;
+import com.wyd.AssetManageApplication;
+import com.wyd.asset_manage.test.mybatis.ocp.OcpTest;
+import com.wyd.asset_manage.test.mybatis.ocp.OcpTestDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

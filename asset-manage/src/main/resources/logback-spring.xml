@@ -134,7 +134,7 @@
     </appender>
 
     <!-- 数据库操作相关的debug日志输出到文件和控制台，禁止logger日志向上传递，避免重复打印日志 -->
-    <logger name="com.njxnet.service.tmsp.dao" level="debug" addtivity="false">
+    <logger name="com.wyd.service.tmsp.dao" level="debug" addtivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="DEBUG_FILE"/>
     </logger>
