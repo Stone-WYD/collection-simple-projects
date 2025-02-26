@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3f76f4d-51a6-4988-b1a7-a586bfff6d83" name="更改" comment="调整关于 liquibase 使用的一些内容" />
+    <list default="true" id="b3f76f4d-51a6-4988-b1a7-a586bfff6d83" name="更改" comment="通用结果调整">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +14,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Stone-WYD"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="cec95abe-2e16-435b-acd1-e0f266e69de6" />
+        <option name="url" value="https://github.com/Stone-WYD/simple-projects-collection.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -48,7 +64,7 @@
   <component name="RunManager">
     <configuration name="AssetManageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="asset-manage" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.njxnet.AssetManageApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wyd.AssetManageApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -75,14 +91,43 @@
       <option name="project" value="LOCAL" />
       <updated>1740556384059</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="项目包结构调整">
+      <option name="closed" value="true" />
+      <created>1740556584604</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1740556584604</updated>
+    </task>
+    <task id="LOCAL-00003" summary="通用结果调整">
+      <option name="closed" value="true" />
+      <created>1740557256795</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740557256796</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="调整关于 liquibase 使用的一些内容" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整关于 liquibase 使用的一些内容" />
+    <MESSAGE value="项目包结构调整" />
+    <MESSAGE value="通用结果调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="通用结果调整" />
   </component>
 </project>
