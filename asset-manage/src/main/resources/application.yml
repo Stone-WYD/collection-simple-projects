@@ -3,11 +3,13 @@ server:
 
 database:
   name: asset_manage
+  # 当实际使用的数据库不支持 liquibase，如 mariadb 时，将这个参数设置为 true，手动执行 sql 脚本创建数据库，但是不支持后续变更
+  manual: true
 
 spring:
   liquibase:
     change-log: classpath:liquibase/master.xml
-    enabled: true # 当实际使用的数据库不支持 liquibase，如 mariadb 时，将这个参数设置为 false
+    enabled: true # 当实际使用的数据库不支持 liquibase，如 mariadb 时，将这个参数设置为 false 禁用 liquibase 的使用
   datasource:
 #    url: jdbc:mysql://192.168.20.28:3306/${database.name}?characterEncoding=utf8&usSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
 #    username: ssfw

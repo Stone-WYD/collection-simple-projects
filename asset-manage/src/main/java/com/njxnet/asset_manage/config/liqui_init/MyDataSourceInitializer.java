@@ -2,6 +2,7 @@ package com.njxnet.asset_manage.config.liqui_init;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -19,6 +20,7 @@ import javax.sql.DataSource;
  */
 @Slf4j
 @Configuration
+@ConditionalOnProperty(prefix = "database",name = "manual", havingValue = "true")
 public class MyDataSourceInitializer {
 
     @Value("${database.name}")
