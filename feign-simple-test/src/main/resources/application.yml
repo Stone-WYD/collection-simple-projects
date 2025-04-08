@@ -1,0 +1,16 @@
+feign:
+  kaihe:
+    url: https://kh-api.com
+    login-code: 51839079
+    login-user: 系统管理员
+    login-pwd: 506555
+#  client:
+#    config:
+#      default:
+#        logger-level: full
+#
+#logging:
+#  level:
+#    com.jgdsun.patrol.brand.kaiheyun.client: debug # Feign客户端所在包
+
+
