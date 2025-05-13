@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Main-Class: com.jgdsun.ba.App
+Class-Path: spring-jdbc-5.3.9.jar mybatis-plus-boot-starter-3.5.1.jar my
+ batis-3.5.9.jar log4j-api-2.14.1.jar dom4j-1.6.1.jar bcutil-jdk15on-1.7
+ 0.jar jssc-2.8.0.jar mybatis-plus-annotation-3.5.1.jar spring-context-5
+ .3.9.jar logback-core-1.2.4.jar bcpkix-jdk15on-1.70.jar mybatis-spring-
+ 2.0.6.jar spring-boot-2.5.3.jar xml-apis-1.0.b2.jar log4j-to-slf4j-2.14
+ .1.jar c3p0-0.9.5.5.jar Java-WebSocket-1.5.2.jar hutool-core-5.8.5.jar 
+ commons-beanutils-1.9.4.jar HikariCP-4.0.3.jar spring-aop-5.3.9.jar jak
+ arta.annotation-api-1.3.5.jar httpcore-4.4.13.jar spring-expression-5.3
+ .9.jar spring-tx-5.3.9.jar slf4j-api-1.7.26.jar mybatis-plus-core-3.5.1
+ .jar jul-to-slf4j-1.7.32.jar commons-collections-3.2.2.jar spring-boot-
+ autoconfigure-2.5.3.jar gson-2.8.6.jar spring-boot-starter-2.5.3.jar se
+ ro-warp-1.0.0.jar httpclient-4.5.13.jar commons-lang3-3.11.jar mchange-
+ commons-java-0.2.19.jar commons-logging-1.2.jar jaxen-1.1.6.jar mysql-c
+ onnector-java-5.1.49.jar bacnet4j-5.0.2.jar mina-core-2.1.4.jar jsqlpar
+ ser-4.3.jar log4j-core-2.14.1.jar commons-codec-1.11.jar hutool-crypto-
+ 5.8.5.jar spring-core-5.3.9.jar org.eclipse.paho.client.mqttv3-1.2.5.ja
+ r bcprov-jdk15on-1.70.jar spring-jcl-5.3.9.jar mybatis-plus-3.5.1.jar s
+ pring-boot-starter-logging-2.5.3.jar sero-scheduler-1.1.0.jar mybatis-p
+ lus-extension-3.5.1.jar spring-boot-starter-jdbc-2.5.3.jar snakeyaml-1.
+ 28.jar spring-beans-5.3.9.jar logback-classic-1.2.4.jar
+

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jgdsun.dynamicenvironment.mybatis.mapper.BaseStoreyMapper">
+
+
+
+
+    <select id="getAllStoreyByBuild" resultType="BaseStorey">
+        select * from t_base_storey where stat='1' and BUILD_ID=#{buildId} order by SORT_NO asc
+    </select>
+    <select id="getStoreyById" resultType="BaseStorey">
+        select * from t_base_storey  where id=#{id}
+    </select>
+
+
+    <select id="getStoreyByName" resultType="BaseStorey">
+        select * from t_base_storey  where BUILD_ID=#{buildId} and NAME = #{name} limit 0,1
+    </select>
+
+    <select id="getBuildIdByStorey" resultType="java.lang.String">
+        select BUILD_ID from t_base_storey where id=#{id}
+
+    </select>
+
+    <select id="getStorey" resultType="BaseStorey">
+        select * from t_base_storey where stat = '1' and BUILD_ID=#{buildId}
+
+        <if test="name != null and name!=''">
+            AND NAME like concat('%',#{name},'%')
+        </if>
+        order by SORT_NO asc limit #{startRow},#{maxRows}
+
+    </select>
+
+    <select id="getStoreyCount" resultType="java.lang.Integer">
+        select count(id) from t_base_storey where stat = '1' and BUILD_ID=#{buildId}
+
+        <if test="name != null and name!=''">
+            AND NAME like concat('%',#{name},'%')
+        </if>
+
+    </select>
+
+
+
+    <insert id="addStorey" parameterType="BaseStorey">
+        <selectKey  keyProperty="id" resultType="java.lang.String" order="BEFORE">
+            select REPLACE(uuid(),'-','')
+        </selectKey>
+        insert into t_base_storey (ID,BUILD_ID,NAME,SHOW_NAME,STOREY_DRAW,STOREY_TYPE,SORT_NO,ADDTIME,IMG_WIDTH,IMG_HEIGHT,ENABLE,STAT) values (#{id},#{buildId},#{name},#{showName},#{storeyDraw},#{storeyType},#{sortNo},#{addtime},#{imgWidth},#{imgHeight},#{enable},#{stat})
+
+    </insert>
+
+    <insert id="updateStorey" parameterType="BaseStorey">
+
+        update t_base_storey
+        set
+
+        BUILD_ID=#{buildId},
+        NAME=#{name},
+
+        SHOW_NAME=#{showName},
+        STOREY_DRAW=#{storeyDraw},
+        STOREY_TYPE=#{storeyType},
+        SORT_NO=#{sortNo},
+        IMG_WIDTH=#{imgWidth},
+        IMG_HEIGHT=#{imgHeight},
+        ENABLE=#{enable}
+
+
+        where id=#{id}
+
+
+    </insert>
+
+    <update id="deleteStorey" parameterType="java.lang.String">
+
+        update t_base_storey set STAT='0' where id=#{id}
+
+    </update>
+
+</mapper>

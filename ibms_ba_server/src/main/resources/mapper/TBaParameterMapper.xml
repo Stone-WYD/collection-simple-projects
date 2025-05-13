@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jgdsun.ba.mybatis.mapper.TBaParameterMapper">
+
+    <resultMap id="BaseResultMap" type="com.jgdsun.ba.mybatis.entity.TBaParameter">
+            <id property="id" column="ID" jdbcType="VARCHAR"/>
+            <result property="equipmentId" column="EQUIPMENT_ID" jdbcType="VARCHAR"/>
+            <result property="name" column="NAME" jdbcType="VARCHAR"/>
+            <result property="obName" column="OB_NAME" jdbcType="VARCHAR"/>
+            <result property="ip" column="IP" jdbcType="VARCHAR"/>
+            <result property="devid" column="DEVID" jdbcType="VARCHAR"/>
+            <result property="baIndex" column="BA_INDEX" jdbcType="INTEGER"/>
+            <result property="type" column="TYPE" jdbcType="VARCHAR"/>
+            <result property="ioType" column="IO_TYPE" jdbcType="VARCHAR"/>
+            <result property="options" column="OPTIONS" jdbcType="VARCHAR"/>
+            <result property="unit" column="UNIT" jdbcType="VARCHAR"/>
+            <result property="writeAble" column="WRITE_ABLE" jdbcType="CHAR"/>
+            <result property="lastvalue" column="LASTVALUE" jdbcType="VARCHAR"/>
+            <result property="lasttime" column="LASTTIME" jdbcType="TIMESTAMP"/>
+            <result property="digit" column="DIGIT" jdbcType="INTEGER"/>
+            <result property="durationStatistics" column="DURATION_STATISTICS" jdbcType="CHAR"/>
+            <result property="addtime" column="ADDTIME" jdbcType="TIMESTAMP"/>
+            <result property="stat" column="STAT" jdbcType="CHAR"/>
+        <result property="dataType" column="DATA_TYPE" jdbcType="INTEGER"/>
+        <result property="dataLen" column="DATA_LEN" jdbcType="INTEGER"/>
+        <result property="dataCoefficient" column="DATA_COEFFICIENT" jdbcType="INTEGER"/>
+        <result property="dataMaping" column="DATA_MAPING" jdbcType="VARCHAR"/>
+        <result property="protocol" column="PROTOCOL" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID,EQUIPMENT_ID,NAME,
+        OB_NAME,IP,DEVID,
+        BA_INDEX,TYPE,OPTIONS,
+        UNIT,WRITE_ABLE,LASTVALUE,
+        LASTTIME,DIGIT,DURATION_STATISTICS,
+        ADDTIME,STAT,PROTOCOL
+    </sql>
+
+    <update id="updateParameter" parameterType="TBaParameter">
+
+        update t_ba_parameter
+        set
+
+            LASTVALUE=#{lastvalue},
+            LASTTIME=#{lasttime}
+
+
+        where id=#{id}
+
+
+    </update>
+</mapper>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jgdsun.dynamicenvironment.mybatis.mapper.BaseBuildMapper">
+
+
+
+
+    <select id="getAllBuild" resultType="BaseBuild">
+        select * from t_base_build where stat='1' order by SORT_NO asc
+    </select>
+    <select id="getBuildById" resultType="BaseBuild">
+        select * from t_base_build  where id=#{id}
+    </select>
+
+
+    <select id="getBuildByName" resultType="BaseBuild">
+        select * from t_base_build  where NAME = #{name} limit 0,1
+    </select>
+
+
+    <select id="getBuild" resultType="BaseBuild">
+        select * from t_base_build where stat = '1'
+
+        <if test="name != null and name!=''">
+            AND NAME like concat('%',#{name},'%')
+        </if>
+        order by SORT_NO asc limit #{startRow},#{maxRows}
+
+    </select>
+
+    <select id="getBuildCount" resultType="java.lang.Integer">
+        select count(id) from t_base_build where stat = '1'
+
+        <if test="name != null and name!=''">
+            AND NAME like concat('%',#{name},'%')
+        </if>
+
+    </select>
+
+
+
+    <insert id="addBuild" parameterType="BaseBuild">
+        <selectKey  keyProperty="id" resultType="java.lang.String" order="BEFORE">
+            select REPLACE(uuid(),'-','')
+        </selectKey>
+        insert into t_base_build (ID,NAME,SHOW_NAME,BUILD_DRAW,LOCATION,SORT_NO,ADDTIME,IMG_WIDTH,IMG_HEIGHT,ENABLE,STAT) values (#{id},#{name},#{showName},#{buildDraw},#{location},#{sortNo},#{addtime},#{imgWidth},#{imgHeight},#{enable},#{stat})
+
+    </insert>
+
+    <insert id="updateBuild" parameterType="BaseBuild">
+
+        update t_base_build
+        set
+
+        NAME=#{name},
+        SHOW_NAME=#{showName},
+        BUILD_DRAW=#{buildDraw},
+        LOCATION=#{location},
+        SORT_NO=#{sortNo},
+        IMG_WIDTH=#{imgWidth},
+        IMG_HEIGHT=#{imgHeight},
+        ENABLE=#{enable}
+
+
+        where id=#{id}
+
+
+    </insert>
+
+    <update id="deleteBuild" parameterType="java.lang.String">
+
+        update t_base_build set STAT='0' where id=#{id}
+
+    </update>
+
+</mapper>

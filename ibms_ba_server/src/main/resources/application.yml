@@ -1,0 +1,46 @@
+feign:
+  baorui:
+    url: http://106.14.189.229:9102/
+    token:
+      password: e10adc3949ba59abbe56e057f20f883e
+      tenantId: "000000"
+      username: danganguan
+      grant-type: password
+
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ibms_dag?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  main:
+    allow-circular-references: true
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.jgdsun.ba.mybatis.entity
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+init:
+  # 是否初始化数据，ba设备，设备参数等数据
+  device: true
+  # 是否定时初始化设备数据
+  device-refresh: false
+  # 配置刷新 ba 参数最新值频率
+  ba-device-cron: 0 0 1 * * ?
+  ba-value-cron: 0 0 1 * * ?
+
+mqtt:
+  username: ""
+  password: ""
+  broker: tcp://127.0.0.1:1883
+  clientid: fc421f9e-7428-42fc-abef-b2785c50169b
+
+dblog:
+  error: false
+
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jgdsun.ba.mybatis.mapper.TBaEquipmentTypeMapper">
+
+    <resultMap id="BaseResultMap" type="com.jgdsun.ba.mybatis.entity.TBaEquipmentType">
+            <id property="id" column="ID" jdbcType="VARCHAR"/>
+            <result property="name" column="NAME" jdbcType="VARCHAR"/>
+            <result property="code" column="CODE" jdbcType="VARCHAR"/>
+            <result property="stat" column="STAT" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID,NAME,CODE,
+        STAT
+    </sql>
+</mapper>

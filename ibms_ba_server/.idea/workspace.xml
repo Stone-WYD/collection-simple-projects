@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a1fb147c-793a-4ff7-8c83-68776a948637" name="更改" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\Admin\Desktop\wyd\apache-maven-3.9.7" />
+        <option name="useMavenConfig" value="false" />
+        <option name="userSettingsFile" value="C:\Users\Admin\Desktop\wyd\apache-maven-3.9.7\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2wIKQtz2AlM3thWlb8wl8wR7dJR" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.ba [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ba [package].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.SpringApp.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jgdsun.ba.bootstrap" />
+      <recent name="com.jgdsun.ba.bootstrap.business" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SpringApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ba" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jgdsun.ba.SpringApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Admin\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Users\Admin\Desktop\wyd\MyProject\ibms_ba_server" />
+          <option name="myCopyRoot" value="C:\Users\Admin\Desktop\wyd\MyProject\ibms_ba_server" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Users\Admin\Desktop\wyd\MyProject\ibms_ba_server" />
+          <option name="myCopyRoot" value="C:\Users\Admin\Desktop\wyd\MyProject\ibms_ba_server" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="a1fb147c-793a-4ff7-8c83-68776a948637" name="更改" comment="" />
+      <created>1717551937070</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717551937070</updated>
+      <workItem from="1745723637679" duration="20134000" />
+      <workItem from="1745908270899" duration="2372000" />
+      <workItem from="1745973539488" duration="9680000" />
+      <workItem from="1745991751224" duration="351000" />
+      <workItem from="1745992110806" duration="3163000" />
+      <workItem from="1746512907017" duration="676000" />
+      <workItem from="1746522143828" duration="611000" />
+      <workItem from="1747118294092" duration="699000" />
+    </task>
+    <task id="LOCAL-00001" summary="调整pom文件">
+      <option name="closed" value="true" />
+      <created>1745736007108</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745736007108</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix: 调整文件位置">
+      <option name="closed" value="true" />
+      <created>1745804211643</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745804211643</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: 调整报错内容打印方式">
+      <option name="closed" value="true" />
+      <created>1745805265020</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745805265020</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix: 变更抽象层结构，抽出ibms通用逻辑到抽象层父类">
+      <option name="closed" value="true" />
+      <created>1745989851413</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745989851413</updated>
+    </task>
+    <task id="LOCAL-00005" summary="调整文件名">
+      <option name="closed" value="true" />
+      <created>1745989904921</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745989904921</updated>
+    </task>
+    <task id="LOCAL-00006" summary="调整抽象层结构">
+      <option name="closed" value="true" />
+      <created>1745992083643</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745992083643</updated>
+    </task>
+    <task id="LOCAL-00007" summary="修改初次启动无法初始化数据库问题">
+      <option name="closed" value="true" />
+      <created>1745993402567</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745993402567</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="调整pom文件" />
+    <MESSAGE value="fix: 调整文件位置" />
+    <MESSAGE value="feat: 调整报错内容打印方式" />
+    <MESSAGE value="fix: 变更抽象层结构，抽出ibms通用逻辑到抽象层父类" />
+    <MESSAGE value="调整文件名" />
+    <MESSAGE value="调整抽象层结构" />
+    <MESSAGE value="修改初次启动无法初始化数据库问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改初次启动无法初始化数据库问题" />
+  </component>
+</project>
