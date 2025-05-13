@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wyd</groupId>
-    <artifactId>zm-hk-middleware</artifactId>
+    <artifactId>zm-hk-middleware2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>zm-hk-middleware</name>
-    <description>zm-hk-middleware</description>
+    <name>zm-hk-middleware2</name>
+    <description>zm-hk-middleware2</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
