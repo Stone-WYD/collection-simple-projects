@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wyd.zmhkmiddleware.business.mapper.SynchronizationRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.wyd.zmhkmiddleware.business.model.local.po.SynchronizationRecord">
+            <result property="id" column="id" jdbcType="BIGINT"/>
+            <result property="type" column="type" jdbcType="INTEGER"/>
+            <result property="bussinessId" column="bussiness_id" jdbcType="VARCHAR"/>
+            <result property="syncStatus" column="sync_status" jdbcType="INTEGER"/>
+            <result property="syncDate" column="sync_date" jdbcType="VARCHAR"/>
+            <result property="syncPerson" column="sync_person" jdbcType="VARCHAR"/>
+            <result property="extend1" column="extend_1" jdbcType="VARCHAR"/>
+            <result property="extend2" column="extend_2" jdbcType="VARCHAR"/>
+            <result property="extend3" column="extend_3" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,type,bussiness_id,
+        sync_status,sync_date,sync_person,
+        extend_1,extend_2,extend_3
+    </sql>
+</mapper>

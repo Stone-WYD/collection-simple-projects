@@ -1,0 +1,40 @@
+server:
+  port: 19999
+
+zm:
+  test: true
+
+artemis:
+  config:
+    # 需要带端口号
+    host: 172.0.0.11:9017
+    appKey: 20829648
+    appSecret: YPyJReNN0LvEWLgD1L7E
+    # 请以 / 开头
+    path: /artemis
+    # 根据现场环境部署确认是http还是https
+    protocol: https://
+    # 根级组织id
+    rootOrgId: 1
+
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration
+  datasource:
+#    todo 测试改成 bhs 了，注意一下
+#    url: jdbc:mysql://localhost:3306/zm_hk_middleware?characterEncoding=utf8&usSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+#    username: root
+#    password: 123456
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:convert.db  # 数据库文件路径（相对或绝对路径）
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 可选，打印 SQL 日志
+
+knife4j:
+  setting:
+    language: zh_cn
+  enable: true

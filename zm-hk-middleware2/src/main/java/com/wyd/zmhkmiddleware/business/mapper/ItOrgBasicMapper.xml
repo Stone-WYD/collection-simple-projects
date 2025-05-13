@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wyd.zmhkmiddleware.business.mapper.ItOrgBasicMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wyd.zmhkmiddleware.business.model.local.po.ItOrgBasic">
+        <id column="ZORG" property="zorg" />
+        <result column="ZHRORG" property="zhrorg" />
+        <result column="ZBU" property="zbu" />
+        <result column="ZORGTY" property="zorgty" />
+        <result column="ZORGNM" property="zorgnm" />
+        <result column="ZORG_F" property="zorgF" />
+        <result column="ZFZRNO" property="zfzrno" />
+        <result column="ZFGFZRNO" property="zfgfzrno" />
+        <result column="ZFR_CMP" property="zfrCmp" />
+        <result column="ZCOST" property="zcost" />
+        <result column="ZSTAS" property="zstas" />
+        <result column="ZDEL" property="zdel" />
+        <result column="ZATTR1" property="zattr1" />
+        <result column="ZATTR2" property="zattr2" />
+        <result column="ZATTR3" property="zattr3" />
+        <result column="ZATTR4" property="zattr4" />
+        <result column="ZATTR5" property="zattr5" />
+        <result column="ZATTR6" property="zattr6" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ZORG, ZHRORG, ZBU, ZORGTY, ZORGNM, ZORG_F, ZFZRNO, ZFGFZRNO, ZFR_CMP, ZCOST, ZSTAS, ZDEL, ZATTR1, ZATTR2, ZATTR3, ZATTR4, ZATTR5, ZATTR6
+    </sql>
+
+</mapper>

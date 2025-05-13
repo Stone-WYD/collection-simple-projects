@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wyd.zmhkmiddleware.business.mapper.EtEmplBasicMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wyd.zmhkmiddleware.business.model.local.po.EtEmplBasic">
+        <id column="ZEMPL" property="zempl" />
+        <result column="ZHREMPL" property="zhrempl" />
+        <result column="ZEMPLNM" property="zemplnm" />
+        <result column="REF_POSTA" property="refPosta" />
+        <result column="ZXB" property="zxb" />
+        <result column="GBDAT" property="gbdat" />
+        <result column="ZPHONENO" property="zphoneno" />
+        <result column="ZTELNO" property="ztelno" />
+        <result column="ZZJGJ" property="zzjgj" />
+        <result column="ZZJLX" property="zzjlx" />
+        <result column="ZZJHM" property="zzjhm" />
+        <result column="ZEMAIL" property="zemail" />
+        <result column="ZSTAS_E" property="zstasE" />
+        <result column="ZYGLX" property="zyglx" />
+        <result column="ZHIRE_DT" property="zhireDt" />
+        <result column="ZLEAVE_DT" property="zleaveDt" />
+        <result column="ZBU" property="zbu" />
+        <result column="ZDEL" property="zdel" />
+        <result column="ZATTR1" property="zattr1" />
+        <result column="ZATTR2" property="zattr2" />
+        <result column="ZATTR3" property="zattr3" />
+        <result column="ZATTR4" property="zattr4" />
+        <result column="ZATTR5" property="zattr5" />
+        <result column="ZATTR6" property="zattr6" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ZEMPL, ZHREMPL, ZEMPLNM, REF_POSTA, ZXB, GBDAT, ZPHONENO, ZTELNO, ZZJGJ, ZZJLX, ZZJHM, ZEMAIL, ZSTAS_E, ZYGLX, ZHIRE_DT, ZLEAVE_DT, ZBU, ZDEL, ZATTR1, ZATTR2, ZATTR3, ZATTR4, ZATTR5, ZATTR6
+    </sql>
+
+</mapper>

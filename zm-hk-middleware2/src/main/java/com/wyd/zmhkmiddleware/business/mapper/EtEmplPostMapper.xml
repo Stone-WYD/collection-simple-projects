@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wyd.zmhkmiddleware.business.mapper.EtEmplPostMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wyd.zmhkmiddleware.business.model.local.po.EtEmplPost">
+        <id column="ZHREMPL" property="zhrempl" />
+        <result column="ZPOSTTY" property="zpostty" />
+        <result column="ZHRPOST" property="zhrpost" />
+        <result column="ZZX" property="zzx" />
+        <result column="ZSTAT_PS" property="zstatPs" />
+        <result column="ZDEL_PS" property="zdelPs" />
+        <result column="ZATTR1_PS" property="zattr1Ps" />
+        <result column="ZATTR2_PS" property="zattr2Ps" />
+        <result column="ZATTR3_PS" property="zattr3Ps" />
+        <result column="ZATTR4_PS" property="zattr4Ps" />
+        <result column="ZATTR5_PS" property="zattr5Ps" />
+        <result column="ZATTR6_PS" property="zattr6Ps" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ZHREMPL, ZPOSTTY, ZHRPOST, ZZX, ZSTAT_PS, ZDEL_PS, ZATTR1_PS, ZATTR2_PS, ZATTR3_PS, ZATTR4_PS, ZATTR5_PS, ZATTR6_PS
+    </sql>
+
+</mapper>
