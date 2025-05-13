@@ -17,6 +17,22 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   }
 }</component>
+  <component name="RunManager" selected="Spring Boot.AssetManageApplication">
+    <configuration name="AssetManageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="asset-manage" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wyd.AssetManageApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JavaplatformArchetypeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="service-tmsp" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.njxnet.service.tmsp.JavaplatformArchetypeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
       <created>1717551937070</created>

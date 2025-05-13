@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="redis-app" />
-        <module name="zm-hk-middleware" />
         <module name="service-tmsp" />
         <module name="pdf-test" />
         <module name="asset-manage" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="zm-hk-middleware" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
