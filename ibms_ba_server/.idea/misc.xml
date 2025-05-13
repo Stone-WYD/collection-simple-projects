@@ -10,17 +10,4 @@
     <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK" />
-  <component name="SvnBranchConfigurationManager">
-    <option name="myConfigurationMap">
-      <map>
-        <entry key="$PROJECT_DIR$">
-          <value>
-            <SvnBranchConfiguration>
-              <option name="trunkUrl" value="svn://106.14.189.229:8443/opt/svn/repository/server/ibms_ba_server" />
-            </SvnBranchConfiguration>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
 </project>

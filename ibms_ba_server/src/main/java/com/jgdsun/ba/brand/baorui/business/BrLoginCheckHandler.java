@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
 /**
  * @author xh
  * @date 2025-04-17
@@ -17,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BrLoginCheckHandler implements LoginCheckHandler {
 
-    @Autowired
+    @Resource
     private BrFeignClient feignClient;
 
     @Value("${feign.baorui.token.password}")

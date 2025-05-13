@@ -1,7 +1,0 @@
-mvn install:install-file -Dfile=modbus4j-3.1.0.jar -DgroupId=com.infiniteautomation -DartifactId=modbus4j -Dversion=3.1.0 -Dpackaging=jar
-
-mvn install:install-file -Dfile=bacnet4j-6.0.1.jar -DgroupId=com.infiniteautomation -DartifactId=bacnet4j -Dversion=6.0.1 -Dpackaging=jar
-
-mvn install:install-file -Dfile=sero-scheduler-1.1.0.jar -DgroupId=lohbihler -DartifactId=sero-scheduler -Dversion=1.1.0 -Dpackaging=jar
-
-mvn install:install-file -Dfile=sero-warp-1.0.0.jar -DgroupId=lohbihler -DartifactId=sero-warp -Dversion=1.0.0 -Dpackaging=jar

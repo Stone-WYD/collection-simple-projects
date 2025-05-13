@@ -11,7 +11,7 @@ feign:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/ibms_dag?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/ibms_wyd?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
@@ -27,7 +27,7 @@ mybatis-plus:
 
 init:
   # 是否初始化数据，ba设备，设备参数等数据
-  device: true
+  device: false
   # 是否定时初始化设备数据
   device-refresh: false
   # 配置刷新 ba 参数最新值频率

@@ -9,6 +9,8 @@
         <option value="$PROJECT_DIR$/asset-manage/pom.xml" />
         <option value="$PROJECT_DIR$/service-tmsp/pom.xml" />
         <option value="$PROJECT_DIR$/zm-hk-middleware/pom.xml" />
+        <option value="$PROJECT_DIR$/zm-hk-middleware2/pom.xml" />
+        <option value="$PROJECT_DIR$/feign-simple-test/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

@@ -34,7 +34,8 @@ public class SqlErrorlogInterceptorAspect {
 
     private static final ThreadLocal<String> sqlHolder = new ThreadLocal<>();
 
-    // 定义切入点：拦截所有Mapper接口方法
+    // todo 如果拦截 Mapper 接口，则会跟 MyBatis-plus 代理 IService 发生冲突。当使用 IService 时，请不要拦截 Mapper 接口。
+    //  打印出日志的前提是捕获到异常，代码里请不要在catch块中只打印日志不抛出异常，否则代理执行不到打印sql的位置。
     @Pointcut("execution(* com.jgdsun.ba.*.mapper.*.*(..))")
     public void mapperPointcut() {}
 
@@ -121,6 +122,7 @@ public class SqlErrorlogInterceptorAspect {
             Object unpackedParam = paramMap.getOrDefault("_parameter", null);
             unpackedParam = paramMap.getOrDefault("param1", unpackedParam);
             unpackedParam = paramMap.getOrDefault("et", unpackedParam);
+            unpackedParam = paramMap.getOrDefault("ew", unpackedParam);
             if (unpackedParam != null && unpackedParam != parameterObject) {
                 return getParameterValue(unpackedParam, property, configuration, index);
             }

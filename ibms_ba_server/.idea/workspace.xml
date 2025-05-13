@@ -4,7 +4,78 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1fb147c-793a-4ff7-8c83-68776a948637" name="更改" comment="" />
+    <list default="true" id="a1fb147c-793a-4ff7-8c83-68776a948637" name="更改" comment="修改初次启动无法初始化数据库问题">
+      <change afterPath="$PROJECT_DIR$/doc/ibms_wyd.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/RXTXcomm.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/snmp4j-2.8.15.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/wyd/bacnet4j-6.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/wyd/modbus4j-3.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/wyd/sero-scheduler-1.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/wyd/sero-warp-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/wyd/安装到本地maven仓库.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snmpConfig.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/brand/baorui/business/BrLoginCheckHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/brand/baorui/business/BrLoginCheckHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/brand/snmp/SnmpService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/brand/snmp/SnmpUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/control/BaAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/control/BaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/control/bean/BaControlAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/control/bean/BaControlListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/control/bean/BaControlRequestBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/http/HttpClientFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/modbusip/ModBusAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/modbusip/ModbusServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/modbusip/brand/KkqImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mqtt/MQTTListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mqtt/MQTTService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mybatis/datasource/C3P0DataSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mybatis/factory/MyBatisSessionFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mybatis/mapper/BaseBuildMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mybatis/mapper/BaseStoreyMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/service/DataService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/Base64.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/BeanConv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/CRC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/CRC32Util.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/Des3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/EmptyUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/FileTools.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/HexUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/MyDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/PropertiesUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/SHA256.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/TextUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/ThreadPoolUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/TimeUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/Tools.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/Modbus4jReadUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/Modbus4jWriteUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/ModbusCommandBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/RTUMaster.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/SerialPortWrapperImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/TcpMaster.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/websocket/MyWebSocketClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/websocket/TestMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/websocket/WebSocketMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/websocket/WebSocketService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/c3p0.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jgdsun/AppTest.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +86,23 @@
       <list>
         <option value="Class" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Stone-WYD&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="cec95abe-2e16-435b-acd1-e0f266e69de6" />
+        <option name="url" value="https://github.com/Stone-WYD/collection-simple-projects.git" />
+      </UrlAndAccount>
     </option>
   </component>
   <component name="MavenImportPreferences">
@@ -37,27 +125,29 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.ba [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ba [package].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.SpringApp.executor&quot;: &quot;Run&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.ba [clean].executor": "Run",
+    "Maven.ba [package].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.SpringApp.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Admin/Desktop/wyd/MyProject/collection-simple-projects/ibms_ba_server/doc",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.jgdsun.ba.bootstrap" />
@@ -65,6 +155,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SpringApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ba" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jgdsun.ba.SpringApp" />
@@ -77,24 +178,6 @@
   <component name="SvnConfiguration" cleanupOnStartRun="true">
     <configuration>C:\Users\Admin\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
-  </component>
-  <component name="SvnFileUrlMappingImpl">
-    <option name="myMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="C:\Users\Admin\Desktop\wyd\MyProject\ibms_ba_server" />
-          <option name="myCopyRoot" value="C:\Users\Admin\Desktop\wyd\MyProject\ibms_ba_server" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-    <option name="myMoreRealMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="C:\Users\Admin\Desktop\wyd\MyProject\ibms_ba_server" />
-          <option name="myCopyRoot" value="C:\Users\Admin\Desktop\wyd\MyProject\ibms_ba_server" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -111,6 +194,9 @@
       <workItem from="1746512907017" duration="676000" />
       <workItem from="1746522143828" duration="611000" />
       <workItem from="1747118294092" duration="699000" />
+      <workItem from="1747125671776" duration="158000" />
+      <workItem from="1747125840321" duration="72000" />
+      <workItem from="1747125920579" duration="1894000" />
     </task>
     <task id="LOCAL-00001" summary="调整pom文件">
       <option name="closed" value="true" />
