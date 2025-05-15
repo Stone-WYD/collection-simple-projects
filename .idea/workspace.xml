@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ibms_ba_server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ibms_ba_server/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +45,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/wyd/MyProject/collection-simple-projects/ibms_ba_server&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/wyd/MyProject/zm-hk-middleware&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -76,6 +77,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SpringApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ba" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jgdsun.ba.SpringApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ZmHkMiddlewareApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="zm-hk-middleware2" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.wyd.zmhkmiddleware.ZmHkMiddlewareApplication" />
@@ -102,6 +110,9 @@
       <workItem from="1747125227274" duration="406000" />
       <workItem from="1747125645677" duration="32000" />
       <workItem from="1747125732328" duration="49000" />
+      <workItem from="1747125826510" duration="1304000" />
+      <workItem from="1747134304842" duration="185000" />
+      <workItem from="1747270605154" duration="28000" />
     </task>
     <task id="LOCAL-00001" summary="提交ba内容">
       <option name="closed" value="true" />

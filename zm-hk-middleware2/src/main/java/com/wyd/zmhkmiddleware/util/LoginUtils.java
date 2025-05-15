@@ -12,12 +12,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import sun.misc.BASE64Encoder;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
 import java.io.ByteArrayOutputStream;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -51,6 +55,19 @@ public class LoginUtils {
         String token = RandomUtil.randomString(LOGIN_TOKEN_KEY, 32);
         loginCache.put(token, userName);
         return token;
+    }
+
+    public String getUserName() {
+        // 获取当前请求对象
+        ServletRequestAttributes attributes =
+                (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = Objects.requireNonNull(attributes).getRequest();
+        // 从请求头中获取 token
+        String token = request.getHeader("Authorization");
+        if (StrUtil.isEmpty(token)) {
+            return null;
+        }
+        return (String) loginCache.get(token).get();
     }
 
     public boolean checkToken(String token) {
@@ -92,6 +109,8 @@ public class LoginUtils {
             return false;
         }
         if (ObjectUtil.isEmpty(capCache.get(captchaKey))) return false;
-        return captchaValue.equals(capCache.get(captchaKey).get());
+        String value = ((String) capCache.get(captchaKey).get());
+        // 不区分大小写比较captchaValue和value
+        return captchaValue.equalsIgnoreCase(value);
     }
 }

@@ -1,5 +1,6 @@
 package com.wyd.zmhkmiddleware.business.model.local.query;
 
+import cn.hutool.json.JSONUtil;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.checkerframework.checker.units.qual.Length;
@@ -25,5 +26,8 @@ public class PersonQuery {
     @NotNull(message = "每页数量不能为空")
     @Min(value = 1, message = "每页数量最少为1")
     private Integer limit;
+
+    @ApiModelProperty(notes = "是否已同步", name = "syncFlag")
+    private Integer syncFlag;
 
 }

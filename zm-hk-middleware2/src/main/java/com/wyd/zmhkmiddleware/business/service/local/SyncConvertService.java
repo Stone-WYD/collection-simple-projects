@@ -118,8 +118,12 @@ public class SyncConvertService {
                     BeanUtil.copyProperties(p, syncInfoDTO);
                     // 同步记录
                     SynchronizationRecord syncRecord = syncRecordMap.get(p.getZhrempl());
-                    syncInfoDTO.setSyncFlag(ObjectUtil.isNotEmpty(syncRecord) && ObjectUtil.isNotEmpty(syncRecord.getSyncStatus())
-                            && syncRecord.getSyncStatus().equals(SyncRecordEnum.SYNC_STATUS_SUCCESS.getCode()));
+                    if (ObjectUtil.isNotEmpty(syncRecord) && ObjectUtil.isNotEmpty(syncRecord.getSyncStatus())
+                            && syncRecord.getSyncStatus().equals(SyncRecordEnum.SYNC_STATUS_SUCCESS.getCode())) {
+                        syncInfoDTO.setSyncFlag(SyncRecordEnum.SYNC_STATUS_SUCCESS.getCode());
+                    } else {
+                        syncInfoDTO.setSyncFlag(SyncRecordEnum.SYNC_STATUS_FAIL.getCode());
+                    }
                     // 复制岗位信息
                     EtEmplPost post = postMap.get(p.getZhrempl());
                     if (ObjectUtil.isEmpty(post)) return;

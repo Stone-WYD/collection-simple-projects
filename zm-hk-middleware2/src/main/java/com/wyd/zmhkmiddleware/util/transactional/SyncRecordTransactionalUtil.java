@@ -2,6 +2,7 @@ package com.wyd.zmhkmiddleware.util.transactional;
 
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.DateUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.wyd.zmhkmiddleware.business.model.local.po.SynchronizationRecord;
 import com.wyd.zmhkmiddleware.business.service.local.SynchronizationRecordService;
@@ -24,6 +25,9 @@ public class SyncRecordTransactionalUtil {
     private SynchronizationRecordService syncRecordService;
 
     public void syncRecordTransactional(String bussinessId, Integer type, TransactionalForSyncRecord transactionalForSyncRecord) {
+        // 查询是否有同步记录信息，没有则新增
+        saveIfNotExist(bussinessId, type);
+        // 同步记录
         LambdaUpdateWrapper<SynchronizationRecord> updateWrapper = new LambdaUpdateWrapper<>();
         updateWrapper.set(SynchronizationRecord::getSyncStatus, SyncRecordEnum.SYNC_STATUS_SUCCESS.getCode())
                 .set(SynchronizationRecord::getSyncDate, DateUtil.format(new Date(), DatePattern.NORM_DATETIME_PATTERN))
@@ -46,6 +50,9 @@ public class SyncRecordTransactionalUtil {
     }
 
     public void syncRecordTransactional(SynchronizationRecord syncRecord, TransactionalForSyncRecord transactionalForSyncRecord) {
+        // 不存在则新增
+        saveIfNotExist(syncRecord.getBussinessId(), syncRecord.getType());
+
         LambdaUpdateWrapper<SynchronizationRecord> updateWrapper = new LambdaUpdateWrapper<>();
         updateWrapper.eq(SynchronizationRecord::getBussinessId, syncRecord.getBussinessId())
                 .eq(SynchronizationRecord::getType, syncRecord.getType());
@@ -62,6 +69,18 @@ public class SyncRecordTransactionalUtil {
             syncRecordService.update(updateWrapper);
             log.info("同步失败，同步记录表已回滚...");
             throw e;
+        }
+    }
+
+    private void saveIfNotExist(String bussinessId, Integer type) {
+        if (syncRecordService.getOne(new LambdaQueryWrapper<SynchronizationRecord>()
+                .eq(SynchronizationRecord::getType, type)
+                .eq(SynchronizationRecord::getBussinessId, bussinessId)) == null) {
+            SynchronizationRecord syncRecord = new SynchronizationRecord();
+            syncRecord.setType(type);
+            syncRecord.setBussinessId(bussinessId);
+            syncRecord.setSyncDate(DateUtil.format(new Date(), DatePattern.NORM_DATETIME_PATTERN));
+            syncRecordService.save(syncRecord);
         }
     }
 

@@ -8,8 +8,8 @@ import lombok.Getter;
  */
 @Getter
 public enum SyncRecordEnum {
-    SYNC_STATUS_SUCCESS(1, "同步成功"),
-    SYNC_STATUS_FAIL(0, "同步失败"),
+    SYNC_STATUS_SUCCESS(1, "已同步"),
+    SYNC_STATUS_FAIL(0, "未同步"),
 
     SYNC_TYPE_PERSON(1, "同步人员");
 

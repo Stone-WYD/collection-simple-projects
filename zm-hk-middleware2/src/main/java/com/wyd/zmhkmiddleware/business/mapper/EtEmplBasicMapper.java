@@ -2,6 +2,9 @@ package com.wyd.zmhkmiddleware.business.mapper;
 
 import com.wyd.zmhkmiddleware.business.model.local.po.EtEmplBasic;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,14 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface EtEmplBasicMapper extends BaseMapper<EtEmplBasic> {
 
+    // 查询人员同步状态的总数
+    // type 固定为 SyncRecordEnum.SYNC_TYPE_PERSON.getCode()
+    // syncSuccessFlag 固定为 SyncRecordEnum.SYNC_STATUS_SUCCESS.getCode()
+    Long countSync(@Param("type") Integer type, @Param("syncStatus") boolean syncStatus, @Param("syncSuccessFlag") Integer syncSuccessFlag);
+
+    // 分页查询指定状态的人员信息
+    // type 固定为 SyncRecordEnum.SYNC_TYPE_PERSON.getCode()
+    // syncSuccessFlag 固定为 SyncRecordEnum.SYNC_STATUS_SUCCESS.getCode()
+    List<EtEmplBasic> listBySyncStatus(@Param("type") Integer type, @Param("syncStatus") boolean syncStatus, @Param("syncSuccessFlag") Integer syncSuccessFlag,
+                                       @Param("offset") Integer offset, @Param("size") Integer size);
 }

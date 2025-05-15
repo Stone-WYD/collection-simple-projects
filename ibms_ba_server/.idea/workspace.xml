@@ -4,78 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1fb147c-793a-4ff7-8c83-68776a948637" name="更改" comment="修改初次启动无法初始化数据库问题">
-      <change afterPath="$PROJECT_DIR$/doc/ibms_wyd.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/RXTXcomm.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/snmp4j-2.8.15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/wyd/bacnet4j-6.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/wyd/modbus4j-3.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/wyd/sero-scheduler-1.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/wyd/sero-warp-1.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/wyd/安装到本地maven仓库.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snmpConfig.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/brand/baorui/business/BrLoginCheckHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/brand/baorui/business/BrLoginCheckHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/brand/snmp/SnmpService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/brand/snmp/SnmpUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/control/BaAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/control/BaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/control/bean/BaControlAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/control/bean/BaControlListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/control/bean/BaControlRequestBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/http/HttpClientFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/modbusip/ModBusAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/modbusip/ModbusServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/modbusip/brand/KkqImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mqtt/MQTTListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mqtt/MQTTService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mybatis/datasource/C3P0DataSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mybatis/factory/MyBatisSessionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mybatis/mapper/BaseBuildMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/mybatis/mapper/BaseStoreyMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/service/DataService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/Base64.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/BeanConv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/CRC.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/CRC32Util.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/Des3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/EmptyUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/FileTools.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/HexUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/MyDialog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/PropertiesUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/SHA256.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/TextUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/ThreadPoolUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/TimeUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/Tools.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/Modbus4jReadUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/Modbus4jWriteUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/ModbusCommandBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/RTUMaster.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/SerialPortWrapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/utils/modbus/TcpMaster.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/websocket/MyWebSocketClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/websocket/TestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/websocket/WebSocketMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jgdsun/ba/websocket/WebSocketService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/c3p0.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jgdsun/AppTest.java" beforeDir="false" />
-    </list>
+    <list default="true" id="a1fb147c-793a-4ff7-8c83-68776a948637" name="更改" comment="删除无用文件，更新过时文件" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,6 +78,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Desktop\wyd\MyProject\collection-simple-projects\ibms_ba_server\doc" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.jgdsun.ba.bootstrap" />
       <recent name="com.jgdsun.ba.bootstrap.business" />
@@ -196,7 +128,7 @@
       <workItem from="1747118294092" duration="699000" />
       <workItem from="1747125671776" duration="158000" />
       <workItem from="1747125840321" duration="72000" />
-      <workItem from="1747125920579" duration="1894000" />
+      <workItem from="1747125920579" duration="2833000" />
     </task>
     <task id="LOCAL-00001" summary="调整pom文件">
       <option name="closed" value="true" />
@@ -254,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745993402567</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="删除无用文件，更新过时文件">
+      <option name="closed" value="true" />
+      <created>1747128746648</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1747128746648</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +208,7 @@
     <MESSAGE value="调整文件名" />
     <MESSAGE value="调整抽象层结构" />
     <MESSAGE value="修改初次启动无法初始化数据库问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改初次启动无法初始化数据库问题" />
+    <MESSAGE value="删除无用文件，更新过时文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除无用文件，更新过时文件" />
   </component>
 </project>

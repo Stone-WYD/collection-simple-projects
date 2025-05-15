@@ -3,6 +3,7 @@ package com.wyd.zmhkmiddleware.business.service.local;
 import com.wyd.zmhkmiddleware.business.model.local.dto.LoginDTO;
 import com.wyd.zmhkmiddleware.business.model.local.po.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.wyd.zmhkmiddleware.business.model.local.query.UpdatePasswordQuery;
 
 /**
 * @author Admin
@@ -12,4 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface UserService extends IService<User> {
 
     LoginDTO login(String username, String password);
+
+
+    void updatePassword(UpdatePasswordQuery param);
 }

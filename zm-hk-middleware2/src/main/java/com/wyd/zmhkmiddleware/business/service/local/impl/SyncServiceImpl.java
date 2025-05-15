@@ -1,5 +1,6 @@
 package com.wyd.zmhkmiddleware.business.service.local.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wyd.zmhkmiddleware.business.model.hk.query.HaiKangOrg;
@@ -57,12 +58,25 @@ public class SyncServiceImpl implements SyncService {
      */
     @Override
     public AjaxCustomResult<List<SyncInfoDTO>> getPersonList(PersonQuery personQuery) {
+        // todo 目前只有是否同步这一个筛选条件，如果后期要加其他筛选条件，
+        //  可以考虑先将人员数据全部获取存放到内存中，再根据条件进行筛选
         try {
-            Page<EtEmplBasic> page = etEmplBasicService.page(new Page<>(personQuery.getPage(), personQuery.getLimit()));
-            List<EtEmplBasic> personBasicList = page.getRecords();
-            List<SyncInfoDTO> resultData = syncConvertService.getSyncInfoDTOs(personBasicList);
+            List<EtEmplBasic> basicList;
+            Long count;
+            if (ObjectUtil.isEmpty(personQuery.getSyncFlag())) {
+                // 查询全部
+                Page<EtEmplBasic> page = etEmplBasicService.page(new Page<>(personQuery.getPage(), personQuery.getLimit()));
+                basicList = page.getRecords();
+                count = page.getTotal();
+            } else {
+                // 根据同步条件查询
+                AjaxCustomResult<List<EtEmplBasic>> personListWithQuery = etEmplBasicService.getPersonListWithQuery(personQuery);
+                basicList = personListWithQuery.getData();
+                count = personListWithQuery.getCount();
+            }
+            List<SyncInfoDTO> resultData = syncConvertService.getSyncInfoDTOs(basicList);
             AjaxCustomResult<List<SyncInfoDTO>> result = new AjaxCustomResult<>();
-            result.setCount(page.getTotal());
+            result.setCount(count);
             result.setCode(0L);
             result.setMsg("操作成功！");
             result.setData(resultData);
@@ -94,7 +108,7 @@ public class SyncServiceImpl implements SyncService {
         for (SyncInfoDTO syncInfoDTO : syncInfoDTOs) {
             EtEmplBasic etEmplBasic = basicMap.get(syncInfoDTO.getZhrempl());
             HaiKangPerson hkPerson = syncConvertService.convert2HKPerson(syncInfoDTO, etEmplBasic);
-            if (syncInfoDTO.isSyncFlag()) {
+            if (ObjectUtil.isNotEmpty(syncInfoDTO.getSyncFlag()) && syncInfoDTO.getSyncFlag().equals(SyncRecordEnum.SYNC_STATUS_SUCCESS.getCode())) {
                 syncTransactionUtil.syncRecordTransactional(syncInfoDTO.getZhrempl(), SyncRecordEnum.SYNC_TYPE_PERSON.getCode(),
                         () -> // 曾经同步过，则只更新人员
                             haiKangPersonService.updatePerson(hkPerson));

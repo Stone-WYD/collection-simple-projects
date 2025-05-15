@@ -4,9 +4,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wyd.zmhkmiddleware.business.model.local.po.EtEmplBasic;
 import com.wyd.zmhkmiddleware.business.model.local.po.SynchronizationRecord;
 import com.wyd.zmhkmiddleware.business.model.local.po.User;
+import com.wyd.zmhkmiddleware.business.model.local.query.PersonQuery;
 import com.wyd.zmhkmiddleware.business.service.local.EtEmplBasicService;
 import com.wyd.zmhkmiddleware.business.service.local.SynchronizationRecordService;
 import com.wyd.zmhkmiddleware.business.service.local.UserService;
+import com.wyd.zmhkmiddleware.common.AjaxCustomResult;
+import com.wyd.zmhkmiddleware.common.enums.SyncRecordEnum;
 import com.wyd.zmhkmiddleware.util.LoginUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -77,6 +80,17 @@ class ZmHkMiddlewareApplicationTests {
         for (EtEmplBasic etEmplBasic : page.getRecords()) {
             System.out.println(etEmplBasic);
         }
+    }
+
+    @Test
+    void testPageForSync() {
+        PersonQuery personQuery = new PersonQuery();
+        personQuery.setPage(1);
+        personQuery.setLimit(3);
+        personQuery.setSyncFlag(SyncRecordEnum.SYNC_STATUS_FAIL.getCode());
+        AjaxCustomResult<List<EtEmplBasic>> result = etEmplBasicService.getPersonListWithQuery(personQuery);
+        System.out.println(result);
+
     }
 
 }

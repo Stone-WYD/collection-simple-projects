@@ -35,4 +35,32 @@
         ZEMPL, ZHREMPL, ZEMPLNM, REF_POSTA, ZXB, GBDAT, ZPHONENO, ZTELNO, ZZJGJ, ZZJLX, ZZJHM, ZEMAIL, ZSTAS_E, ZYGLX, ZHIRE_DT, ZLEAVE_DT, ZBU, ZDEL, ZATTR1, ZATTR2, ZATTR3, ZATTR4, ZATTR5, ZATTR6
     </sql>
 
+    <select id="countSync" resultType="java.lang.Long">
+        <if test="syncStatus == true">
+            select count(1) from et_empl_basic left join synchronization_record on et_empl_basic.zhrempl = synchronization_record.bussiness_id
+            where synchronization_record.type = #{type} and synchronization_record.sync_status = #{syncSuccessFlag}
+        </if>
+        <if test="syncStatus == false">
+            select count(1) - (select count(1) from et_empl_basic left join synchronization_record on et_empl_basic.zhrempl = synchronization_record.bussiness_id
+            where synchronization_record.type = #{type} and synchronization_record.sync_status = #{syncSuccessFlag}) from et_empl_basic
+        </if>
+    </select>
+
+    <select id="listBySyncStatus" resultType="com.wyd.zmhkmiddleware.business.model.local.po.EtEmplBasic">
+        <if test="syncStatus == true">
+            select et_empl_basic.* from et_empl_basic left join synchronization_record on et_empl_basic.zhrempl = synchronization_record.bussiness_id
+            where synchronization_record.type = #{type} and synchronization_record.sync_status = #{syncSuccessFlag}
+            order by et_empl_basic.zhrempl desc
+            limit #{offset}, #{size}
+        </if>
+        <if test="syncStatus == false">
+            select * from et_empl_basic
+            where zhrempl not in
+                  (select bussiness_id from synchronization_record
+                  where type = #{type} and sync_status = #{syncSuccessFlag})
+            order by zhrempl desc
+            limit #{offset}, #{size}
+        </if>
+    </select>
+
 </mapper>

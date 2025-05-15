@@ -13,6 +13,7 @@
         <module name="feign-simple-test" />
         <module name="pdf-test" />
         <module name="zm-hk-middleware2" />
+        <module name="ba" />
       </profile>
     </annotationProcessing>
   </component>

@@ -75,7 +75,7 @@ public class SyncInfoDTO {
     private String zorgnm;
 
     @ApiModelProperty(value = "是否同步")
-    private boolean syncFlag;
+    private Integer syncFlag;
 
 
 
