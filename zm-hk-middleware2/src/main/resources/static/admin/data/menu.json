@@ -1,0 +1,35 @@
+[
+	{
+		"id": "1",
+		"title": "巡检人员管理",
+		"icon": "layui-icon layui-icon-auz",
+		"type": 0,
+		"href": "",
+		"children": [{
+				"id": "record",
+				"title": "人员列表",
+				"icon": "layui-icon layui-icon-face-smile",
+				"type": 1,
+				"openType": "_iframe",
+				"href": "view/record/index.html"
+			}
+		]
+	},
+	{
+		"id": "2",
+		"title": "系统配置",
+		"icon": "layui-icon layui-icon-auz",
+		"type": 0,
+		"href": "",
+		"children": [
+			{
+				"id": "failure5",
+				"title": "修改密码",
+				"icon": "layui-icon layui-icon-face-cry",
+				"type": 1,
+				"openType": "_iframe",
+				"href": "view/set/systemset.html"
+			}
+		]
+	}
+]

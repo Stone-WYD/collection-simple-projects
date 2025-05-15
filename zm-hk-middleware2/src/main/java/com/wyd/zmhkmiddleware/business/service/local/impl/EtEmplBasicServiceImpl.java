@@ -33,7 +33,7 @@ public class EtEmplBasicServiceImpl extends ServiceImpl<EtEmplBasicMapper, EtEmp
 
         Long count;
         List<EtEmplBasic> data;
-        if (SyncRecordEnum.SYNC_STATUS_SUCCESS.getCode().equals(personQuery.getSyncFlag())) {
+        if (SyncRecordEnum.SYNC_STATUS_SUCCESS.getCode().equals(Integer.parseInt(personQuery.getSyncFlag()))) {
             count = etEmplBasicMapper.countSync(SYNC_TYPE_PERSON.getCode(), true, SyncRecordEnum.SYNC_STATUS_SUCCESS.getCode());
             data = etEmplBasicMapper.listBySyncStatus(SYNC_TYPE_PERSON.getCode(), true, SyncRecordEnum.SYNC_STATUS_SUCCESS.getCode(),
                     (personQuery.getPage() - 1) * personQuery.getLimit(), personQuery.getLimit());

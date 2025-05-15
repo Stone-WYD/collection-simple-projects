@@ -98,8 +98,8 @@ public class SyncConvertService {
         // 本次查询需要的组织信息
         Set<String> orgList = postConcretelist.stream().map(ItPostBasic::getZpsOrg).collect(Collectors.toSet());
         LambdaQueryWrapper<ItOrgBasic> itOrgBasicQuery = new LambdaQueryWrapper<>();
-        List<ItOrgBasic> orgConcretelist = itOrgBasicService.list(itOrgBasicQuery.in(ItOrgBasic::getZorg, orgList));
-        Map<String, ItOrgBasic> orgConcreteMap = orgConcretelist.stream().collect(Collectors.toMap(ItOrgBasic::getZorg, p -> p));
+        List<ItOrgBasic> orgConcretelist = itOrgBasicService.list(itOrgBasicQuery.in(ItOrgBasic::getZhrorg, orgList));
+        Map<String, ItOrgBasic> orgConcreteMap = orgConcretelist.stream().collect(Collectors.toMap(ItOrgBasic::getZhrorg, p -> p));
 
         // 本次查询需要的同步信息
         LambdaQueryWrapper<SynchronizationRecord> synchronizationRecordQuery = new LambdaQueryWrapper<>();

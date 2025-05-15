@@ -1,5 +1,5 @@
 server:
-  port: 19998
+  port: 19999
 
 zm:
   test: true
@@ -37,4 +37,4 @@ mybatis-plus:
 knife4j:
   setting:
     language: zh_cn
-  enable: true
+  enable: false

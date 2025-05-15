@@ -61,7 +61,7 @@ public class BusinessConfig {
         CaffeineCacheManager cacheManager = new CaffeineCacheManager();
         cacheManager.setCaffeine(Caffeine.newBuilder()
                 // 读后过期时间，第一次写后也会过期
-                .expireAfterAccess(5, TimeUnit.MINUTES)
+                .expireAfterAccess(30, TimeUnit.MINUTES)
                 // 初始化缓存空间大小
                 .initialCapacity(100)
                 // 最大的缓存条数

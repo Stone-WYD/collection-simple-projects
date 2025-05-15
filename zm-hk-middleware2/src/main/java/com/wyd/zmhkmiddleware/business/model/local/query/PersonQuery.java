@@ -28,6 +28,6 @@ public class PersonQuery {
     private Integer limit;
 
     @ApiModelProperty(notes = "是否已同步", name = "syncFlag")
-    private Integer syncFlag;
+    private String syncFlag;
 
 }

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>人员信息</title>
+		<link rel="stylesheet" href="../../component/pear/css/pear.css" />
+		<link rel="stylesheet" href="index.css" />
+		<style>
+			
+					/* 这个是调表头的*/
+			  .layui-table-cell {
+				  padding: 0px 0;
+			    font-size: 16px !important;
+				border-right: 1px solid #999; /* 修改为你想要的颜色和宽度 */
+				color: black;
+				
+			    }
+			    /*表体样式*/
+				
+				/* 修改为你想要的颜色和宽度 */
+				/*
+			    .layui-table td, .layui-table th {
+			      font-size: 22px !important;
+				  border-right: 1px solid #ddd; 
+			    }
+				*/
+				
+				.my-font-size {
+				    font-size: 16px !important;  // 或者你需要的任何字体大小
+				}
+
+
+
+
+			
+		</style>
+	</head>
+	<body class="pear-container">
+		
+		<div class="layui-card" style="margin-bottom: 5px;">
+			<div class="layui-card-body" style="height: 50px;">
+				<form class="layui-form" action="" style="margin-top: 5px;">
+					<div  >
+						
+						<div class="layui-form-item layui-inline">
+							<label class="layui-form-label" style="width: 60px;">状态</label>
+							<div class="layui-input-inline" style="width: 100px;">
+								<select id="syncFlag" name="syncFlag" lay-verify="">
+									<option value="">全部</option>
+									<option value="0">未同步</option>
+									<option value="1">已同步</option>
+							
+									
+								</select>
+							</div>
+						</div>
+						
+						
+						<div class="layui-form-item layui-inline">
+							<button class="pear-btn pear-btn-md pear-btn-primary" lay-submit lay-filter="user-query">
+								<i class="layui-icon layui-icon-search"></i>
+								查询
+							</button>
+							
+							
+							
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		<div class="layui-card" style="margin-top: 0px;">
+			<div class="layui-card-body">
+				<table id="user-table" lay-filter="user-table" ></table>
+			</div>
+		</div>
+
+		
+
+		<script type="text/html" id="user-bar">
+			
+			{{#if (d.syncFlag) { }}
+			
+			{{# }else{ }}
+			<button class="pear-btn pear-btn-warming pear-btn-sm" lay-event="control" title="同步"><i class="layui-icon layui-icon-edit"></i></button>
+			
+			
+			{{# } }}
+			<!--
+			<button class="pear-btn pear-btn-danger pear-btn-sm" lay-event="remove" title="删除"><i class="layui-icon layui-icon-delete"></i></button>
+		   -->
+		</script>
+
+		<script type="text/html" id="user-enable">
+			<input type="checkbox" name="enable" value="{{d.id}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="user-enable" {{ d.enable== true ? 'checked' : '' }} />
+		</script>
+		
+		
+		
+		
+		
+		<script type="text/html" id="templet-zxb">
+			{{#if (d.zxb == 'M') { }}
+			 <div  class='my-font-size'>男</div>
+			 {{# }else if(d.zxb == 'F'){ }}
+			<span   class='my-font-size'>女</span>
+			{{# } }}
+		</script>
+		
+		
+
+		<script type="text/html" id="templet-syncFlag">
+			{{#if (d.syncFlag) { }}
+		    <div style='color:green;' class='my-font-size'>已同步</div>
+		    {{# }else{ }}
+		    <div style='color:red;'  class='my-font-size'>未同步</div>
+			
+			{{# } }}
+		</script>
+		
+		
+		
+
+		<script type="text/html" id="templet-balance">
+			{{ (d.balance/100).toFixed(2) }}
+		   
+		</script>
+
+		
+		
+		<script src="../../component/js/configs.js"></script>
+		<script src="../../component/layui/layui.js"></script>
+		<script src="../../component/pear/pear.js"></script>
+		<script>
+			
+			var $;
+			var form;
+			var table;
+			
+			var beg='';
+			var end='';
+			
+			var terminalMap = new Map()
+			
+			layui.use(['table', 'form', 'jquery','common','laydate'], function() {
+				 table = layui.table;
+				 form = layui.form;
+				 $ = layui.jquery;
+				let common = layui.common;
+				
+				 let laydate = layui.laydate;
+				 
+				 
+			
+				  
+				 
+				 
+				 //执行一个laydate实例
+				 	     laydate.render({
+				 	       elem: '#begtime', //指定元素
+						   type:'datetime',
+						   format: 'yyyy-MM-dd HH:mm' // 设置日期格式
+				 	     });
+				 		 laydate.render({
+				 		   elem: '#endtime', //指定元素
+						   type:'datetime',
+						   format: 'yyyy-MM-dd HH:mm' // 设置日期格式
+				 		 });
+				 
+				 
+
+				 var token = storage.getItem("gas_access_token");
+				 
+				 console.log("token ",token);
+				 
+				 
+				 
+				
+				 
+				
+				 
+				 
+				 layui.form.render('select');
+				 
+				 
+			
+				 
+				 
+
+				let cols = [
+							[
+								{
+									title: '姓名',
+									field: 'zemplnm',
+									align: 'center',
+									
+									
+								},
+								{
+									title: '组织名称',
+									field: 'zorgnm',
+						
+									align: 'center',
+									
+									
+								},
+								{
+									title: '是否同步',
+									field: 'syncFlag',
+									templet:'#templet-syncFlag',
+									align: 'center',
+									
+								},
+								{
+									title: '手机',
+									field: 'zphoneno',
+							
+									align: 'center',
+									
+								},
+								{
+									title: '性别',
+									field: 'zxb',
+									templet:'#templet-zxb',
+									align: 'center',
+									
+								},
+								{
+									title: '岗位名称',
+									field: 'zpostnam',
+									align: 'center'
+									
+								},
+								{
+									title: '证件号码',
+									field: 'zzjhm',
+									align: 'center',
+									
+								},
+								{
+									title: '操作',
+									toolbar: '#user-bar',
+									align: 'center',
+									
+								}
+							]
+						]
+						
+						
+						let table_option = {
+									elem: '#user-table',
+									method:'post',
+									contentType: 'application/json',
+									url: baseUrl+"/manager/getPersonList", 
+									page: true,
+									cols: cols,
+									limit:15,
+									limits: [15],
+									skin: 'line',
+								
+									defaultToolbar: [],
+									headers:{
+										"Authorization":token,
+									},
+									where:{
+										
+										//'token':'12312312',
+										//begtime:beg,
+										//endtime:end,
+										
+										
+									},
+									done: function(res, curr, count) {
+									    // res为原始JSON响应数据 
+									    console.log(' 状态码:', res.code); 
+									    console.log(' 业务信息:', res.msg); 
+									    // 保存到变量或进行后续处理
+										
+										if (res.code == 1000) {//超时
+											
+											
+												var obj = new Object();
+											
+											        obj.type = "timeout";
+											    
+											        window.parent.postMessage(obj,'*');
+											
+											
+										}
+									    
+									  }
+									/*
+									request: {
+									    pageName: 'page_no' //页码的参数名称，默认：page
+									    ,limitName: 'page_size' //每页数据量的参数名，默认：limit
+									  },
+									  */
+									 /*
+									parseData: function(res){ //res 即为原始返回的数据
+									
+									var data = new Array();
+									if(res.code == "200")
+									{
+										var _data = res.data;
+										
+										console.log(res);
+										    return {
+										      "code": 0, //解析接口状态
+										      "msg": res.msg, //解析提示文本
+										      "count": res.total, //解析数据长度
+										      "data": res.data //解析数据列表
+										    };
+										}
+										
+									}
+									*/
+									
+									
+								};
+
+				table.render(table_option);
+
+				table.on('tool(user-table)', function(obj) {
+					 if (obj.event === 'edit') {
+						window.edit(obj);
+					}else if (obj.event === 'control') {
+						window.control(obj);
+					}
+					
+					
+				});
+
+				table.on('toolbar(user-table)', function(obj) {
+					if (obj.event === 'add') {
+						window.add();
+					} else if (obj.event === 'refresh') {
+						window.refresh();
+					} else if (obj.event === 'recharge') {
+						window.recharge();
+					}
+				});
+				
+				
+				
+				
+
+				form.on('submit(user-query)', function(data) {
+					table.reload('user-table', {
+						where: data.field,
+						page:{
+							curr:1
+						}
+					})
+					
+					
+					
+					
+					return false;
+				});
+				
+				form.on('submit(user-excel)', function(data) {
+					
+					getExcel();
+					return false;
+				});
+
+				
+				
+				
+				
+				
+				
+
+				
+
+			
+				
+				window.control = function(obj) {
+					
+					let _array = new Array();
+					
+					_array.push(obj.data);
+					
+					//let object = new Object();
+					
+					//object.
+					
+					var token = storage.getItem("gas_access_token");
+					
+						layer.confirm('确定要同步此人员', {
+							icon: 3,
+							title: '提示'
+						}, function(index) {
+							layer.close(index);
+							let loading = layer.load();
+							$.ajax({
+								url: baseUrl+"/manager/syncPersonInfo",
+								headers:{
+									"Authorization":token,
+													
+								},
+								contentType:'application/json',
+								data:JSON.stringify(_array),
+								dataType: 'json',
+								type: 'post',
+								success: function(result) {
+									layer.close(loading);
+									if (result.code == 0) {
+										layer.msg(result.msg, {
+											icon: 1,
+											time: 1000
+										}, function() {
+											obj.del();
+										});
+									}else if (result.code == 1000) {//超时
+								
+								
+									var obj = new Object();
+								
+								        obj.type = "timeout";
+								    
+								        window.parent.postMessage(obj,'*');
+								
+								
+							} else {
+										layer.msg(result.msg, {
+											icon: 2,
+											time: 2000
+										});
+									}
+								}
+							})
+						});
+					
+					
+					
+					
+				}
+
+
+				
+
+			
+				window.refresh = function(param) {
+					table.reload('user-table');
+				}
+			})
+			
+			
+		
+			
+			Date.prototype.format = function (format) {
+			        var args = {
+			            "M+": this.getMonth() + 1,
+			            "d+": this.getDate(),
+			            "h+": this.getHours(),
+			            "m+": this.getMinutes(),
+			            "s+": this.getSeconds(),
+			            "q+": Math.floor((this.getMonth() + 3) / 3), //quarter
+			            "S": this.getMilliseconds()
+			        };
+			        if (/(y+)/.test(format))
+			            format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+			        for (var i in args) {
+			            var n = args[i];
+			            if (new RegExp("(" + i + ")").test(format))
+			                format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? n : ("00" + n).substr(("" + n).length));
+			        }
+			        return format;
+			
+			    };
+			
+			
+		</script>
+	</body>
+</html>

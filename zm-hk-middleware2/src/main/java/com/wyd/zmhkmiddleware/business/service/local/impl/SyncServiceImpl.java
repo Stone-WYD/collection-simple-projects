@@ -1,6 +1,7 @@
 package com.wyd.zmhkmiddleware.business.service.local.impl;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wyd.zmhkmiddleware.business.model.hk.query.HaiKangOrg;
@@ -63,7 +64,7 @@ public class SyncServiceImpl implements SyncService {
         try {
             List<EtEmplBasic> basicList;
             Long count;
-            if (ObjectUtil.isEmpty(personQuery.getSyncFlag())) {
+            if (StrUtil.isEmpty(personQuery.getSyncFlag())) {
                 // 查询全部
                 Page<EtEmplBasic> page = etEmplBasicService.page(new Page<>(personQuery.getPage(), personQuery.getLimit()));
                 basicList = page.getRecords();

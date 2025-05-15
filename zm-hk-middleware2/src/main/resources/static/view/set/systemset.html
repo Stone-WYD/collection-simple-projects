@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../component/pear/css/pear.css" />
+	
+	<style>
+		
+		
+	</style>
+</head>
+<body class="pear-container" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty()>
+<form id="dataForm" class="layui-form">
+    <div class="mainBox">
+        <div class="main-container">
+            <div class="main-container">
+
+
+
+				
+
+				
+				
+
+				
+				
+				<div class="layui-form-item">
+				    <label class="layui-form-label" style="width: 110px;">原始密码</label>
+					<div class="layui-input-block">
+						<input id="oldpaswd" style="width:540px;" type="password"  placeholder="" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				
+				<div class="layui-form-item">
+				    <label class="layui-form-label" style="width: 110px;">新密码</label>
+					<div class="layui-input-block">
+						<input id="newpswd" style="width:540px;" type="password"  placeholder="" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="width: 110px;">新密码确认</label>
+					<div class="layui-input-block">
+						<input id="newpswd2" style="width:540px;" type="password"  placeholder="" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				
+				
+				
+				
+
+
+
+               
+            </div>
+        </div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    </div>
+	</form>
+    <div class="bottom">
+        <div class="button-container">
+            <button type="button" class="pear-btn pear-btn-primary pear-btn-sm" onclick="setInfo()">
+                <i class="layui-icon layui-icon-ok"></i>
+                提交
+            </button>
+            <button type="reset" class="pear-btn pear-btn-sm">
+                <i class="layui-icon layui-icon-refresh"></i>
+                重置
+            </button>
+        </div>
+    </div>
+
+<script src="../../component/js/configs.js"></script>
+<script src="../../component/layui/layui.js"></script>
+	<script src="../../component/pear/pear.js"></script>
+<script>
+	
+	
+	
+	
+
+		
+	
+	 
+	 
+	let form;
+	let $;
+	
+	
+	
+
+	
+	
+	function setInfo()
+	{
+
+		
+	
+		var object = new Object();
+
+
+		let oldpaswd = $("#oldpaswd").val();
+		let newpswd = $("#newpswd").val();
+		let newpswd2 = $("#newpswd2").val();
+
+		if(oldpaswd == null || oldpaswd=="")
+		{
+			layer.msg("请填写原始密码",{icon:2,time:2000});//icon 2 失败
+			return;
+		}
+
+		if(newpswd == null || newpswd=="")
+		{
+			layer.msg("请填写新密码",{icon:2,time:2000});//icon 2 失败
+			return;
+		}
+
+		if(newpswd.length<6)
+		{
+			layer.msg("新密码长度最低为6位",{icon:2,time:2000});//icon 2 失败
+			return;
+		}
+
+		if(newpswd != newpswd2)
+		{
+			layer.msg("新密码与确认密码不一致",{icon:2,time:2000});//icon 2 失败
+			return;
+		}
+		
+		
+		object.oldPassword = oldpaswd;
+		object.newPassword = newpswd;
+
+		
+		
+		 var token = storage.getItem("gas_access_token");
+		 
+		 $.ajax({
+		 	url: baseUrl+'/updatePassword',
+			headers:{
+				"Authorization":token,
+								
+			},
+			contentType:'application/json',
+			data:JSON.stringify(object),
+		 	dataType: 'json',
+		 
+		 	type: 'post',
+		 	success: function(result) {
+		 		
+		 		console.log("result",result);
+		 		if (result.code == 0) {
+
+
+					$("#oldpaswd").val("");
+					$("#newpswd").val("");
+					$("#newpswd2").val("");
+		 			
+		 			layer.msg("保存成功",{icon:1,time:2000});//icon 2 失败
+		 			
+		 			
+		 		}else if (result.code == 0) {
+		 			
+		 			
+		 			layer.msg("保存成功",{icon:1,time:2000});//icon 2 失败
+		 			
+		 			
+		 		} else {
+		 			layer.msg(result.msg,{icon:2,time:2000});//icon 2 失败
+		 		}
+		 	}
+		 })
+		 
+		 
+		 
+		 
+	}
+	
+	function initData(pageType,msg)
+	{
+		//alert(pageType);
+		//alert(msg);
+		
+		if(pageType != "0")return;
+		
+		var obj = JSON.parse(msg);
+		
+		initDataInfo(obj);
+		
+		
+		//$("#serialPort").val(obj.serialPort);
+		//$("#baud").val(obj.baud);
+		//$("#stationNo").val(obj.stationNo);
+		
+	}
+	
+	
+	function initDataInfo(obj)
+	{
+		
+		console.log(obj);
+	
+
+		
+		
+		
+	}
+	
+	
+	function setBack(type,code,msg,result)
+	{
+		//alert("abcd");
+		//alert(type);
+		//alert(msg);
+		if(type == 0)
+		{
+			if(code == '0')
+			{
+				 layer.msg("保存成功",{icon:1,time:2000});//icon 2 失败
+			}else if(code == '1')
+			{
+				 layer.msg(msg,{icon:2,time:2000});//icon 2 失败
+			}
+		}
+	}
+	
+	
+	
+layui.use(['form','jquery'],function(){
+     form = layui.form;
+     $ = layui.jquery;
+	 
+	 
+	//将子对象传入父窗口
+	//	parent.showNowWindow(window);
+		
+		//alert("a");
+		
+	//	changePage("0");//通知系统界面更新
+	
+
+		
+	
+
+    form.on('submit(user-save)', function(data){
+      
+	  
+        
+		
+		/*
+		
+        $.ajax({
+            url:'/system/user/save',
+            data:JSON.stringify(data.field),
+            dataType:'json',
+            contentType:'application/json',
+            type:'post',
+            success:function(result){
+                if(result.success){
+                    layer.msg(result.msg,{icon:1,time:1000},function(){
+                        parent.layer.close(parent.layer.getFrameIndex(window.name));//关闭当前页
+                        parent.layui.table.reload("user-table");
+                    });
+                }else{
+                    layer.msg(result.msg,{icon:2,time:1000});
+                }
+            }
+        })
+		*/
+	   
+	 
+       
+        	 
+         return false;
+    });
+	
+	
+	
+	
+})
+
+
+
+window.onload = function(){
+				
+				
+				
+		//		parent.showNowWindow(window);
+				
+		//		changePage("0");//通知系统界面更新
+				
+				//alert("a");
+				
+				
+			}
+			
+			/**
+			 * 限制小数
+			 * @param {Object} obj
+			 */
+			function checkXsInput(obj)
+			{
+				
+				//替换掉数字和小数点.之外的字符
+				obj.value = obj.value.replace(/[^\d.]+/g,'');
+				
+				//把两个以上的小数点替换为一个小数点
+				obj.value = obj.value.replace(/\.{2,}/g,'.');
+				
+				//保证第一个字符为数字而不是小数点
+				obj.value = obj.value.replace(/^\./g,'');
+				
+				//保证最后一个为数字而不是小数点
+				//obj.value = obj.value.replace(/\.$/g,'');
+				
+				//保证小数点只能出现一次
+				obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+				
+				//只能输入2位小数
+			//	obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');
+				
+				
+				
+			}
+			
+			
+</script>
+<script>
+</script>
+</body>
+</html>

@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class SynchronizationRecord implements Serializable {
 
 
-    @TableId(type = IdType.ASSIGN_UUID)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**

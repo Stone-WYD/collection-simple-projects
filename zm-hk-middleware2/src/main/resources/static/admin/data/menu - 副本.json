@@ -1,0 +1,90 @@
+[{
+		"id": 1,
+		"title": "运行参数",
+		"icon": "layui-icon layui-icon-console",
+		"type": 0,
+		"href": "",
+		"children": [{
+			"id": "sbzt",
+			"title": "设备状态",
+			"icon": "layui-icon layui-icon-console",
+			"type": 1,
+			"openType": "_iframe",
+			"href": "view/console/console1.html"
+		}]
+	},
+	{
+		"id": "result",
+		"title": "数据报表",
+		"icon": "layui-icon layui-icon-auz",
+		"type": 0,
+		"href": "",
+		"children": [{
+				"id": "success",
+				"title": "交易记录",
+				"icon": "layui-icon layui-icon-face-smile",
+				"type": 1,
+				"openType": "_iframe",
+				"href": "view/result/success.html"
+			}/*,
+			
+			{
+				"id": "failure1",
+				"title": "灰卡记录",
+				"icon": "layui-icon layui-icon-face-cry",
+				"type": 1,
+				"openType": "_iframe",
+				"href": "view/result/error.html"
+			},
+			{
+				"id": "failure2",
+				"title": "故障卡记录",
+				"icon": "layui-icon layui-icon-face-cry",
+				"type": 1,
+				"openType": "_iframe",
+				"href": "view/result/error.html"
+			},
+			{
+				"id": "failure3",
+				"title": "报表",
+				"icon": "layui-icon layui-icon-face-cry",
+				"type": 1,
+				"openType": "_iframe",
+				"href": "view/result/error.html"
+			}
+			*/
+		]
+	},
+	{
+		"id": "result",
+		"title": "系统配置",
+		"icon": "layui-icon layui-icon-auz",
+		"type": 0,
+		"href": "",
+		"children": [{
+				"id": "equipment",
+				"title": "设备管理",
+				"icon": "layui-icon layui-icon-face-smile",
+				"type": 1,
+				"openType": "_iframe",
+				"href": "view/set/equipment.html"
+			}/*,
+			{
+				"id": "users",
+				"title": "用户管理",
+				"icon": "layui-icon layui-icon-face-smile",
+				"type": 1,
+				"openType": "_iframe",
+				"href": "view/user/user.html"
+			}*/,
+			{
+				"id": "failure5",
+				"title": "系统参数",
+				"icon": "layui-icon layui-icon-face-cry",
+				"type": 1,
+				"openType": "_iframe",
+				"href": "view/set/systemset.html"
+			}
+		]
+	}
+]
