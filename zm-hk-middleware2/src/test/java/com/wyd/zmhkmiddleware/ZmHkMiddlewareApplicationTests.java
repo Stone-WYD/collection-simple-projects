@@ -87,7 +87,7 @@ class ZmHkMiddlewareApplicationTests {
         PersonQuery personQuery = new PersonQuery();
         personQuery.setPage(1);
         personQuery.setLimit(3);
-        personQuery.setSyncFlag(SyncRecordEnum.SYNC_STATUS_FAIL.getCode());
+        personQuery.setSyncFlag(String.valueOf(SyncRecordEnum.SYNC_STATUS_FAIL.getCode()));
         AjaxCustomResult<List<EtEmplBasic>> result = etEmplBasicService.getPersonListWithQuery(personQuery);
         System.out.println(result);
 
