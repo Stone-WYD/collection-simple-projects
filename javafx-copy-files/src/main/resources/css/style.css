@@ -1,0 +1,13 @@
+/* 业务选择区域突出显示 */
+#businessSelectBox {
+    -fx-border-color: #2196F3;
+    -fx-border-radius: 2;
+    -fx-padding: 1;
+}
+#bussinessLabel {
+    -fx-alignment: center;
+    -fx-padding: 5 0 5 0;
+}
+.combo-box {
+    -fx-pref-width: 200;
+}

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Main-Class: org.wyd.MyApplication
+Class-Path: SparseBitSet-1.2.jar poi-ooxml-schemas-4.1.2.jar easyexcel-s
+ upport-3.3.3.jar hutool-all-5.7.17.jar xmlbeans-3.1.0.jar poi-ooxml-4.1
+ .2.jar curvesapi-1.06.jar commons-io-2.11.0.jar easyexcel-core-3.3.3.ja
+ r commons-compress-1.19.jar commons-collections4-4.4.jar ehcache-3.9.9.
+ jar easyexcel-3.3.3.jar poi-4.1.2.jar commons-math3-3.6.1.jar lombok-1.
+ 18.22.jar commons-codec-1.13.jar commons-csv-1.8.jar slf4j-api-1.7.32.j
+ ar
+

@@ -1,0 +1,45 @@
+Manifest-Version: 1.0
+Main-Class: com.wyd.zmhkmiddleware.ZmHkMiddlewareApplication
+Class-Path: httpcore-4.4.15.jar spring-security-rsa-1.0.11.RELEASE.jar h
+ ttpmime-4.5.13.jar HikariCP-4.0.3.jar spring-tx-5.3.23.jar knife4j-open
+ api2-ui-4.0.0.jar classgraph-4.1.7.jar swagger-annotations-1.6.6.jar kn
+ ife4j-core-4.0.0.jar mybatis-plus-annotation-3.4.3.jar mybatis-plus-boo
+ t-starter-3.4.3.jar spring-aop-5.3.23.jar swagger-models-1.6.6.jar bcpk
+ ix-jdk15on-1.69.jar springfox-spring-webmvc-2.10.5.jar feign-form-3.8.0
+ .jar spring-security-crypto-5.6.8.jar jackson-core-2.13.4.jar feign-for
+ m-spring-3.8.0.jar hutool-all-5.7.17.jar lombok-1.18.24.jar logback-cla
+ ssic-1.2.11.jar springfox-schema-2.10.5.jar mapstruct-1.3.1.Final.jar s
+ pring-jcl-5.3.23.jar slf4j-api-1.7.36.jar spring-cloud-starter-openfeig
+ n-3.1.8.jar byte-buddy-1.11.22.jar feign-core-11.10.jar knife4j-openapi
+ 2-spring-boot-starter-4.0.0.jar mybatis-plus-core-3.4.3.jar log4j-api-2
+ .17.2.jar sqlite-jdbc-3.42.0.0.jar spring-cloud-starter-3.1.7.jar commo
+ ns-io-2.11.0.jar spring-boot-starter-cache-2.6.13.jar mybatis-spring-bo
+ ot-autoconfigure-2.0.1.jar spring-core-5.3.23.jar spring-web-5.3.23.jar
+  tomcat-embed-core-9.0.68.jar spring-beans-5.3.23.jar cage-1.0.jar spri
+ ng-cloud-commons-3.1.7.jar spring-webmvc-5.3.23.jar tomcat-embed-el-9.0
+ .68.jar spring-plugin-metadata-2.0.0.RELEASE.jar mybatis-spring-boot-st
+ arter-2.0.1.jar jackson-annotations-2.13.4.jar mybatis-spring-2.0.1.jar
+  spring-boot-starter-logging-2.6.13.jar jackson-databind-2.15.3.jar myb
+ atis-3.5.1.jar spring-boot-2.6.13.jar mybatis-plus-extension-3.4.3.jar 
+ bcprov-jdk15on-1.69.jar spring-cloud-context-3.1.7.jar artemis-http-cli
+ ent-1.1.12.RELEASE.jar logback-core-1.2.11.jar snakeyaml-1.29.jar sprin
+ g-boot-starter-tomcat-2.6.13.jar httpclient-4.5.13.jar spring-boot-star
+ ter-jdbc-2.6.13.jar spring-jdbc-5.3.23.jar springfox-core-2.10.5.jar ch
+ ecker-qual-3.19.0.jar spring-context-5.3.23.jar caffeine-2.9.3.jar comm
+ ons-fileupload-1.5.jar spring-boot-autoconfigure-2.6.13.jar jakarta.ann
+ otation-api-1.3.5.jar springfox-swagger2-2.10.5.jar feign-slf4j-11.10.j
+ ar bcutil-jdk15on-1.69.jar druid-1.1.20.jar spring-boot-starter-web-2.6
+ .13.jar error_prone_annotations-2.10.0.jar springfox-spi-2.10.5.jar hib
+ ernate-validator-6.2.5.Final.jar javassist-3.25.0-GA.jar commons-codec-
+ 1.15.jar spring-boot-starter-2.6.13.jar druid-spring-boot-starter-1.1.2
+ 0.jar spring-expression-5.3.23.jar commons-lang3-3.12.0.jar springfox-s
+ wagger-common-2.10.5.jar jsqlparser-4.0.jar mysql-connector-j-8.0.31.ja
+ r feign-gson-11.10.jar jboss-logging-3.4.3.Final.jar mybatis-plus-3.4.3
+ .jar gson-2.8.6.jar spring-boot-starter-validation-2.6.13.jar classmate
+ -1.5.1.jar log4j-to-slf4j-2.17.2.jar springfox-bean-validators-2.10.5.j
+ ar spring-cloud-openfeign-core-3.1.8.jar jul-to-slf4j-1.7.36.jar spring
+ -boot-starter-aop-2.6.13.jar jakarta.validation-api-2.0.2.jar aspectjwe
+ aver-1.9.7.jar spring-plugin-core-2.0.0.RELEASE.jar tomcat-embed-websoc
+ ket-9.0.68.jar spring-context-support-5.3.23.jar springfox-spring-web-2
+ .10.5.jar
+

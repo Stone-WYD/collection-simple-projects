@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.wyd.back.mapper.MonitorCameraMapper">
+
+    <update id="updateByIdOrName">
+        <foreach collection="list" item="item" separator=";">
+            update t_monitor_camera
+            <set>
+                POSITION_X=#{item.positionX},
+                POSITION_Y=#{item.positionY},
+                POSITION_Z=#{item.positionZ}
+            </set>
+            <where>
+                <if test="item.id != null">
+                   and `ID` = #{item.id}
+                </if>
+                <if test="item.name != null">
+                   and `NAME` = #{item.name}
+                </if>
+            </where>
+        </foreach>
+    </update>
+
+    <select id="getById" resultType="org.wyd.back.bean.MonitorCamera">
+        select * from t_monitor_camera where id = ${id}
+    </select>
+
+</mapper>
