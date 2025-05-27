@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="285532c6-6cb0-452c-8c31-8d523167d28d" name="更改" comment="将 tmsp 和 sa-token 项目移动到该 github 仓库中">
-      <change beforePath="$PROJECT_DIR$/../asset-manage/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../asset-manage/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../asset-manage/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/njxnet/service/tmsp/pagehelp/PageHelperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ibms_ba_server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ibms_ba_server/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/njxnet/service/tmsp/config/MybatisPlusConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/njxnet/service/tmsp/config/MybatisPlusConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/njxnet/service/tmsp/MultipleDataSourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/njxnet/service/tmsp/MultipleDataSourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/njxnet/service/tmsp/testComponent/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/njxnet/service/tmsp/component/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/njxnet/service/tmsp/testComponent/wrapper/WrapperMpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/njxnet/service/tmsp/component/wrapper/WrapperMpService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +51,9 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../maven/apache-maven-3.8.5" />
+        <option name="mavenHome" value="C:\Users\Admin\Desktop\wyd\apache-maven-3.9.7" />
         <option name="useMavenConfig" value="false" />
-        <option name="userSettingsFile" value="D:\maven\apache-maven-3.8.5\conf\settings.xml" />
+        <option name="userSettingsFile" value="C:\Users\Admin\Desktop\wyd\apache-maven-3.9.7\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -62,6 +67,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.MultipleDataSourceTest.testTmspDataSource.executor": "Run",
+    "JUnit.PageHelperTest.testPageHelper.executor": "Run",
+    "Maven.service-tmsp [clean].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -72,7 +80,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/wyd/MyProject/collection-simple-projects/service-tmsp",
+    "last_opened_file_path": "C:/Users/Admin/Desktop/wyd/MyProject/collection-simple-projects",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -91,7 +99,7 @@
       <recent name="D:\MyStudyProject\TMSP\src\main\java\com\njxnet\service\tmsp\util" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.JavaplatformArchetypeApplication">
+  <component name="RunManager" selected="JUnit.PageHelperTest.testPageHelper">
     <configuration name="MyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.njxnet.service.tmsp.util.MyTest" />
       <module name="service-tmsp" />
@@ -118,6 +126,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MultipleDataSourceTest.testTmspDataSource" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-tmsp" />
+      <option name="PACKAGE_NAME" value="com.njxnet.service.tmsp" />
+      <option name="MAIN_CLASS_NAME" value="com.njxnet.service.tmsp.MultipleDataSourceTest" />
+      <option name="METHOD_NAME" value="testTmspDataSource" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PageHelperTest.testPageHelper" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-tmsp" />
+      <option name="PACKAGE_NAME" value="com.njxnet.service.tmsp.pagehelp" />
+      <option name="MAIN_CLASS_NAME" value="com.njxnet.service.tmsp.pagehelp.PageHelperTest" />
+      <option name="METHOD_NAME" value="testPageHelper" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JavaplatformArchetypeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="service-tmsp" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.njxnet.service.tmsp.JavaplatformArchetypeApplication" />
@@ -127,6 +155,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PageHelperTest.testPageHelper" />
+        <item itemvalue="JUnit.MultipleDataSourceTest.testTmspDataSource" />
         <item itemvalue="应用程序.MyTest" />
         <item itemvalue="应用程序.WordTemplateUtil" />
       </list>
@@ -182,6 +212,8 @@
       <workItem from="1710923459225" duration="632000" />
       <workItem from="1743659066722" duration="47000" />
       <workItem from="1743659336792" duration="923000" />
+      <workItem from="1748308000707" duration="1331000" />
+      <workItem from="1748309867196" duration="4981000" />
     </task>
     <task id="LOCAL-00001" summary="添加根据 word 模板生成 word 文件工具类">
       <option name="closed" value="true" />

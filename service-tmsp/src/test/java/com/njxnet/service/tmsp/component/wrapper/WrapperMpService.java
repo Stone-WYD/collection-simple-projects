@@ -1,4 +1,4 @@
-package com.njxnet.service.tmsp.testComponent.wrapper;
+package com.njxnet.service.tmsp.component.wrapper;
 
 import com.njxnet.service.tmsp.config.datasource.context.DsAno;
 import com.njxnet.service.tmsp.config.datasource.context.DsEnum;

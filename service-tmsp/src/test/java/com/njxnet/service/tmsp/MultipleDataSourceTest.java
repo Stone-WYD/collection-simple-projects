@@ -9,7 +9,7 @@ import com.njxnet.service.tmsp.model.dto.TmspSysUserDTO;
 import com.njxnet.service.tmsp.model.query.SysUserQuery;
 import com.njxnet.service.tmsp.service.PhoneMsgDictService;
 import com.njxnet.service.tmsp.service.TmspSysUserService;
-import com.njxnet.service.tmsp.testComponent.TestService;
+import com.njxnet.service.tmsp.component.TestService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

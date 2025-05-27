@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1fb147c-793a-4ff7-8c83-68776a948637" name="更改" comment="删除无用文件，更新过时文件" />
+    <list default="true" id="a1fb147c-793a-4ff7-8c83-68776a948637" name="更改" comment="删除无用文件，更新过时文件">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +76,7 @@
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+    "settings.editor.selected.configurable": "MavenSettings"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -129,6 +131,8 @@
       <workItem from="1747125671776" duration="158000" />
       <workItem from="1747125840321" duration="72000" />
       <workItem from="1747125920579" duration="2833000" />
+      <workItem from="1747987458578" duration="1321000" />
+      <workItem from="1748063085077" duration="119000" />
     </task>
     <task id="LOCAL-00001" summary="调整pom文件">
       <option name="closed" value="true" />

@@ -1,4 +1,4 @@
-package com.njxnet.service.tmsp.testComponent;
+package com.njxnet.service.tmsp.component;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.njxnet.service.tmsp.config.datasource.context.DsAno;
@@ -8,7 +8,7 @@ import com.njxnet.service.tmsp.entity.TmspPhoneMsgDict;
 import com.njxnet.service.tmsp.service.PhoneMsgDictService;
 import com.njxnet.service.tmsp.service.TmspPhoneMsgDictService;
 import com.njxnet.service.tmsp.service.impl.TmspPhoneMsgDictServiceImpl;
-import com.njxnet.service.tmsp.testComponent.wrapper.WrapperMpService;
+import com.njxnet.service.tmsp.component.wrapper.WrapperMpService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
