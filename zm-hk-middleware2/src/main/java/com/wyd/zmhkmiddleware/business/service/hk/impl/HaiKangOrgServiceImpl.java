@@ -13,6 +13,7 @@ import com.wyd.zmhkmiddleware.business.model.hk.result.HaiKangResult;
 import com.wyd.zmhkmiddleware.business.service.hk.HaiKangOrgService;
 import com.wyd.zmhkmiddleware.business.service.hk.util.HaiKangInvocationUtils;
 import com.wyd.zmhkmiddleware.business.service.hk.util.UrlConstants;
+import com.wyd.zmhkmiddleware.common.BaseException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -61,9 +62,19 @@ public class HaiKangOrgServiceImpl implements HaiKangOrgService {
             log.info("更新组织失败，尝试插入，失败报错：", e);
         }
         // 更新失败则插入
-        if (ObjectUtil.isEmpty(updateResult) || "success".equals(updateResult.getMsg())) {
-            log.info("更新组织失败，尝试插入...");
-            batchAddOrg(ListUtil.of(haiKangOrg));
+        HaiKangResult<BatchAddOrgResult> addResult = null;
+        try {
+            if (ObjectUtil.isEmpty(updateResult) || "success".equals(updateResult.getMsg())) {
+                log.info("更新组织失败，尝试插入...");
+                addResult = batchAddOrg(ListUtil.of(haiKangOrg));
+            }
+        } catch (Exception e) {
+            log.error("插入组织失败，失败报错：", e);
+            throw new RuntimeException("插入组织失败");
+        }
+        if (ObjectUtil.isNull(updateResult) && ObjectUtil.isNull(addResult)) {
+            log.error("海康接口调用返回为空");
+            throw new BaseException(500, "海康接口调用返回为空！");
         }
     }
 

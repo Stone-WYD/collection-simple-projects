@@ -26,7 +26,7 @@ public class EtEmplPost implements Serializable {
     /**
      * 智慧人事系统人员编码
      */
-    @TableId("ZHREMPL")
+    @TableField("ZHREMPL")
     @SerializedName("ZHREMPL")
     private String zhrempl;
 
@@ -40,7 +40,7 @@ public class EtEmplPost implements Serializable {
     /**
      * 岗位编码
      */
-    @TableField("ZHRPOST")
+    @TableId("ZHRPOST")
     @SerializedName("ZHRPOST")
     private String zhrpost;
 

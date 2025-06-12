@@ -26,14 +26,14 @@ public class ItPostBasic implements Serializable {
     /**
      * MDG岗位编码
      */
-    @TableId("ZPOST")
+    @TableField("ZPOST")
     @SerializedName("ZPOST")
     private String zpost;
 
     /**
      * 智慧人事系统岗位编码
      */
-    @TableField("ZHRPOST")
+    @TableId("ZHRPOST")
     @SerializedName("ZHRPOST")
     private String zhrpost;
 

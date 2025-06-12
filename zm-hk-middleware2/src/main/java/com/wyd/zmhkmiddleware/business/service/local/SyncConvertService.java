@@ -65,9 +65,32 @@ public class SyncConvertService {
         return haiKangPerson;
     }
 
+    public HaiKangPerson convert2HKPerson2(SyncInfoDTO syncInfoDTO, String personId) {
+        HaiKangPerson haiKangPerson = new HaiKangPerson();
+        haiKangPerson.setPersonId(personId);
+        haiKangPerson.setPersonName(syncInfoDTO.getZemplnm());
+        haiKangPerson.setPhoneNo(syncInfoDTO.getZphoneno());
+        haiKangPerson.setOrgIndexCode(syncInfoDTO.getZpsOrg());
+        // 出生日期
+        String gbdat = syncInfoDTO.getGbdat();
+        if (StrUtil.isNotEmpty(gbdat) && gbdat.length() == 8 ) {
+            // 20050101 格式转为 2005-01-01
+            try {
+                String birth = gbdat.substring(0, 4) + "-"
+                        + gbdat.substring(4, 6) + "-" + gbdat.substring(6, 8);
+                haiKangPerson.setBirthday(birth);
+            } catch (Exception e) {
+                // 不做任何处理，不重要
+            }
+        }
+        haiKangPerson.setEmail(syncInfoDTO.getZemail());
+        haiKangPerson.setCertificateNo(syncInfoDTO.getZzjhm());
+        return haiKangPerson;
+    }
+
     public HaiKangOrg convert2HKOrg(String orgId) {
         LambdaQueryWrapper<ItOrgBasic> itOrgQueryWrapper = new LambdaQueryWrapper<>();
-        itOrgQueryWrapper.eq(ItOrgBasic::getZorg, orgId);
+        itOrgQueryWrapper.eq(ItOrgBasic::getZhrorg, orgId);
         List<ItOrgBasic> orgList = itOrgBasicService.list(itOrgQueryWrapper);
 
         if (ObjectUtil.isNotEmpty(orgList)) {

@@ -2,6 +2,8 @@ package com.wyd.zmhkmiddleware.business.web;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.google.gson.Gson;
 import com.wyd.zmhkmiddleware.business.model.local.po.*;
 import com.wyd.zmhkmiddleware.business.model.zm.ZmCommonResult;
@@ -18,7 +20,6 @@ import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -32,7 +33,6 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @RestController
-@RequestMapping("/yxpatrol")
 @Api(value = "中免接口，请勿调用", protocols = "http/https", tags = "中免接口，请勿调用")
 public class ZmUserController {
 
@@ -63,21 +63,28 @@ public class ZmUserController {
             if (CollectionUtil.isNotEmpty(etemplbank)) {
                 List<EtEmplBank> dbdata = etemplbank.stream().map(p ->
                         gson.fromJson(gson.toJson(p), EtEmplBank.class)).collect(Collectors.toList());
-                etEmplBankService.saveOrUpdateBatch(dbdata);
+                dbdata.forEach(p -> etEmplBankService.saveOrUpdate(p));
             }
             // 员工基本信息
             List<ETEMPLBASIC> etemplbasic = userInfoBody.getETEMPLBASIC();
             if (CollectionUtil.isNotEmpty(etemplbasic)) {
                 List<EtEmplBasic> dbdata = etemplbasic.stream().map(p ->
                     gson.fromJson(gson.toJson(p), EtEmplBasic.class)).collect(Collectors.toList());
-                etEmplBasicService.saveOrUpdateBatch(dbdata);
+                dbdata.forEach(p -> etEmplBasicService.saveOrUpdate(p));
             }
             // 员工岗位信息
             List<ETEMPLPOST> etemplpost = userInfoBody.getETEMPLPOST();
             if (CollectionUtil.isNotEmpty(etemplpost)) {
                 List<EtEmplPost> dbdata = etemplpost.stream().map(p ->
                     gson.fromJson(gson.toJson(p), EtEmplPost.class)).collect(Collectors.toList());
-                etEmplPostService.saveOrUpdateBatch(dbdata);
+                dbdata.forEach(p -> {
+                    if (StrUtil.isEmpty(p.getZhrempl()) || (StrUtil.isEmpty(p.getZhrpost()))) return;
+                    EtEmplPost post = etEmplPostService.getOne(new LambdaQueryWrapper<EtEmplPost>()
+                            .eq(EtEmplPost::getZhrpost, p.getZhrpost()).eq(EtEmplPost::getZhrempl,  p.getZhrempl()));
+                    if (ObjectUtil.isNull(post)) {
+                        etEmplPostService.save(p);
+                    }
+                });
             }
         }
         return "success";
@@ -94,7 +101,18 @@ public class ZmUserController {
             if (CollectionUtil.isNotEmpty(itorgbasic)) {
                 List<ItOrgBasic> dbdata = itorgbasic.stream().map(p ->
                     gson.fromJson(gson.toJson(p), ItOrgBasic.class)).collect(Collectors.toList());
-                itOrgBasicService.saveOrUpdateBatch(dbdata);
+                // fixme 针对ZHRORG列进行一些处理
+                dbdata.forEach(p -> {
+                    if (ObjectUtil.isNotEmpty(p.getZhrorg())) {
+                        LambdaQueryWrapper<ItOrgBasic> queryWrapper = new LambdaQueryWrapper<>();
+                        ItOrgBasic itOrgBasic = itOrgBasicService.getOne(queryWrapper.eq(ItOrgBasic::getZhrorg, p.getZhrorg()));
+                        if (ObjectUtil.isNotEmpty(itOrgBasic) && StrUtil.isNotEmpty(itOrgBasic.getZhrorg())
+                                && !p.getZorg().equals(itOrgBasic.getZorg())) {
+                            itOrgBasicService.removeById(itOrgBasic.getZorg());
+                        }
+                    }
+                });
+                dbdata.forEach(p -> itOrgBasicService.saveOrUpdate(p));
             }
         }
         return "success";
@@ -111,7 +129,12 @@ public class ZmUserController {
             if (CollectionUtil.isNotEmpty(itpostbasic)) {
                 List<ItPostBasic> dbdata = itpostbasic.stream().map(p ->
                     gson.fromJson(gson.toJson(p), ItPostBasic.class)).collect(Collectors.toList());
-                itPostBasicService.saveOrUpdateBatch(dbdata);
+                dbdata.forEach(p -> {
+                    ItPostBasic dbData = itPostBasicService.getById(p.getZhrpost());
+                    if (ObjectUtil.isNull(dbData)) {
+                        itPostBasicService.save(p);
+                    }
+                });
             }
         }
         return "success";
