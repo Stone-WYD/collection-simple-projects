@@ -35,14 +35,9 @@ public class HaiKangPersonServiceImpl implements HaiKangPersonService {
 
     @Override
     public HaiKangResult<BatchAddPersonResult> batchAddPerson(List<HaiKangPerson> persons) {
-        HaiKangResult<BatchAddPersonResult> result = invocationUtils.post(UrlConstants.BATCH_ADD_PERSON, persons,
+        return invocationUtils.post(UrlConstants.BATCH_ADD_PERSON, persons,
                 new TypeToken<HaiKangResult<BatchAddPersonResult>>() {
                 });
-        if (ObjectUtil.isNull(result)) {
-            log.error("调用海康接口无返回");
-            throw new BaseException(500, "调用海康接口无返回");
-        }
-        return result;
     }
 
     @Override

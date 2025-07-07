@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="285532c6-6cb0-452c-8c31-8d523167d28d" name="更改" comment="测试pageHelper的使用" />
+    <list default="true" id="285532c6-6cb0-452c-8c31-8d523167d28d" name="更改" comment="测试pageHelper的使用">
+      <change afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/model/hk/result/HaiKangDataResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/model/hk/result/HaiKangDataResultContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/convert.db" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/convert.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/ZmHkMiddlewareApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/ZmHkMiddlewareApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/service/hk/impl/HaiKangOrgServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/service/hk/impl/HaiKangOrgServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/service/hk/impl/HaiKangPersonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/service/hk/impl/HaiKangPersonServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/service/hk/util/HaiKangInvocationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/service/hk/util/HaiKangInvocationUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/service/local/SyncConvertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/service/local/SyncConvertService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/component/js/configs.js" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/component/js/configs.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +79,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/wyd/MyProject/collection-simple-projects",
+    "last_opened_file_path": "C:/Users/Admin/Desktop/wyd/MyProject/collection-simple-projects/service-tmsp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -203,6 +213,7 @@
       <workItem from="1743659336792" duration="923000" />
       <workItem from="1748308000707" duration="1331000" />
       <workItem from="1748309867196" duration="7482000" />
+      <workItem from="1751508031214" duration="2630000" />
     </task>
     <task id="LOCAL-00001" summary="添加根据 word 模板生成 word 文件工具类">
       <option name="closed" value="true" />

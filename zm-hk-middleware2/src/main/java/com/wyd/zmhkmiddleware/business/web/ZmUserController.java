@@ -18,6 +18,7 @@ import com.wyd.zmhkmiddleware.business.model.zm.user.UserInfoBody;
 import com.wyd.zmhkmiddleware.business.service.local.*;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,6 +54,7 @@ public class ZmUserController {
 
     /*人员主数据*/
     @PostMapping("/getUpdateUserInfo")
+    @Transactional(rollbackFor = Exception.class)
     public String getUserInfo(@RequestBody ZmCommonResult<UserInfoBody> baseUserInfo) {
         Gson gson = new Gson();
         log.info("中免调用人员主数据接口: /yxpatrol/getUpdateUserInfo传入数据：{}", gson.toJson(baseUserInfo));
@@ -92,6 +94,7 @@ public class ZmUserController {
 
     /*组织主数据*/
     @PostMapping("/getUpdateOrganizationInfo")
+    @Transactional(rollbackFor = Exception.class)
     public String getUpdateOrganizationInfo(@RequestBody ZmCommonResult<OrganizationInfoBody> organizationInfo) {
         Gson gson = new Gson();
         log.info("中免调用组织主数据接口: /yxpatrol/getUpdateOrganizationInfo传入数据：{}", gson.toJson(organizationInfo));
@@ -120,6 +123,7 @@ public class ZmUserController {
 
     /*岗位主数据*/
     @PostMapping("/getUpdatePositionInfo")
+    @Transactional(rollbackFor = Exception.class)
     public String getUpdatePositionInfo(@RequestBody ZmCommonResult<PositionInfoBody> positionInfo) {
         Gson gson = new Gson();
         log.info("中免调用岗位主数据接口: /yxpatrol/getUpdatePositionInfo传入数据：{}", gson.toJson(positionInfo));
