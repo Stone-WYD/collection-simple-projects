@@ -1,11 +1,13 @@
 package com.wyd.zmhkmiddleware;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wyd.zmhkmiddleware.business.model.local.dto.SyncInfoDTO;
 import com.wyd.zmhkmiddleware.business.model.local.po.EtEmplBasic;
 import com.wyd.zmhkmiddleware.business.model.local.po.SynchronizationRecord;
 import com.wyd.zmhkmiddleware.business.model.local.po.User;
 import com.wyd.zmhkmiddleware.business.model.local.query.PersonQuery;
 import com.wyd.zmhkmiddleware.business.service.local.EtEmplBasicService;
+import com.wyd.zmhkmiddleware.business.service.local.SyncService;
 import com.wyd.zmhkmiddleware.business.service.local.SynchronizationRecordService;
 import com.wyd.zmhkmiddleware.business.service.local.UserService;
 import com.wyd.zmhkmiddleware.common.AjaxCustomResult;
@@ -90,7 +92,20 @@ class ZmHkMiddlewareApplicationTests {
         personQuery.setSyncFlag(String.valueOf(SyncRecordEnum.SYNC_STATUS_FAIL.getCode()));
         AjaxCustomResult<List<EtEmplBasic>> result = etEmplBasicService.getPersonListWithQuery(personQuery);
         System.out.println(result);
+    }
 
+    @Resource
+    private SyncService syncService;
+
+
+    @Test
+    public void testEtEmplBasicService() {
+        PersonQuery personQuery = new PersonQuery();
+        personQuery.setPage(1);
+        personQuery.setLimit(3);
+        personQuery.setZemplnm("李美");
+        AjaxCustomResult<List<SyncInfoDTO>> personList = syncService.getPersonList(personQuery);
+        System.out.println(personList);
     }
 
 }

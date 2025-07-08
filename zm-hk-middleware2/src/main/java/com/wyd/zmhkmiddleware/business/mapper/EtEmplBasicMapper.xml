@@ -84,7 +84,7 @@
             sr.sync_status as syncFlag
         FROM
             et_empl_basic eb
-                LEFT JOIN et_empl_post ep ON eb.ZHREMPL = ep.ZHREMPL
+                LEFT JOIN et_empl_post ep ON (eb.ZHREMPL = ep.ZHREMPL and ep.ZSTAT_PS = 'A')
                 LEFT JOIN it_post_basic pb ON ep.ZHRPOST = pb.zhrpost
                 LEFT JOIN it_org_basic ob ON pb.ZPS_ORG = ob.ZHRORG
                 left join synchronization_record sr on (sr.bussiness_id = eb.ZHREMPL and sr.extend_2 = pb.zhrpost and pb.ZPS_ORG = sr.extend_3)
@@ -95,6 +95,12 @@
             <if test="query.syncFlag != null and query.syncFlag != '' and query.syncFlag==0">
                     and sr.sync_status is null
             </if>
+            <if test="query.zemplnm !=null and query.zemplnm!=''">
+                and eb.zemplnm like ${query.zemplnm}
+            </if>
+            <if test="query.zorgnm != null and query.zorgnm != ''">
+                and ob.zorgnm like ${query.zorgnm}
+            </if>
         </where>
         order by eb.zhrempl desc
         limit #{query.page}, #{query.limit}
@@ -104,7 +110,7 @@
             count(1)
         FROM
         et_empl_basic eb
-        LEFT JOIN et_empl_post ep ON eb.ZHREMPL = ep.ZHREMPL
+        LEFT JOIN et_empl_post ep ON (eb.ZHREMPL = ep.ZHREMPL and ep.ZSTAT_PS = 'A')
         LEFT JOIN it_post_basic pb ON ep.ZHRPOST = pb.zhrpost
         LEFT JOIN it_org_basic ob ON pb.ZPS_ORG = ob.ZHRORG
         left join synchronization_record sr on (sr.bussiness_id = eb.ZHREMPL and sr.extend_2 = pb.zhrpost and pb.ZPS_ORG = sr.extend_3)
@@ -114,6 +120,12 @@
             </if>
             <if test="query.syncFlag != null and query.syncFlag != '' and query.syncFlag==0">
                 and sr.sync_status is null
+            </if>
+            <if test="query.zemplnm !=null and query.zemplnm!=''">
+                and eb.zemplnm like ${query.zemplnm}
+            </if>
+            <if test="query.zorgnm != null and query.zorgnm != ''">
+                and ob.zorgnm like ${query.zorgnm}
             </if>
         </where>
     </select>

@@ -71,16 +71,16 @@ public class SyncConvertService {
         haiKangPerson.setPersonName(syncInfoDTO.getZemplnm());
         haiKangPerson.setPhoneNo(syncInfoDTO.getZphoneno());
         haiKangPerson.setOrgIndexCode(syncInfoDTO.getZpsOrg());
-        haiKangPerson.setJobNo(personId);
+        haiKangPerson.setJobNo(syncInfoDTO.getZhrempl());
         // 性别
         if ("F".equals(syncInfoDTO.getZxb())) {
-            haiKangPerson.setGender(1L);
-        } else if ("M".equals(syncInfoDTO.getZxb())) {
             haiKangPerson.setGender(2L);
+        } else if ("M".equals(syncInfoDTO.getZxb())) {
+            haiKangPerson.setGender(1L);
         } else {
             haiKangPerson.setGender(0L);
         }
-        haiKangPerson.setPhoneNo("15123526526");
+        haiKangPerson.setPhoneNo("15100000000");
         // 出生日期
         String gbdat = syncInfoDTO.getGbdat();
         if (StrUtil.isNotEmpty(gbdat) && gbdat.length() == 8 ) {
