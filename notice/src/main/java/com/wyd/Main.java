@@ -25,7 +25,7 @@ public class Main {
         // 预加载一次，否则第一次加载会比较慢
         Platform.runLater(() -> {
             fxMainLayout = new FxMainLayout(null);
-            Scene scene = new Scene(fxMainLayout.getMainLayout(), 650, 400);
+            Scene scene = new Scene(fxMainLayout.getMainLayout(), 650, 550);
             fxPanel.setScene(scene);
         });
 
@@ -74,7 +74,7 @@ public class Main {
     private static void showConfigWindow(TrayIcon trayIcon) {
         Platform.runLater(() -> {
             fxMainLayout = new FxMainLayout(trayIcon);
-            Scene scene = new Scene(fxMainLayout.getMainLayout(), 650, 400);
+            Scene scene = new Scene(fxMainLayout.getMainLayout(), 650, 550);
             fxPanel.setScene(scene);
         });
 
@@ -88,7 +88,7 @@ public class Main {
 
         // 创建配置窗口
         configFrame = new JFrame("系统配置");
-        configFrame.setSize(650, 400);
+        configFrame.setSize(650, 550);
         configFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
         // 将窗口居中显示

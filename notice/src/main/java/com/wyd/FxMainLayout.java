@@ -2,6 +2,8 @@ package com.wyd;
 
 import cn.hutool.core.util.StrUtil;
 import com.wyd.util.ConfigPropertiesUtil;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,80 +14,60 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-
 import java.awt.*;
 
 public class FxMainLayout {
 
-/*
     // 用于调用 windows 系统托盘
-    private TrayIcon trayIcon;
+    private final TrayIcon trayIcon;
 
-    private TextField userNameField = new TextField("userName");
-    private TextField hostField = new TextField("userName");
+    private final TextField userNameField = new TextField();
+    private final TextField hostField = new TextField();
+    private final TextField intervalField = new TextField();
+    private final ComboBox<Integer> beginHourCombo = new ComboBox<>();
+    ComboBox<Integer> beginMinuteCombo = new ComboBox<>();
+    ComboBox<Integer> beginSecondCombo = new ComboBox<>();
+
+    private final ComboBox<Integer> endHourCombo = new ComboBox<>();
+    ComboBox<Integer> endMinuteCombo = new ComboBox<>();
+    ComboBox<Integer> endSecondCombo = new ComboBox<>();
+    private final CheckBox enableIntervalAlertCheckBox = new CheckBox("开启间隔提醒");
 
     // 日志区域
-    private TextArea logArea = new TextArea();
+    private final TextArea logArea = new TextArea();
     // 用法：logArea.appendText("================\n");
-
-    // 文件处理组件
-    private CheckBox saveCheckBox = new CheckBox("保存");
-
-
 
     public FxMainLayout(TrayIcon trayIcon) {
         this.trayIcon = trayIcon;
         // 数据库参数初始化
         String host = ConfigPropertiesUtil.getProperty("host");
         String userName = ConfigPropertiesUtil.getProperty("userName");
+        String beginStr = ConfigPropertiesUtil.getProperty("beginStr");
+        String endStr = ConfigPropertiesUtil.getProperty("endStr");
+        String interval = ConfigPropertiesUtil.getProperty("interval");
+        String enableIntervalAlert = ConfigPropertiesUtil.getProperty("enableIntervalAlert");
         if (!StrUtil.isEmpty(userName)) userNameField.setText(userName);
         if (!StrUtil.isEmpty(host)) hostField.setText(host);
-    }
-
-    public VBox getMainLayout() {
-        VBox mainLayout = new VBox(10);
-        mainLayout.setPadding(new Insets(15));
-
-        // 日志区域
-        logArea.setEditable(false);
-        logArea.setPrefHeight(150);
-        TitledPane logSection = new TitledPane("操作日志", logArea);
-
-        // 组合布局
-        mainLayout.getChildren().addAll(
-                new Separator(),
-                new Separator(),
-                new Label("选择输入文件:"),
-                new Separator(),
-                logSection
-        );
-        return mainLayout;
-    }
-*/
-
-
-
-
-    // 用于调用 windows 系统托盘
-    private TrayIcon trayIcon;
-
-    private TextField userNameField = new TextField();
-    private TextField hostField = new TextField();
-
-    // 日志区域
-    private TextArea logArea = new TextArea();
-    // 用法：logArea.appendText("================\n");
-
-    // 文件处理组件
-    private CheckBox saveCheckBox = new CheckBox("保存");
-
-    public FxMainLayout(TrayIcon trayIcon) {
-        this.trayIcon = trayIcon;
-        // 数据库参数初始化
-        String host = ConfigPropertiesUtil.getProperty("host");
-        String userName = ConfigPropertiesUtil.getProperty("userName");
-        if (!StrUtil.isEmpty(userName)) userNameField.setText(userName);
-        if (!StrUtil.isEmpty(host)) hostField.setText(host);
+        if (!StrUtil.isEmpty(beginStr)) {
+            String[] split = beginStr.split("-");
+            beginHourCombo.setValue(Integer.parseInt(split[0]));
+            beginMinuteCombo.setValue(Integer.parseInt(split[1]));
+            beginSecondCombo.setValue(Integer.parseInt(split[2]));
+        }
+        if (!StrUtil.isEmpty(endStr)) {
+            String[] split = endStr.split("-");
+            endHourCombo.setValue(Integer.parseInt(split[0]));
+            endMinuteCombo.setValue(Integer.parseInt(split[1]));
+            endSecondCombo.setValue(Integer.parseInt(split[2]));
+        }
+        if (!StrUtil.isEmpty(interval)) {
+          intervalField.setText(interval);
+        }
+        if (!StrUtil.isEmpty(enableIntervalAlert)) {
+            enableIntervalAlertCheckBox.setSelected(Boolean.parseBoolean(enableIntervalAlert));
+        } else {
+            enableIntervalAlertCheckBox.setSelected(true); // 默认开启
+        }
     }
 
     public VBox getMainLayout() {
@@ -124,19 +106,39 @@ public class FxMainLayout {
 
     private TitledPane createConfigSection() {
         GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(10));
-
+        grid.setHgap(20);
+        grid.setVgap(15);
         // 用户名配置
         grid.add(new Label("用户名:"), 0, 0);
         grid.add(userNameField, 1, 0);
         GridPane.setHgrow(userNameField, Priority.ALWAYS);
-
         // 主机配置
         grid.add(new Label("主机地址:"), 0, 1);
         grid.add(hostField, 1, 1);
         GridPane.setHgrow(hostField, Priority.ALWAYS);
+
+        // 时间配置 - 自定义时间选择器
+        HBox startTimeBox = createTimeSelector(true);
+        grid.add(new Label("开始通知时间:"), 0, 2);
+        grid.add(startTimeBox, 1, 2);
+        GridPane.setHgrow(startTimeBox, Priority.ALWAYS);
+
+        HBox endTimeBox = createTimeSelector(false);
+        grid.add(new Label("结束通知时间:"), 0, 3);
+        grid.add(endTimeBox, 1, 3);
+        GridPane.setHgrow(endTimeBox, Priority.ALWAYS);
+
+        // 执行间隔
+        intervalField.setPromptText("小时");
+        grid.add(new Label("执行间隔:"), 0, 4);
+        grid.add(intervalField, 1, 4);
+        GridPane.setHgrow(intervalField, Priority.ALWAYS);
+        Label innerLabel = new Label("(小时，可带小数点表示分钟)");
+        innerLabel.setMaxWidth(600);
+        grid.add(innerLabel, 2, 4);
+
+        // 是否开启间隔提醒
+        grid.add(enableIntervalAlertCheckBox, 0, 5);
 
         TitledPane section = new TitledPane("系统配置", grid);
         section.setCollapsible(false);
@@ -148,6 +150,13 @@ public class FxMainLayout {
             // 保存配置到文件
             ConfigPropertiesUtil.setProp("userName", userNameField.getText());
             ConfigPropertiesUtil.setProp("host", hostField.getText());
+            ConfigPropertiesUtil.setProp("interval", intervalField.getText());
+            // 保存时间
+            String beginStr = String.format("%02d-%02d-%02d", beginHourCombo.getValue(), beginMinuteCombo.getValue(), beginMinuteCombo.getValue());
+            String endStr = String.format("%02d-%02d-%02d", endHourCombo.getValue(), endMinuteCombo.getValue(), endMinuteCombo.getValue());
+            ConfigPropertiesUtil.setProp("beginStr", beginStr);
+            ConfigPropertiesUtil.setProp("endStr", endStr);
+            ConfigPropertiesUtil.setProp("enableIntervalAlert", String.valueOf(enableIntervalAlertCheckBox.isSelected()));
             ConfigPropertiesUtil.saveProp();
 
             // 记录日志
@@ -179,9 +188,57 @@ public class FxMainLayout {
         alert.showAndWait();
     }
 
-    // 添加设置托盘图标的方法
-    public void setTrayIcon(TrayIcon trayIcon) {
-        this.trayIcon = trayIcon;
+    // 创建时间选择器（时:分:秒）
+    private HBox createTimeSelector(boolean beginFlag) {
+        ComboBox<Integer> hourCombo, minuteCombo, secondCombo;
+        if (beginFlag) {
+            hourCombo = beginHourCombo;
+            minuteCombo = beginMinuteCombo;
+            secondCombo = beginSecondCombo;
+        } else {
+            hourCombo = endHourCombo;
+            minuteCombo = endMinuteCombo;
+            secondCombo = endSecondCombo;
+        }
+
+        // 填充小时选项 (0-23)
+        ObservableList<Integer> hours = FXCollections.observableArrayList();
+        for (int i = 0; i < 24; i++) {
+            hours.add(i);
+        }
+        hourCombo.setItems(hours);
+        hourCombo.setPrefWidth(60);  // 增加宽度
+        hourCombo.setMinWidth(60);   // 设置最小宽度
+        hourCombo.setPromptText("时");
+
+        // 填充分钟选项 (0-59)
+        ObservableList<Integer> minutes = FXCollections.observableArrayList();
+        for (int i = 0; i < 60; i++) {
+            minutes.add(i);
+        }
+        minuteCombo.setItems(minutes);
+        minuteCombo.setPrefWidth(60);  // 增加宽度
+        minuteCombo.setMinWidth(60);   // 设置最小宽度
+        minuteCombo.setPromptText("分");
+
+        // 填充秒选项 (0-59)
+        ObservableList<Integer> seconds = FXCollections.observableArrayList();
+        for (int i = 0; i < 60; i++) {
+            seconds.add(i);
+        }
+        secondCombo.setItems(seconds);
+        secondCombo.setPrefWidth(60);  // 增加宽度
+        secondCombo.setMinWidth(60);   // 设置最小宽度
+        secondCombo.setPromptText("秒");
+
+        Label colon1 = new Label(":");
+        Label colon2 = new Label(":");
+
+        HBox timeBox = new HBox(10);
+//        timeBox.setMaxWidth(400);
+//        timeBox.setMinWidth(400);
+        timeBox.getChildren().addAll(hourCombo, colon1, minuteCombo, colon2, secondCombo);
+        return timeBox;
     }
 
 }
