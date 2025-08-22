@@ -24,6 +24,7 @@ import java.util.List;
  * @author Stone
  * @since 2025-05-12
  */
+@Validated
 @RestController
 @RequestMapping(value = "/manager")
 @Api(value = "人员信息管理", protocols = "http/https", tags = "人员信息管理")
@@ -49,7 +50,7 @@ public class PersonManagerController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "Authorization", value = "访问令牌", required = true, dataType = "string", paramType = "header")
     })
-    public AjaxResult<Boolean> syncInfo(@RequestBody @Validated List<SyncInfoDTO> dtoList) throws BaseException {
+    public AjaxResult<Boolean> syncInfo(@RequestBody List<SyncInfoDTO> dtoList) throws BaseException {
         // 同步人员信息
         return syncService.syncInfo(dtoList);
     }

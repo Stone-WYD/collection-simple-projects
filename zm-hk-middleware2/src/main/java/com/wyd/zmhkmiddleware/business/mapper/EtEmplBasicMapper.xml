@@ -62,5 +62,73 @@
             limit #{offset}, #{size}
         </if>
     </select>
+    <select id="listSyncInfoDTO" resultType="com.wyd.zmhkmiddleware.business.model.local.dto.SyncInfoDTO">
+        SELECT
+            eb.zhrempl AS zhrempl,
+            eb.zemplnm AS zemplnm,
+            eb.zxb AS zxb,
+            eb.gbdat AS gbdat,
+            eb.zphoneno AS zphoneno,
+            eb.ztelno AS ztelno,
+            eb.zzjgj AS zzjgj,
+            eb.zzjlx AS zzjlx,
+            eb.zzjhm AS zzjhm,
+            eb.zemail AS zemail,
+            eb.zstas_e AS zstasE,
+            ep.zhrpost AS zhrpost,
+            ep.zzx AS zzx,
+            ep.zstat_ps AS zstatPs,
+            pb.zpostnam AS zpostnam,
+            pb.zps_org AS zpsOrg,
+            ob.zorgnm AS zorgnm,
+            sr.sync_status as syncFlag
+        FROM
+            et_empl_basic eb
+                LEFT JOIN et_empl_post ep ON (eb.ZHREMPL = ep.ZHREMPL and ep.ZSTAT_PS = 'A')
+                LEFT JOIN it_post_basic pb ON ep.ZHRPOST = pb.zhrpost
+                LEFT JOIN it_org_basic ob ON pb.ZPS_ORG = ob.ZHRORG
+                left join synchronization_record sr on (sr.bussiness_id = eb.ZHREMPL and sr.extend_2 = pb.zhrpost and pb.ZPS_ORG = sr.extend_3)
+        <where>
+            <if test="query.syncFlag != null and query.syncFlag != '' and query.syncFlag==1">
+                    and sr.sync_status = #{query.syncFlag}
+            </if>
+            <if test="query.syncFlag != null and query.syncFlag != '' and query.syncFlag==0">
+                    and sr.sync_status is null
+            </if>
+            <if test="query.zemplnm !=null and query.zemplnm!=''">
+                and eb.zemplnm like ${query.zemplnm}
+            </if>
+            <if test="query.zorgnm != null and query.zorgnm != ''">
+                and ob.zorgnm like ${query.zorgnm}
+            </if>
+        </where>
+        order by eb.zhrempl desc
+        limit #{query.page}, #{query.limit}
+    </select>
+    <select id="countSyncInfoDTO" resultType="java.lang.Long">
+        SELECT
+            count(1)
+        FROM
+        et_empl_basic eb
+        LEFT JOIN et_empl_post ep ON (eb.ZHREMPL = ep.ZHREMPL and ep.ZSTAT_PS = 'A')
+        LEFT JOIN it_post_basic pb ON ep.ZHRPOST = pb.zhrpost
+        LEFT JOIN it_org_basic ob ON pb.ZPS_ORG = ob.ZHRORG
+        left join synchronization_record sr on (sr.bussiness_id = eb.ZHREMPL and sr.extend_2 = pb.zhrpost and pb.ZPS_ORG = sr.extend_3)
+        <where>
+            <if test="query.syncFlag != null and query.syncFlag != '' and query.syncFlag==1">
+                and sr.sync_status = #{query.syncFlag}
+            </if>
+            <if test="query.syncFlag != null and query.syncFlag != '' and query.syncFlag==0">
+                and sr.sync_status is null
+            </if>
+            <if test="query.zemplnm !=null and query.zemplnm!=''">
+                and eb.zemplnm like ${query.zemplnm}
+            </if>
+            <if test="query.zorgnm != null and query.zorgnm != ''">
+                and ob.zorgnm like ${query.zorgnm}
+            </if>
+        </where>
+    </select>
+
 
 </mapper>

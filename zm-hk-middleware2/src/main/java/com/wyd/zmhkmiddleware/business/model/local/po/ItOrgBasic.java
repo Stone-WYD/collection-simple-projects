@@ -26,14 +26,14 @@ public class ItOrgBasic implements Serializable {
     /**
      * MDG组织编码
      */
-    @TableId("ZORG")
+    @TableField("ZORG")
     @SerializedName("ZORG")
     private String zorg;
 
     /**
      * 智慧人事组织编码
      */
-    @TableField("ZHRORG")
+    @TableId("ZHRORG")
     @SerializedName("ZHRORG")
     private String zhrorg;
 

@@ -1,8 +1,10 @@
 server:
   port: 19999
+  servlet:
+    context-path: /yxpatrol
 
 zm:
-  test: true
+  test: 'true'
 
 artemis:
   config:
@@ -38,3 +40,7 @@ knife4j:
   setting:
     language: zh_cn
   enable: false
+
+logging:
+  level:
+    com.hikvision.artemis.sdk: debug

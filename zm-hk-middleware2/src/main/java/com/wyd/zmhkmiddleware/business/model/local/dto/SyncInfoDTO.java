@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * @author Stone
@@ -14,7 +15,7 @@ public class SyncInfoDTO {
 
 
     @ApiModelProperty(value = "智慧人事系统人员编码", required = true)
-    @NotBlank(message = "智慧人事系统人员编码不能为空")
+    @NotEmpty(message = "智慧人事系统人员编码不能为空")
     private String zhrempl;
 
     @ApiModelProperty(value = "姓名")
@@ -53,7 +54,7 @@ public class SyncInfoDTO {
 
     // 岗位信息 通过 zhrempl 在 etemplpost 中获取
     @ApiModelProperty(value = "岗位编码", required = true)
-    @NotBlank(message = "岗位编码不能为空")
+    @NotEmpty(message = "岗位编码不能为空")
     private String zhrpost;
 
     @ApiModelProperty(value = "职衔")
@@ -67,7 +68,7 @@ public class SyncInfoDTO {
     private String zpostnam;
 
     @ApiModelProperty(value = "所属组织编码", required = true)
-    @NotBlank(message = "所属组织编码不能为空")
+    @NotEmpty(message = "所属组织编码不能为空")
     private String zpsOrg;
 
     // 组织名称 通过 zpsOrg 在 itorgbasic（与zhrorg字段对应）中获取

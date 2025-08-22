@@ -13,6 +13,7 @@ import com.wyd.zmhkmiddleware.business.model.hk.result.HaiKangResult;
 import com.wyd.zmhkmiddleware.business.service.hk.HaiKangOrgService;
 import com.wyd.zmhkmiddleware.business.service.hk.util.HaiKangInvocationUtils;
 import com.wyd.zmhkmiddleware.business.service.hk.util.UrlConstants;
+import com.wyd.zmhkmiddleware.common.BaseException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +44,8 @@ public class HaiKangOrgServiceImpl implements HaiKangOrgService {
                 new TypeToken<HaiKangResult<List<DeleteOrgResult>>>(){});
     }
 
+
+
     @Override
     public HaiKangResult<String> updateOrg(UpdateOrgQuery updateOrgQuery) {
         return invocationUtils.post(UrlConstants.UPDATE_ORG, updateOrgQuery,
@@ -54,17 +57,15 @@ public class HaiKangOrgServiceImpl implements HaiKangOrgService {
         // 直接更新
         UpdateOrgQuery updateOrgQuery = new UpdateOrgQuery();
         BeanUtil.copyProperties(haiKangOrg, updateOrgQuery);
-        HaiKangResult<String> updateResult = null;
         try {
-            updateResult = updateOrg(updateOrgQuery);
+            updateOrg(updateOrgQuery);
+            return;
         } catch (Exception e) {
+            // 不再向上抛出异常，尝试插入
             log.info("更新组织失败，尝试插入，失败报错：", e);
         }
         // 更新失败则插入
-        if (ObjectUtil.isEmpty(updateResult) || "success".equals(updateResult.getMsg())) {
-            log.info("更新组织失败，尝试插入...");
-            batchAddOrg(ListUtil.of(haiKangOrg));
-        }
+        batchAddOrg(ListUtil.of(haiKangOrg));
     }
 
 }

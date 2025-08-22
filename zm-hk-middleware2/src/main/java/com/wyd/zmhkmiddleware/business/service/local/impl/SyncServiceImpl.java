@@ -22,7 +22,6 @@ import com.wyd.zmhkmiddleware.util.transactional.SyncRecordTransactionalUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -32,24 +31,29 @@ import java.util.stream.Collectors;
  * @author Stone
  * @since 2025-05-12
  */
-@Service
+// @Service
 @Slf4j
 public class SyncServiceImpl implements SyncService {
 
-    @Resource
-    private EtEmplBasicService etEmplBasicService;
+    private final EtEmplBasicService etEmplBasicService;
 
-    @Resource
-    private SyncConvertService syncConvertService;
+    private final SyncConvertService syncConvertService;
 
-    @Resource
-    private SyncRecordTransactionalUtil syncTransactionUtil;
+    private final SyncRecordTransactionalUtil syncTransactionUtil;
 
-    @Resource
-    private HaiKangPersonService haiKangPersonService;
+    private final HaiKangPersonService haiKangPersonService;
 
-    @Resource
-    private HaiKangOrgService haiKangOrgService;
+    private final HaiKangOrgService haiKangOrgService;
+
+    public SyncServiceImpl(EtEmplBasicService etEmplBasicService, SyncConvertService syncConvertService, SyncRecordTransactionalUtil syncTransactionUtil
+            , HaiKangPersonService haiKangPersonService, HaiKangOrgService haiKangOrgService) {
+        this.etEmplBasicService = etEmplBasicService;
+        this.syncConvertService = syncConvertService;
+        this.syncTransactionUtil = syncTransactionUtil;
+        this.haiKangPersonService = haiKangPersonService;
+        this.haiKangOrgService = haiKangOrgService;
+    }
+
 
     /**
      * 从中免传过来的数据中获取人员列表

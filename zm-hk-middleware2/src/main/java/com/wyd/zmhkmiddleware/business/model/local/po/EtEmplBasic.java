@@ -28,14 +28,14 @@ public class EtEmplBasic implements Serializable {
     /**
      * MDG人员编码
      */
-    @TableId("ZEMPL")
+    @TableField("ZEMPL")
     @SerializedName("ZEMPL")
     private String zempl;
 
     /**
      * 智慧人事系统人员编码
      */
-    @TableField("ZHREMPL")
+    @TableId("ZHREMPL")
     @SerializedName("ZHREMPL")
     private String zhrempl;
 
