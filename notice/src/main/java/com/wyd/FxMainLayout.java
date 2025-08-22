@@ -3,20 +3,17 @@ package com.wyd;
 import cn.hutool.core.util.StrUtil;
 import com.wyd.util.ConfigPropertiesUtil;
 import javafx.geometry.Insets;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 
 import java.awt.*;
-import java.io.File;
 
 public class FxMainLayout {
 
@@ -103,8 +100,10 @@ public class FxMainLayout {
         saveBtn.setOnAction(e -> handleSaveConfig());
         Button testBtn = new Button("测试连接");
         testBtn.setOnAction(e -> handleTestConnection());
-        HBox buttonBox = new HBox(10);
-        buttonBox.getChildren().addAll(saveBtn, testBtn);
+        Button connectBtn = new Button("建立连接");
+        connectBtn.setOnAction(e -> handleConnection());
+        HBox buttonBox = new HBox(15);
+        buttonBox.getChildren().addAll(saveBtn, testBtn, connectBtn);
 
         // 日志区域
         logArea.setEditable(false);
@@ -166,6 +165,10 @@ public class FxMainLayout {
 
     private void handleTestConnection() {
         logArea.appendText("点击了测试按钮...\n");
+    }
+
+    private void handleConnection() {
+        logArea.appendText("点击了连接按钮...\n");
     }
 
     private void showAlert(String title, String message) {

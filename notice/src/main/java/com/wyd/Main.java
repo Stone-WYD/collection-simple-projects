@@ -10,6 +10,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class Main {
+    // fixme 需要注意项目以 GBK 的编码运行，项目中出现的
+
     private static JFrame configFrame;
     private static final JFXPanel fxPanel = new JFXPanel();
     private static FxMainLayout fxMainLayout;
@@ -64,7 +66,7 @@ public class Main {
                 // 添加托盘图标
                 tray.add(trayIcon);
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         });
     }

@@ -1,5 +1,7 @@
 package com.wyd.util;
 
+import lombok.Getter;
+
 import java.io.*;
 import java.util.Properties;
 
@@ -8,8 +10,10 @@ import java.util.Properties;
  * @date 2024-07-02
  * @Description:
  */
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class ConfigPropertiesUtil {
 
+    @Getter
     private final static Properties prop = new Properties();
 
     static {
@@ -20,7 +24,7 @@ public class ConfigPropertiesUtil {
             // 加载properties文件
             prop.load(input);
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println(ex.getMessage());
         }
     }
 
@@ -41,10 +45,6 @@ public class ConfigPropertiesUtil {
         } catch (IOException io) {
             io.printStackTrace();
         }
-    }
-
-    public static Properties getProp() {
-        return prop;
     }
 
 }
