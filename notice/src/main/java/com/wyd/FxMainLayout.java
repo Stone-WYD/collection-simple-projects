@@ -26,11 +26,9 @@ public class FxMainLayout {
     private final TextField intervalField = new TextField();
     private final ComboBox<Integer> beginHourCombo = new ComboBox<>();
     ComboBox<Integer> beginMinuteCombo = new ComboBox<>();
-    ComboBox<Integer> beginSecondCombo = new ComboBox<>();
 
     private final ComboBox<Integer> endHourCombo = new ComboBox<>();
     ComboBox<Integer> endMinuteCombo = new ComboBox<>();
-    ComboBox<Integer> endSecondCombo = new ComboBox<>();
     private final CheckBox enableIntervalAlertCheckBox = new CheckBox("开启间隔提醒");
 
     // 日志区域
@@ -52,13 +50,11 @@ public class FxMainLayout {
             String[] split = beginStr.split("-");
             beginHourCombo.setValue(Integer.parseInt(split[0]));
             beginMinuteCombo.setValue(Integer.parseInt(split[1]));
-            beginSecondCombo.setValue(Integer.parseInt(split[2]));
         }
         if (!StrUtil.isEmpty(endStr)) {
             String[] split = endStr.split("-");
             endHourCombo.setValue(Integer.parseInt(split[0]));
             endMinuteCombo.setValue(Integer.parseInt(split[1]));
-            endSecondCombo.setValue(Integer.parseInt(split[2]));
         }
         if (!StrUtil.isEmpty(interval)) {
           intervalField.setText(interval);
@@ -80,12 +76,10 @@ public class FxMainLayout {
         // 操作按钮
         Button saveBtn = new Button("保存配置");
         saveBtn.setOnAction(e -> handleSaveConfig());
-        Button testBtn = new Button("测试连接");
-        testBtn.setOnAction(e -> handleTestConnection());
-        Button connectBtn = new Button("建立连接");
+            Button connectBtn = new Button("启用通知");
         connectBtn.setOnAction(e -> handleConnection());
         HBox buttonBox = new HBox(15);
-        buttonBox.getChildren().addAll(saveBtn, testBtn, connectBtn);
+        buttonBox.getChildren().addAll(saveBtn, connectBtn);
 
         // 日志区域
         logArea.setEditable(false);
@@ -133,7 +127,7 @@ public class FxMainLayout {
         grid.add(new Label("执行间隔:"), 0, 4);
         grid.add(intervalField, 1, 4);
         GridPane.setHgrow(intervalField, Priority.ALWAYS);
-        Label innerLabel = new Label("(小时，可带小数点表示分钟)");
+        Label innerLabel = new Label("(小时，可带小数点表示分钟，但设置间隔请大于十分钟)");
         innerLabel.setMaxWidth(600);
         grid.add(innerLabel, 2, 4);
 
@@ -152,8 +146,8 @@ public class FxMainLayout {
             ConfigPropertiesUtil.setProp("host", hostField.getText());
             ConfigPropertiesUtil.setProp("interval", intervalField.getText());
             // 保存时间
-            String beginStr = String.format("%02d-%02d-%02d", beginHourCombo.getValue(), beginMinuteCombo.getValue(), beginMinuteCombo.getValue());
-            String endStr = String.format("%02d-%02d-%02d", endHourCombo.getValue(), endMinuteCombo.getValue(), endMinuteCombo.getValue());
+            String beginStr = String.format("%02d-%02d", beginHourCombo.getValue(), beginMinuteCombo.getValue());
+            String endStr = String.format("%02d-%02d", endHourCombo.getValue(), endMinuteCombo.getValue());
             ConfigPropertiesUtil.setProp("beginStr", beginStr);
             ConfigPropertiesUtil.setProp("endStr", endStr);
             ConfigPropertiesUtil.setProp("enableIntervalAlert", String.valueOf(enableIntervalAlertCheckBox.isSelected()));
@@ -163,21 +157,18 @@ public class FxMainLayout {
             logArea.appendText("配置已保存成功\n");
 
             // 显示系统托盘通知（如果可用）
-            if (trayIcon != null) {
-                trayIcon.displayMessage("配置保存", "配置信息已成功保存", TrayIcon.MessageType.INFO);
-            }
+//            if (trayIcon != null) {
+//                trayIcon.displayMessage("配置保存", "配置信息已成功保存", TrayIcon.MessageType.INFO);
+//            }
         } catch (Exception e) {
             logArea.appendText("保存配置失败: " + e.getMessage() + "\n");
             showAlert("保存失败", "配置保存失败: " + e.getMessage());
         }
     }
 
-    private void handleTestConnection() {
-        logArea.appendText("点击了测试按钮...\n");
-    }
 
     private void handleConnection() {
-        logArea.appendText("点击了连接按钮...\n");
+        logArea.appendText("连接中...\n");
     }
 
     private void showAlert(String title, String message) {
@@ -194,11 +185,9 @@ public class FxMainLayout {
         if (beginFlag) {
             hourCombo = beginHourCombo;
             minuteCombo = beginMinuteCombo;
-            secondCombo = beginSecondCombo;
         } else {
             hourCombo = endHourCombo;
             minuteCombo = endMinuteCombo;
-            secondCombo = endSecondCombo;
         }
 
         // 填充小时选项 (0-23)
@@ -220,24 +209,10 @@ public class FxMainLayout {
         minuteCombo.setPrefWidth(60);  // 增加宽度
         minuteCombo.setMinWidth(60);   // 设置最小宽度
         minuteCombo.setPromptText("分");
-
-        // 填充秒选项 (0-59)
-        ObservableList<Integer> seconds = FXCollections.observableArrayList();
-        for (int i = 0; i < 60; i++) {
-            seconds.add(i);
-        }
-        secondCombo.setItems(seconds);
-        secondCombo.setPrefWidth(60);  // 增加宽度
-        secondCombo.setMinWidth(60);   // 设置最小宽度
-        secondCombo.setPromptText("秒");
-
         Label colon1 = new Label(":");
-        Label colon2 = new Label(":");
 
         HBox timeBox = new HBox(10);
-//        timeBox.setMaxWidth(400);
-//        timeBox.setMinWidth(400);
-        timeBox.getChildren().addAll(hourCombo, colon1, minuteCombo, colon2, secondCombo);
+        timeBox.getChildren().addAll(hourCombo, colon1, minuteCombo);
         return timeBox;
     }
 

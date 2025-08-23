@@ -90,6 +90,8 @@ public class Main {
         configFrame = new JFrame("系统配置");
         configFrame.setSize(650, 550);
         configFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        ImageIcon icon = new ImageIcon("notice.png");
+        configFrame.setIconImage(icon.getImage());
 
         // 将窗口居中显示
         configFrame.setLocationRelativeTo(null);
