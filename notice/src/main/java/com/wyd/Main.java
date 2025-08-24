@@ -1,6 +1,6 @@
 package com.wyd;
 
-import com.wyd.connect.netty.StringClientHandler;
+import com.wyd.connect.netty.NoticeClient;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
@@ -20,6 +20,8 @@ public class Main {
     private static JFrame configFrame;
     private static final JFXPanel fxPanel = new JFXPanel();
     private static FxMainLayout fxMainLayout;
+
+    private static NoticeClient noticeClient;
 
     public static void main(String[] args) {
         // 确保系统支持系统托盘
@@ -43,14 +45,21 @@ public class Main {
 
                 TrayIcon trayIcon = new TrayIcon(trayImage, "西洲mes");
                 trayIcon.setImageAutoSize(true);
-
+                // 初始化 noticeClient
+                try {
+                    noticeClient = new NoticeClient(trayIcon, null);
+                    noticeClient.start();
+                } catch (Exception e) {
+                    // 第一次建立连接可能会失败
+                    logger.info("可能由于配置问题，第一次连接没有成功建立。", e);
+                }
 
                 // 创建弹出菜单
                 PopupMenu popup = new PopupMenu();
 
                 // 添加菜单项
                 MenuItem configItem = new MenuItem("配置");
-                configItem.addActionListener(e -> showConfigWindow(trayIcon));
+                configItem.addActionListener(e -> showConfigWindow());
 
                 MenuItem exitItem = new MenuItem("退出");
                 exitItem.addActionListener(e -> {
@@ -66,7 +75,7 @@ public class Main {
                 trayIcon.setPopupMenu(popup);
 
                 // 添加双击事件
-                trayIcon.addActionListener(e -> showConfigWindow(trayIcon));
+                trayIcon.addActionListener(e -> showConfigWindow());
 
                 // 添加托盘图标
                 tray.add(trayIcon);
@@ -76,9 +85,9 @@ public class Main {
         });
     }
 
-    private static void showConfigWindow(TrayIcon trayIcon) {
+    private static void showConfigWindow() {
         Platform.runLater(() -> {
-            fxMainLayout = new FxMainLayout(trayIcon);
+            fxMainLayout = new FxMainLayout(noticeClient);
             Scene scene = new Scene(fxMainLayout.getMainLayout(), 650, 550);
             fxPanel.setScene(scene);
         });

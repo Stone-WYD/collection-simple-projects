@@ -1,7 +1,7 @@
 package com.wyd.connect.netty;
 
 import cn.hutool.core.date.LocalDateTimeUtil;
-import cn.hutool.core.lang.UUID;
+import cn.hutool.core.util.ObjectUtil;
 import com.wyd.util.ConfigPropertiesUtil;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
@@ -30,7 +30,7 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
         //当被通知Channel是活跃的时候，发送一条消息
-        new Thread(() -> {
+        Thread processThread = new Thread(() -> {
             // 连接成功，发送身份消息给服务端
             // fixme 定义消息格式："用户名,消息类型(0.定时任务发送，1.程序启动发送), ...(其他内容待定)"
             String content = getContent(MESSAGE_TYPE_START);
@@ -47,7 +47,7 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
                     beginTime = Integer.parseInt(ConfigPropertiesUtil.getProperty("beginStr").replaceAll("-", ""));
                     endTime = Integer.parseInt(ConfigPropertiesUtil.getProperty("endStr").replaceAll("-", ""));
                     interval = Integer.parseInt(ConfigPropertiesUtil.getProperty("interval")) * 60;
-                    if(interval < 10) interval = 10;
+                    if (interval < 10) interval = 10;
                 } catch (Exception e) {
                     logger.error("参数配置有误", e);
                     check = false;
@@ -61,6 +61,11 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
                             Thread.sleep(60 * 10 * 1000);
                         } catch (InterruptedException e) {
                             logger.error("定时任务睡眠被打断！", e);
+                        }
+                        // 如果连接关闭了，则不再运行
+                        if (ObjectUtil.isNotNull(ctx) && ObjectUtil.isNull(ctx.channel())
+                                && !ctx.channel().isActive()) {
+                            break;
                         }
                         innerInterval += 10;
                         if (innerInterval >= interval) {
@@ -79,7 +84,9 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
                     }
                 }
             }
-        }).start();
+        });
+        processThread.setDaemon(false);
+        processThread.start();
     }
 
     // 只要接收到服务端消息，则直接提示到 windows 任务栏
@@ -94,10 +101,5 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
         logger.error("netty连接异常: ", cause);
         trayIcon.displayMessage(ConfigPropertiesUtil.getProperty("userName"), "失去与主机的连接", TrayIcon.MessageType.ERROR);
         ctx.close();
-    }
-
-
-    public static void main(String[] args) {
-        System.out.println(UUID.fastUUID());
     }
 }

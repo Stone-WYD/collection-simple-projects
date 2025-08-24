@@ -1,14 +1,12 @@
 package com.wyd;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
+import com.wyd.connect.netty.NoticeClient;
 import com.wyd.util.ConfigPropertiesUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -17,17 +15,16 @@ import javafx.scene.layout.VBox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.awt.*;
-
 public class FxMainLayout {
 
     private static final Logger logger = LoggerFactory.getLogger(FxMainLayout.class);
 
     // 用于调用 windows 系统托盘
-    private final TrayIcon trayIcon;
+
+    private final NoticeClient noticeClient;
 
     private final TextField userNameField = new TextField();
-    private final TextField hostField = new TextField();
+    private final TextField urlField = new TextField();
     private final TextField intervalField = new TextField();
     private final ComboBox<Integer> beginHourCombo = new ComboBox<>();
     ComboBox<Integer> beginMinuteCombo = new ComboBox<>();
@@ -40,17 +37,16 @@ public class FxMainLayout {
     private final TextArea logArea = new TextArea();
     // 用法：logArea.appendText("================\n");
 
-    public FxMainLayout(TrayIcon trayIcon) {
-        this.trayIcon = trayIcon;
+    public FxMainLayout(NoticeClient noticeClient) {
         // 数据库参数初始化
-        String host = ConfigPropertiesUtil.getProperty("host");
+        String url = ConfigPropertiesUtil.getProperty("url");
         String userName = ConfigPropertiesUtil.getProperty("userName");
         String beginStr = ConfigPropertiesUtil.getProperty("beginStr");
         String endStr = ConfigPropertiesUtil.getProperty("endStr");
         String interval = ConfigPropertiesUtil.getProperty("interval");
         String enableIntervalAlert = ConfigPropertiesUtil.getProperty("enableIntervalAlert");
         if (!StrUtil.isEmpty(userName)) userNameField.setText(userName);
-        if (!StrUtil.isEmpty(host)) hostField.setText(host);
+        if (!StrUtil.isEmpty(url)) urlField.setText(url);
         if (!StrUtil.isEmpty(beginStr)) {
             String[] split = beginStr.split("-");
             beginHourCombo.setValue(Integer.parseInt(split[0]));
@@ -68,6 +64,10 @@ public class FxMainLayout {
             enableIntervalAlertCheckBox.setSelected(Boolean.parseBoolean(enableIntervalAlert));
         } else {
             enableIntervalAlertCheckBox.setSelected(true); // 默认开启
+        }
+        this.noticeClient =  noticeClient;
+        if (ObjectUtil.isNotNull(noticeClient)) {
+            noticeClient.setLogArea(logArea);
         }
     }
 
@@ -112,9 +112,9 @@ public class FxMainLayout {
         grid.add(userNameField, 1, 0);
         GridPane.setHgrow(userNameField, Priority.ALWAYS);
         // 主机配置
-        grid.add(new Label("主机地址:"), 0, 1);
-        grid.add(hostField, 1, 1);
-        GridPane.setHgrow(hostField, Priority.ALWAYS);
+        grid.add(new Label("服务器url:"), 0, 1);
+        grid.add(urlField, 1, 1);
+        GridPane.setHgrow(urlField, Priority.ALWAYS);
 
         // 时间配置 - 自定义时间选择器
         HBox startTimeBox = createTimeSelector(true);
@@ -148,7 +148,7 @@ public class FxMainLayout {
         try {
             // 保存配置到文件
             ConfigPropertiesUtil.setProp("userName", userNameField.getText());
-            ConfigPropertiesUtil.setProp("host", hostField.getText());
+            ConfigPropertiesUtil.setProp("url", urlField.getText());
             ConfigPropertiesUtil.setProp("interval", intervalField.getText());
             // 保存时间
             String beginStr = String.format("%02d-%02d", beginHourCombo.getValue(), beginMinuteCombo.getValue());
@@ -175,6 +175,12 @@ public class FxMainLayout {
 
     private void handleConnection() {
         logArea.appendText("连接中...\n");
+        try {
+            noticeClient.start();
+        } catch (Exception e) {
+            logger.error("通过面板按钮建立连接失败，", e);
+        }
+
     }
 
     private void showAlert(String title, String message) {
@@ -187,7 +193,7 @@ public class FxMainLayout {
 
     // 创建时间选择器（时:分:秒）
     private HBox createTimeSelector(boolean beginFlag) {
-        ComboBox<Integer> hourCombo, minuteCombo, secondCombo;
+        ComboBox<Integer> hourCombo, minuteCombo;
         if (beginFlag) {
             hourCombo = beginHourCombo;
             minuteCombo = beginMinuteCombo;
