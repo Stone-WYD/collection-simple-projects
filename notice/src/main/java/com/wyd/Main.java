@@ -1,8 +1,11 @@
 package com.wyd;
 
+import com.wyd.connect.netty.StringClientHandler;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +15,8 @@ import java.awt.event.WindowEvent;
 public class Main {
     // fixme 需要注意项目以 GBK 的编码运行，项目中出现的
 
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
     private static JFrame configFrame;
     private static final JFXPanel fxPanel = new JFXPanel();
     private static FxMainLayout fxMainLayout;
@@ -19,7 +24,7 @@ public class Main {
     public static void main(String[] args) {
         // 确保系统支持系统托盘
         if (!SystemTray.isSupported()) {
-            System.err.println("系统不支持托盘功能");
+            logger.error("系统不支持托盘功能");
             return;
         }
         // 预加载一次，否则第一次加载会比较慢
@@ -66,7 +71,7 @@ public class Main {
                 // 添加托盘图标
                 tray.add(trayIcon);
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                logger.error("添加托盘图标异常", e);
             }
         });
     }

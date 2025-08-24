@@ -14,9 +14,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.awt.*;
 
 public class FxMainLayout {
+
+    private static final Logger logger = LoggerFactory.getLogger(FxMainLayout.class);
 
     // 用于调用 windows 系统托盘
     private final TrayIcon trayIcon;
@@ -161,6 +166,7 @@ public class FxMainLayout {
 //                trayIcon.displayMessage("配置保存", "配置信息已成功保存", TrayIcon.MessageType.INFO);
 //            }
         } catch (Exception e) {
+            logger.error("保存配置失败: " + e);
             logArea.appendText("保存配置失败: " + e.getMessage() + "\n");
             showAlert("保存失败", "配置保存失败: " + e.getMessage());
         }

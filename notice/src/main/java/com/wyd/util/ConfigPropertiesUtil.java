@@ -1,6 +1,9 @@
 package com.wyd.util;
 
+import com.wyd.connect.netty.NoticeClient;
 import lombok.Getter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.Properties;
@@ -12,6 +15,7 @@ import java.util.Properties;
  */
 @SuppressWarnings("ResultOfMethodCallIgnored")
 public class ConfigPropertiesUtil {
+    private static final Logger logger = LoggerFactory.getLogger(ConfigPropertiesUtil.class);
 
     @Getter
     private final static Properties prop = new Properties();
@@ -24,7 +28,7 @@ public class ConfigPropertiesUtil {
             // 加载properties文件
             prop.load(input);
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            logger.error("读取配置异常", ex);
         }
     }
 
@@ -43,7 +47,7 @@ public class ConfigPropertiesUtil {
             FileOutputStream output = new FileOutputStream("config.properties");
             prop.store(output, null); // 第二个参数是注释，可选
         } catch (IOException io) {
-            io.printStackTrace();
+            logger.error("保存配置文件失败", io);
         }
     }
 
