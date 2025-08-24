@@ -85,10 +85,14 @@ public class NoticeClient {
     }
 
     private Channel channel;
-    public void start() throws InterruptedException {
+    public void start(){
         if (ObjectUtil.isNotNull(channel)) {
             // 已有连接，先关闭已有连接
-            channel.close().sync();
+            try {
+                channel.close().sync();
+            } catch (InterruptedException e) {
+                logger.error("关闭已有连接异常！", e);
+            }
         }
 
         try {
@@ -108,14 +112,23 @@ public class NoticeClient {
                     if (logArea != null) {
                         logArea.appendText("连接失败！，请联系管理员！\n");
                     }
-                    trayIcon.displayMessage("连接状态", "通知程序与服务器连接失败，请联系管理员！", TrayIcon.MessageType.ERROR);
+                    trayIcon.displayMessage("连接状态", "通知程序与服务器连接失败，请联系管理员！", TrayIcon.MessageType.INFO);
                 }
             });
             channel = connectFuture.sync().channel();
             channel.closeFuture().sync();
         } catch (Exception e) {
             logger.error("Netty客户端启动失败！请检查参数配置", e);
-        } finally {
+            if (ObjectUtil.isNotNull(logArea)) {
+                logArea.appendText("Netty客户端启动失败！请检查参数配置\r\n");
+            }
+        } /*finally {
+            group.shutdownGracefully();
+        }*/
+    }
+
+    public void stop() {
+        if (ObjectUtil.isNotNull(group)) {
             group.shutdownGracefully();
         }
     }

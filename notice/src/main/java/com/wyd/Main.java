@@ -45,14 +45,6 @@ public class Main {
 
                 TrayIcon trayIcon = new TrayIcon(trayImage, "西洲mes");
                 trayIcon.setImageAutoSize(true);
-                // 初始化 noticeClient
-                try {
-                    noticeClient = new NoticeClient(trayIcon, null);
-                    noticeClient.start();
-                } catch (Exception e) {
-                    // 第一次建立连接可能会失败
-                    logger.info("可能由于配置问题，第一次连接没有成功建立。", e);
-                }
 
                 // 创建弹出菜单
                 PopupMenu popup = new PopupMenu();
@@ -64,6 +56,7 @@ public class Main {
                 MenuItem exitItem = new MenuItem("退出");
                 exitItem.addActionListener(e -> {
                     tray.remove(trayIcon);
+                    noticeClient.stop();
                     System.exit(0);
                 });
 
@@ -79,6 +72,15 @@ public class Main {
 
                 // 添加托盘图标
                 tray.add(trayIcon);
+
+                // 初始化 noticeClient
+                try {
+                    noticeClient = new NoticeClient(trayIcon, null);
+                    noticeClient.start();
+                } catch (Exception e) {
+                    // 第一次建立连接可能会失败
+                    logger.info("可能由于配置问题，第一次连接没有成功建立。", e);
+                }
             } catch (Exception e) {
                 logger.error("添加托盘图标异常", e);
             }

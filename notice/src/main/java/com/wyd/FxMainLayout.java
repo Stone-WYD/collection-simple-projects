@@ -1,5 +1,6 @@
 package com.wyd;
 
+import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.wyd.connect.netty.NoticeClient;
@@ -31,7 +32,7 @@ public class FxMainLayout {
 
     private final ComboBox<Integer> endHourCombo = new ComboBox<>();
     ComboBox<Integer> endMinuteCombo = new ComboBox<>();
-    private final CheckBox enableIntervalAlertCheckBox = new CheckBox("开启间隔提醒");
+    private final CheckBox enableIntervalAlertCheckBox = new CheckBox("间隔提醒");
 
     // 日志区域
     private final TextArea logArea = new TextArea();
@@ -162,9 +163,6 @@ public class FxMainLayout {
             logArea.appendText("配置已保存成功\n");
 
             // 显示系统托盘通知（如果可用）
-//            if (trayIcon != null) {
-//                trayIcon.displayMessage("配置保存", "配置信息已成功保存", TrayIcon.MessageType.INFO);
-//            }
         } catch (Exception e) {
             logger.error("保存配置失败: " + e);
             logArea.appendText("保存配置失败: " + e.getMessage() + "\n");
@@ -175,12 +173,7 @@ public class FxMainLayout {
 
     private void handleConnection() {
         logArea.appendText("连接中...\n");
-        try {
-            noticeClient.start();
-        } catch (Exception e) {
-            logger.error("通过面板按钮建立连接失败，", e);
-        }
-
+        ThreadUtil.execute(noticeClient::start);
     }
 
     private void showAlert(String title, String message) {
