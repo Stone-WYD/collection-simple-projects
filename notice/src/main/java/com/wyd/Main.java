@@ -43,7 +43,7 @@ public class Main {
                 Image image = Toolkit.getDefaultToolkit().getImage("notice.png");
                 Image trayImage = image.getScaledInstance(16, 16, Image.SCALE_SMOOTH);
 
-                TrayIcon trayIcon = new TrayIcon(trayImage, "西洲mes");
+                TrayIcon trayIcon = new TrayIcon(trayImage, "mes消息提示");
                 trayIcon.setImageAutoSize(true);
 
                 // 创建弹出菜单
@@ -74,13 +74,11 @@ public class Main {
                 tray.add(trayIcon);
 
                 // 初始化 noticeClient
-                try {
-                    noticeClient = new NoticeClient(trayIcon, null);
+                noticeClient = new NoticeClient(trayIcon, null);
+                new Thread(() -> {
+                    // 尝试运行一次
                     noticeClient.start();
-                } catch (Exception e) {
-                    // 第一次建立连接可能会失败
-                    logger.info("可能由于配置问题，第一次连接没有成功建立。", e);
-                }
+                }).start();
             } catch (Exception e) {
                 logger.error("添加托盘图标异常", e);
             }

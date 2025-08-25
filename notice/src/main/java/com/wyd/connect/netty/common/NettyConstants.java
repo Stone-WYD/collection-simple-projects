@@ -17,6 +17,6 @@ public class NettyConstants {
 
     public static String getContent(String messageType) {
         String userName = ConfigPropertiesUtil.getProperty("userName");
-        return userName + "," + DEVICE_ID + "," + messageType;
+        return userName + "," + DEVICE_ID + "," + messageType + "\n";
     }
 }

@@ -63,6 +63,7 @@ public class NoticeClient {
                         // 5min 内如果没有向服务器写数据，会触发一个IdeState#WRITER_IDIE 事件
                         //                                         读空闲时间             写空闲时间             所有(读写)空闲时间
                         pipeline.addLast(new IdleStateHandler(0, 60 * 5, 0));
+                        // pipeline.addLast(new IdleStateHandler(0, 5, 0));
                         pipeline.addLast(new ChannelDuplexHandler() {
                             // 用来出发特殊事件
                             @Override
@@ -112,7 +113,7 @@ public class NoticeClient {
                     if (logArea != null) {
                         logArea.appendText("连接失败！，请联系管理员！\n");
                     }
-                    trayIcon.displayMessage("连接状态", "通知程序与服务器连接失败，请联系管理员！", TrayIcon.MessageType.INFO);
+                    trayIcon.displayMessage("连接状态", "通知程序与服务器连接失败，请联系管理员！", TrayIcon.MessageType.ERROR);
                 }
             });
             channel = connectFuture.sync().channel();
