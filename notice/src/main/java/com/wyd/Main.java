@@ -11,12 +11,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.net.URL;
 
 public class Main {
     // fixme 需要注意项目以 GBK 的编码运行，项目中出现的
 
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
-
+    private static final URL imageUrl = Main.class.getClassLoader().getResource("notice.png");
     private static JFrame configFrame;
     private static final JFXPanel fxPanel = new JFXPanel();
     private static FxMainLayout fxMainLayout;
@@ -40,10 +41,10 @@ public class Main {
             try {
                 // 创建系统托盘图标
                 SystemTray tray = SystemTray.getSystemTray();
-                Image image = Toolkit.getDefaultToolkit().getImage("notice.png");
+                Image image = Toolkit.getDefaultToolkit().getImage(imageUrl);
                 Image trayImage = image.getScaledInstance(16, 16, Image.SCALE_SMOOTH);
 
-                TrayIcon trayIcon = new TrayIcon(trayImage, "mes消息提示");
+                TrayIcon trayIcon = new TrayIcon(trayImage, "MES信息通知");
                 trayIcon.setImageAutoSize(true);
 
                 // 创建弹出菜单
@@ -104,7 +105,8 @@ public class Main {
         configFrame = new JFrame("系统配置");
         configFrame.setSize(650, 550);
         configFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        ImageIcon icon = new ImageIcon("notice.png");
+
+        ImageIcon icon = new ImageIcon(imageUrl);
         configFrame.setIconImage(icon.getImage());
 
         // 将窗口居中显示

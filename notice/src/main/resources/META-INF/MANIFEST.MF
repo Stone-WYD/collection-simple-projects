@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Main-Class: com.wyd.Main
+Class-Path: netty-transport-native-epoll-4.1.86.Final-linux-x86_64.jar n
+ etty-buffer-4.1.86.Final.jar netty-codec-haproxy-4.1.86.Final.jar slf4j
+ -api-1.7.32.jar lombok-1.18.22.jar netty-resolver-dns-4.1.86.Final.jar 
+ netty-resolver-4.1.86.Final.jar hutool-all-5.7.17.jar netty-codec-memca
+ che-4.1.86.Final.jar netty-codec-http-4.1.86.Final.jar netty-handler-ss
+ l-ocsp-4.1.86.Final.jar netty-transport-sctp-4.1.86.Final.jar netty-all
+ -4.1.86.Final.jar netty-transport-native-unix-common-4.1.86.Final.jar n
+ etty-codec-mqtt-4.1.86.Final.jar logback-classic-1.2.11.jar netty-trans
+ port-rxtx-4.1.86.Final.jar netty-codec-smtp-4.1.86.Final.jar netty-hand
+ ler-proxy-4.1.86.Final.jar netty-transport-udt-4.1.86.Final.jar netty-t
+ ransport-native-epoll-4.1.86.Final-linux-aarch_64.jar netty-transport-c
+ lasses-epoll-4.1.86.Final.jar netty-transport-native-kqueue-4.1.86.Fina
+ l-osx-x86_64.jar netty-codec-dns-4.1.86.Final.jar netty-resolver-dns-cl
+ asses-macos-4.1.86.Final.jar netty-resolver-dns-native-macos-4.1.86.Fin
+ al-osx-aarch_64.jar netty-codec-xml-4.1.86.Final.jar netty-codec-http2-
+ 4.1.86.Final.jar netty-transport-4.1.86.Final.jar netty-resolver-dns-na
+ tive-macos-4.1.86.Final-osx-x86_64.jar netty-transport-native-kqueue-4.
+ 1.86.Final-osx-aarch_64.jar netty-codec-4.1.86.Final.jar netty-transpor
+ t-classes-kqueue-4.1.86.Final.jar netty-common-4.1.86.Final.jar netty-c
+ odec-socks-4.1.86.Final.jar netty-codec-stomp-4.1.86.Final.jar netty-co
+ dec-redis-4.1.86.Final.jar netty-handler-4.1.86.Final.jar logback-core-
+ 1.2.11.jar
+
