@@ -47,6 +47,11 @@
             <version>${logback.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.jacob</groupId>
+            <artifactId>jacob</artifactId>
+            <version>1.21</version>
+        </dependency>
     </dependencies>
 
     <build>

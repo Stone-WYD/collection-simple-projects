@@ -1,8 +1,6 @@
-package com.wyd.connect.netty.service;
+package com.wyd.test.service;
 
 import cn.hutool.core.util.StrUtil;
-import com.wyd.connect.netty.NoticeClient;
-import com.wyd.connect.netty.StringClientHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -63,7 +61,7 @@ public class NoticeTestService {
                                 @Override
                                 protected void channelRead0(ChannelHandlerContext context, String s) throws Exception {
                                     if (StrUtil.isNotEmpty(s)) {
-                                        context.writeAndFlush("您有 1 条待审核任务，");
+                                        context.writeAndFlush("服务端收到消息：" + s);
                                     } else {
                                         context.writeAndFlush("服务端没有接收到数据！");
                                     }
