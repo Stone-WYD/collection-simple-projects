@@ -14,7 +14,7 @@ import java.awt.*;
 import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 
-import static com.wyd.connect.netty.common.NettyConstants.*;
+import static com.wyd.connect.netty.common.MessageConstants.*;
 
 @ChannelHandler.Sharable
 public class StringClientHandler extends ChannelInboundHandlerAdapter {
@@ -33,7 +33,7 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
         Thread processThread = new Thread(() -> {
             // 连接成功，发送身份消息给服务端
             // fixme 定义消息格式："用户名,消息类型(0.定时任务发送，1.程序启动发送), ...(其他内容待定)"
-            String content = getContent(MESSAGE_TYPE_START);
+            String content = generateClientMessage(MESSAGE_TYPE_START);
             ctx.writeAndFlush(Unpooled.copiedBuffer(content, Charset.forName("GBK")));
             // 服务端收到消息，启动定时任务按时给服务端发送消息
             String enableIntervalAlert = ConfigPropertiesUtil.getProperty("enableIntervalAlert");
@@ -77,7 +77,7 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
                             int inthhmm = Integer.parseInt(hhmm);
                             if (inthhmm >= beginTime && inthhmm <= endTime) {
                                 // 该发送通知了
-                                String taskContent = getContent(MESSAGE_TYPE_TASK);
+                                String taskContent = generateClientMessage(MESSAGE_TYPE_TASK);
                                 ctx.writeAndFlush(Unpooled.copiedBuffer(taskContent, Charset.forName("GBK")));
                             }
                         }

@@ -21,8 +21,8 @@ import java.awt.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
-import static com.wyd.connect.netty.common.NettyConstants.MESSAGE_TYPE_PING;
-import static com.wyd.connect.netty.common.NettyConstants.getContent;
+import static com.wyd.connect.netty.common.MessageConstants.MESSAGE_TYPE_PING;
+import static com.wyd.connect.netty.common.MessageConstants.generateClientMessage;
 
 public class NoticeClient {
 
@@ -71,7 +71,7 @@ public class NoticeClient {
                                 IdleStateEvent event = (IdleStateEvent) evt;
                                 if (IdleState.WRITER_IDLE == event.state()) {
                                     // 每隔五分钟 发送一个心跳包
-                                    ctx.writeAndFlush(getContent(MESSAGE_TYPE_PING));
+                                    ctx.writeAndFlush(generateClientMessage(MESSAGE_TYPE_PING));
                                 }
                             }
                         });
