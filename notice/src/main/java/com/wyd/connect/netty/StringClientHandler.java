@@ -46,7 +46,7 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
                 try {
                     beginTime = Integer.parseInt(ConfigPropertiesUtil.getProperty("beginStr").replaceAll("-", ""));
                     endTime = Integer.parseInt(ConfigPropertiesUtil.getProperty("endStr").replaceAll("-", ""));
-                    interval = Integer.parseInt(ConfigPropertiesUtil.getProperty("interval")) * 60;
+                    interval = (int) Double.parseDouble(ConfigPropertiesUtil.getProperty("interval")) * 60;
                     if (interval < 10) interval = 10;
                 } catch (Exception e) {
                     logger.error("参数配置有误", e);
@@ -73,7 +73,7 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
                             LocalDateTime now = LocalDateTimeUtil.now();
                             int hour = now.getHour();
                             int minute = now.getMinute();
-                            String hhmm = hour + "" + minute;
+                            String hhmm = String.format("%02d%02d", hour, minute);
                             int inthhmm = Integer.parseInt(hhmm);
                             if (inthhmm >= beginTime && inthhmm <= endTime) {
                                 // 该发送通知了
@@ -101,5 +101,9 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
         logger.error("netty连接异常: ", cause);
         trayIcon.displayMessage(ConfigPropertiesUtil.getProperty("userName"), "失去与主机的连接", TrayIcon.MessageType.ERROR);
         ctx.close();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(String.format("%02d%02d", 1, 2));
     }
 }

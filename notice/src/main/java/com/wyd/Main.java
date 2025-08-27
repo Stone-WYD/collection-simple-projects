@@ -11,7 +11,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.RandomAccessFile;
 import java.net.URL;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 
 public class Main {
     // fixme 需要注意项目以 GBK 的编码运行，项目中出现的
@@ -19,17 +23,32 @@ public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
     private static final URL imageUrl = Main.class.getClassLoader().getResource("notice.png");
     private static JFrame configFrame;
-    private static final JFXPanel fxPanel = new JFXPanel();
+    private static JFXPanel fxPanel;
     private static FxMainLayout fxMainLayout;
+
+    // 添加文件锁相关变量
+    private static FileLock fileLock;
+    private static FileChannel fileChannel;
+    private static RandomAccessFile randomAccessFile;
 
     private static NoticeClient noticeClient;
 
     public static void main(String[] args) {
+        // 检查是否已经运行
+        if (!acquireLock()) {
+            logger.warn("程序已经在运行中...");
+            return;
+        }
+        // 添加关闭钩子来释放锁
+        Runtime.getRuntime().addShutdownHook(new Thread(Main::releaseLock));
+
         // 确保系统支持系统托盘
         if (!SystemTray.isSupported()) {
             logger.error("系统不支持托盘功能");
             return;
         }
+
+        fxPanel = new JFXPanel();
         // 预加载一次，否则第一次加载会比较慢
         Platform.runLater(() -> {
             fxMainLayout = new FxMainLayout(null);
@@ -125,6 +144,60 @@ public class Main {
 
         // 显示窗口
         configFrame.setVisible(true);
+    }
+
+    /**
+     * 获取程序锁，确保只有一个实例运行
+     * @return true-获取成功，false-获取失败（已在运行）
+     */
+    private static boolean acquireLock() {
+        try {
+            // 使用用户临时目录创建锁文件
+            String userHome = System.getProperty("user.home");
+            File lockFile = new File(userHome, ".mes_notice_app.lock");
+
+            randomAccessFile = new RandomAccessFile(lockFile, "rw");
+            fileChannel = randomAccessFile.getChannel();
+
+            // 尝试获取文件锁
+            fileLock = fileChannel.tryLock();
+
+            if (fileLock == null) {
+                // 获取锁失败，说明程序已在运行
+                releaseLock();
+                return false;
+            }
+
+            // 写入当前进程信息
+            String processName = java.lang.management.ManagementFactory.getRuntimeMXBean().getName();
+            long pid = Long.parseLong(processName.split("@")[0]);
+            randomAccessFile.writeBytes("MES Notice App PID: " + pid);
+
+            return true;
+        } catch (Exception e) {
+            logger.error("获取程序锁失败", e);
+            releaseLock();
+            return false;
+        }
+    }
+
+    /**
+     * 释放程序锁
+     */
+    private static void releaseLock() {
+        try {
+            if (fileLock != null) {
+                fileLock.release();
+            }
+            if (fileChannel != null) {
+                fileChannel.close();
+            }
+            if (randomAccessFile != null) {
+                randomAccessFile.close();
+            }
+        } catch (Exception e) {
+            logger.error("释放程序锁失败", e);
+        }
     }
 
 }
