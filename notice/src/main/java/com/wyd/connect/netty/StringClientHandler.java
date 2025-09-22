@@ -3,7 +3,6 @@ package com.wyd.connect.netty;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.wyd.util.ConfigPropertiesUtil;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -11,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 
 import static com.wyd.connect.netty.common.MessageConstants.*;
@@ -34,7 +32,7 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
             // 连接成功，发送身份消息给服务端
             // fixme 定义消息格式："用户名,消息类型(0.定时任务发送，1.程序启动发送), ...(其他内容待定)"
             String content = generateClientMessage(MESSAGE_TYPE_START);
-            ctx.writeAndFlush(Unpooled.copiedBuffer(content, Charset.forName("GBK")));
+            ctx.writeAndFlush(content);
             // 服务端收到消息，启动定时任务按时给服务端发送消息
             String enableIntervalAlert = ConfigPropertiesUtil.getProperty("enableIntervalAlert");
             if ("true".equals(enableIntervalAlert)) {
@@ -78,7 +76,7 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
                             if (inthhmm >= beginTime && inthhmm <= endTime) {
                                 // 该发送通知了
                                 String taskContent = generateClientMessage(MESSAGE_TYPE_TASK);
-                                ctx.writeAndFlush(Unpooled.copiedBuffer(taskContent, Charset.forName("GBK")));
+                                ctx.writeAndFlush(taskContent);
                             }
                         }
                     }
@@ -101,9 +99,5 @@ public class StringClientHandler extends ChannelInboundHandlerAdapter {
         logger.error("netty连接异常: ", cause);
         trayIcon.displayMessage(ConfigPropertiesUtil.getProperty("userName"), "失去与主机的连接", TrayIcon.MessageType.ERROR);
         ctx.close();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(String.format("%02d%02d", 1, 2));
     }
 }

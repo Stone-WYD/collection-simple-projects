@@ -32,7 +32,7 @@ public class NoticeClient {
 
     private TextArea logArea;
 
-    NioEventLoopGroup group = new NioEventLoopGroup();
+    NioEventLoopGroup group = new NioEventLoopGroup(2);
     LoggingHandler LOGGING_HANDLER = new LoggingHandler();
     StringClientHandler stringClientHandler;
     Bootstrap bootstrap = new Bootstrap();
@@ -75,6 +75,8 @@ public class NoticeClient {
                                 }
                             }
                         });
+
+
                         // 添加业务handler
                         pipeline.addLast(stringClientHandler);
                     }
