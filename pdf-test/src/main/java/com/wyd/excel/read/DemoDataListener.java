@@ -56,11 +56,7 @@ public class DemoDataListener extends AnalysisEventListener<DynamicPrcessPriceDa
     public void invoke(DynamicPrcessPriceData data, AnalysisContext context) {
         cachedDataList.add(data);
         // 达到BATCH_COUNT了，需要去存储一次数据库，防止数据几万条数据在内存，容易OOM
-        if (cachedDataList.size() >= BATCH_COUNT) {
-            saveData();
-            // 存储完成清理 list
-            cachedDataList = ListUtils.newArrayListWithExpectedSize(BATCH_COUNT);
-        }
+        System.out.println(data);
     }
 
     /**

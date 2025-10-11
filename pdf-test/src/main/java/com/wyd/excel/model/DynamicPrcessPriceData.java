@@ -3,8 +3,12 @@ package com.wyd.excel.model;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.Data;
+import lombok.ToString;
+
+import java.math.BigDecimal;
 
 @Data
+@ToString
 public class DynamicPrcessPriceData {
 
     @ExcelProperty(index = 1)
@@ -17,47 +21,47 @@ public class DynamicPrcessPriceData {
     private Integer num;
 
     @ExcelProperty(index = 4)
-    private String process1;
+    private BigDecimal process1;
 
     @ExcelProperty(index = 5)
-    private String process2;
+    private BigDecimal process2;
 
     @ExcelProperty(index = 6)
-    private String process3;
+    private BigDecimal process3;
 
     @ExcelProperty(index = 7)
-    private String process4;
+    private BigDecimal process4;
 
     @ExcelProperty(index = 8)
-    private String process5;
+    private BigDecimal process5;
 
     @ExcelProperty(index = 9)
-    private String process6;
+    private BigDecimal process6;
 
     @ExcelProperty(index = 10)
-    private String process7;
+    private Double process7;
 
     @ExcelProperty(index = 11)
-    private String process8;
+    private Double process8;
 
     @ExcelProperty(index = 12)
-    private String process9;
+    private BigDecimal process9;
 
     @ExcelProperty(index = 13)
-    private String process10;
+    private BigDecimal process10;
 
     @ExcelProperty(index = 14)
-    private String process11;
+    private BigDecimal process11;
 
     @ExcelProperty(index = 15)
-    private String process12;
+    private BigDecimal process12;
 
     @ExcelProperty(index = 16)
-    private String process13;
+    private BigDecimal process13;
 
     @ExcelProperty(index = 17)
-    private String process14;
+    private BigDecimal process14;
 
     @ExcelProperty(index = 18)
-    private String process15;
+    private BigDecimal process15;
 }
