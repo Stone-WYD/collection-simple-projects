@@ -1,4 +1,4 @@
-package com.wyd.pdftest;
+package com.wyd.pdf;
 
 /**
  * @program: pdf-test

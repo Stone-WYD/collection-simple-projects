@@ -32,6 +32,18 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
 
     </dependencies>
     <dependencyManagement>
@@ -63,7 +75,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.wyd.pdftest.PdfTestApplication</mainClass>
+                    <mainClass>com.wyd.pdf.PdfTestApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>

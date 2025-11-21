@@ -74,6 +74,7 @@
             <version>${lombok.version}</version>
         </dependency>
     </dependencies>
+
     <!--打包时包含java目录下的mybatis的xml文件资源-->
     <build>
         <resources>
