@@ -1,0 +1,53 @@
+# 添加配置文件
+db1:
+  jdbcUrl: jdbc:mysql://127.0.0.1:3306/ibms_xxgt?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&rewriteBatchedStatements=true
+  username: root
+  password: 123456
+  driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 记录器级别的配置示例 配置了print-sql没有配置对应的log也不会打印
+solon.logging.logger:
+  "root": #默认记录器配置
+    level: TRACE
+  "com.zaxxer.hikari":
+    level: WARN
+server.port: 8888
+solon.logging:
+  appender:
+    console:
+      level: INFO
+    file:
+      level: INFO
+
+solon.app:
+  name: 'ibms-queue-manager'
+  group: 'ibms'
+
+
+easy-query:
+  # 配置自定义日志
+  # log-class: ...
+  db1:
+    # 支持mysql pgsql h2 mssql dameng mssql_row_number kingbase_es等其余数据库在适配中
+    database: mysql
+    # 支持underlined default lower_camel_case upper_camel_case upper_underlined
+    name-conversion: underlined
+    # 物理删除时抛出异常 不包括手写sql的情况
+    delete-throw: true
+    #entity映射到dto/vo使用属性匹配模式
+    #支持 property_only column_only column_and_property property_first
+    mapping-strategy: property_first
+    # 插入列策略 all_columns only_not_null_columns only_null_columns
+    insert-strategy: only_not_null_columns
+    # 更新列策略 all_columns only_not_null_columns only_null_columns
+    update-strategy: all_columns
+    # 大字段依旧查询 如果不查询建议设置为updateIgnore防止update allcolumn将其改为null
+    query-large-column: true
+    # 更新删除无版本号报错
+    no-version-error: true
+
+
+ims4:
+  username: admin
+  password: 8ddcff3a80f4189ca1c9d4d902c3c909
+  url: http://47.103.216.72:9116
