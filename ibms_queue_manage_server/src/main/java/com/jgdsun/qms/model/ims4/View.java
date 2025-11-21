@@ -2,9 +2,9 @@
 package com.jgdsun.qms.model.ims4;
 
 import java.util.List;
-import javax.annotation.Generated;
+ 
 
-@Generated("net.hexar.json2pojo")
+  
 @SuppressWarnings("unused")
 public class View {
 

@@ -2,10 +2,8 @@
 package com.jgdsun.qms.model.ims4.detail;
 
 import java.util.List;
-import javax.annotation.Generated;
 import org.noear.snack.annotation.ONodeAttr;
 
-@Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
 public class Extension {
 

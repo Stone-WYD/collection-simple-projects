@@ -2,12 +2,12 @@
 package com.wyd.zmhkmiddleware.business.model.hk.result;
 
 import java.util.List;
-import javax.annotation.Generated;
+ 
 import com.google.gson.annotations.Expose;
 import com.wyd.zmhkmiddleware.business.model.hk.result.concrete.PersonAddFailure;
 import com.wyd.zmhkmiddleware.business.model.hk.result.concrete.PersonAddSuccess;
 
-@Generated("net.hexar.json2pojo")
+  
 @SuppressWarnings("unused")
 public class BatchAddPersonResult {
 

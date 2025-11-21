@@ -1,7 +1,7 @@
 
 package com.jgdsun.qms.model.ims4;
 
-import javax.annotation.Generated;
+ 
 
 import com.jgdsun.qms.model.ims4.detail.ListInfo;
 import com.jgdsun.qms.model.ims4.detail.StatusStats;
@@ -10,7 +10,7 @@ import org.noear.snack.annotation.ONodeAttr;
 
 import java.util.List;
 
-@Generated("net.hexar.json2pojo")
+  
 @SuppressWarnings("unused")
 public class DeviceDetail {
 

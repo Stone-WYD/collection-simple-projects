@@ -10,8 +10,6 @@ import org.noear.solon.annotation.Mapping;
 import org.noear.solon.core.handle.MethodType;
 import org.noear.solon.data.annotation.Ds;
 
-import javax.annotation.Resource;
-
 /**
  * @author Stone
  * @since 2025-10-16

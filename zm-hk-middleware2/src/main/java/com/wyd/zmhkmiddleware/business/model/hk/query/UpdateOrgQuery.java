@@ -1,10 +1,10 @@
 
 package com.wyd.zmhkmiddleware.business.model.hk.query;
 
-import javax.annotation.Generated;
+ 
 import com.google.gson.annotations.Expose;
 
-@Generated("net.hexar.json2pojo")
+  
 @SuppressWarnings("unused")
 public class UpdateOrgQuery {
 
