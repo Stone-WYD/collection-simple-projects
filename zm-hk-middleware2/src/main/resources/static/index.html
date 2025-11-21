@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<title>巡检人员同步系统</title>
+		<title>人员推送系统</title>
 		<!-- 样 式 文 件 -->
 		<link rel="stylesheet" href="component/pear/css/pear.css" />
 		<link rel="stylesheet" href="admin/css/other/login.css" />
@@ -11,10 +11,10 @@
     <!-- 代 码 结 构 -->
 	<body  style="background-size: cover;">
 		<form class="layui-form" action="javascript:void(0);">
-			<div class="layui-form-item" style="height: 60px;">
+			<div class="layui-form-item" style="height: 60px;align-items: center;display: flex;">
 				<img class="logo" src="admin/images/logo.png" />
-				<div class="title">巡检人员同步系统</div>
-				
+				<div class="title" style="width: 100%;text-align: center;">人员推送系统</div>
+
 			</div>
 			<div class="layui-form-item" >
 				<input  id="username" name="username" placeholder="请输入账号" lay-verify="required" hover class="layui-input"  />
@@ -22,13 +22,13 @@
 			<div class="layui-form-item">
 				<input id="password" type="password" name="password" placeholder="请输入密码" lay-verify="required" hover class="layui-input"  />
 			</div>
-			
+
 			<div class="layui-form-item">
 				<input id="captchaValue" placeholder="验证码 : "  hover  lay-verify="required" class="code layui-input layui-input-inline"  />
 				<img id="img_code"  class="codeImage" onclick="getCodeImg()"/>
 			</div>
-			
-			
+
+
 			<div class="layui-form-item">
 				<input id="remember" name="remember" type="checkbox" value="1" title="记住密码" lay-skin="primary" >
 			</div>
@@ -47,53 +47,53 @@
 			var codeKey;
 			layui.use(['form',  'popup','jquery'], function() {
 				var form = layui.form;
-			
+
 				var popup = layui.popup;
 				//var $ = layui.
 				 $ = layui.jquery;
-				
+
 				//var storage = window.localStorage;
-				
+
 				getCodeImg();
-				
+
 				// var token = storage.getItem("access_token");
 				var username = storage.getItem('username');
 				var password = storage.getItem('password');
-				
-				
+
+
 				if(username != null && username !='')
 				{
-				
+
 					$("#username").val(username);
-					
+
 					$("#remember").prop('checked', true);
-					
-					
+
+
 					console.log("选中");
-					
+
 				}else{
 					//$("#remember").attr('checked', '');
-					
+
 					console.log("取消选中1");
 				}
-				
+
 				form.render('checkbox');
-				
+
 				if(password != null && password !='')
 				{
 					$("#password").val(password);
 				}
-				
-				
+
+
                 // 登 录 提 交
 				form.on('submit(login)', function(data) {
-					
-					
+
+
 					console.log("data",data);
-					
+
 					console.log("data.username",data.field.username);
-					
-					
+
+
 					if (data.field.username == '') {
 									layer.msg('用户名不能为空');
 									return false;
@@ -102,22 +102,22 @@
 							layer.msg('密码不能为空');
 							return false;
 					}
-					
+
 					if (data.field.captchaValue == '') {
 							layer.msg('验证码不能为空');
 							return false;
 					}
-								
-					
+
+
 								//console.log("remember "+remember);
-					
-					
+
+
 								var index = layer.msg('正在登录中...', {icon: 16,shade: [0.5, '#f5f5f5'],scrollbar: false,offset: 'auto', time:100000});
-					
+
 								//console.log(data);
-								
-								
-								
+
+
+
 								$.ajax({
 									method: 'POST',
 									url: baseUrl+'/login',
@@ -131,134 +131,134 @@
 										'captchaKey':codeKey
 									}),
 									success: function(rdata) {
-										
+
 										// alert(rdata);
 										 console.log(rdata)
-										
-										
+
+
 										layer.close(index);
-										
-										
+
+
 										if(rdata.code==0)
 										{
-										
-											
+
+
 											if(data.field.remember == null||data.field.remember == '')
 											{
 												storage.setItem('username','');
 												storage.setItem('password','');
-										
+
 											}else{
-										
+
 												storage.setItem('username',data.field.username);
 												storage.setItem('password',data.field.password);
 												console.log("保存密码 ");
-										
-											
+
+
 											}
-											
-										   
-										   
-										   	        
-										   
+
+
+
+
+
 										   storage.setItem("gas_access_token", rdata.data.token);
-										
+
 											layer.msg('登录成功',{'time':1000}, function () {
 												window.location = 'main.html';
 											});
-										
+
 										}else {
-										
+
 											getCodeImg();
 											layer.msg(""+rdata.msg);
 											//refashYzm();
-										
+
 										}
-										
+
 									},
 									error: function(data) {
-										
+
 										layer.close(index);
-										
+
 										getCodeImg();
-										
+
 										layer.msg("登录失败");
 									}
-										
+
 								});
-								
-								
-								
-								
-								
-							
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					return false;
 				});
 			})
-			
+
 			function getCodeImg()
 			{
-				
+
 				$.ajax({
 					method: 'POST',
 					url: baseUrl+'/getCaptcha',
 					dataType: 'json',
 					data:
 					{
-						
+
 					},
 					success: function(rdata) {
-						
-						
+
+
 						 console.log(rdata)
-						
-						
+
+
 					//	layer.close(index);
-						
-						
+
+
 						if(rdata.code==0)
 						{
-						
-						
+
+
 						codeKey = rdata.data.key;
-							
-							
+
+
 						   $("#img_code").attr("src", rdata.data.img);
-						   
-						
-						   
-						  
-						
+
+
+
+
+
 						}else {
-						
+
 							//layer.msg(""+rdata.message);
 							//refashYzm();
-						
+
 						}
-						
+
 					},
 					error: function(data) {
-						
+
 						//layer.close(index);
-						
+
 						//layer.msg("登录失败");
 					}
-						
+
 				});
-				
-				
-				
+
+
+
 			}
 		</script>
 	</body>
