@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e3d358a-1160-4437-a838-17dce54177fe" name="更改" comment="增加文档">
-      <change afterPath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/pagehelp/PageHelperTest.java" afterDir="false" />
+    <list default="true" id="7e3d358a-1160-4437-a838-17dce54177fe" name="更改" comment="zm-hk-meddleware调整">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ibms_ba_server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ibms_ba_server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-tmsp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-tmsp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-tmsp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-tmsp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/MultipleDataSourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/MultipleDataSourceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/testComponent/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/component/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/testComponent/wrapper/WrapperMpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/component/wrapper/WrapperMpService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +18,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ibms_queue_manage_server" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Stone-WYD&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="cec95abe-2e16-435b-acd1-e0f266e69de6" />
+        <option name="url" value="https://github.com/Stone-WYD/collection-simple-projects.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -43,21 +55,21 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.zm-hk-middleware2 [clean].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/wyd/MyProject/collection-simple-projects/ibms_ba_server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "MavenSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.zm-hk-middleware2 [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/wyd/MyProject/collection-simple-projects&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Admin\Desktop\wyd\MyProject\collection-simple-projects\ibms_ba_server" />
@@ -124,6 +136,8 @@
       <workItem from="1747134304842" duration="185000" />
       <workItem from="1747270605154" duration="28000" />
       <workItem from="1748311924034" duration="1154000" />
+      <workItem from="1763706307110" duration="811000" />
+      <workItem from="1763707925305" duration="251000" />
     </task>
     <task id="LOCAL-00001" summary="提交ba内容">
       <option name="closed" value="true" />
@@ -149,16 +163,57 @@
       <option name="project" value="LOCAL" />
       <updated>1748313361865</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="加入 solon-easy-query实践项目：ibms_queue_manage_server">
+      <option name="closed" value="true" />
+      <created>1763706393752</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763706393752</updated>
+    </task>
+    <task id="LOCAL-00005" summary="zm-hk-meddleware调整">
+      <option name="closed" value="true" />
+      <created>1763706865316</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1763706865316</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/companyFix" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="提交ba内容" />
     <MESSAGE value="提交两个javafx的项目，便于以后复用" />
     <MESSAGE value="增加文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加文档" />
+    <MESSAGE value="加入 solon-easy-query实践项目：ibms_queue_manage_server" />
+    <MESSAGE value="zm-hk-meddleware调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="zm-hk-meddleware调整" />
   </component>
 </project>

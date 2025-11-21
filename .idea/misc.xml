@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/zm-hk-middleware2/pom.xml" />
         <option value="$PROJECT_DIR$/feign-simple-test/pom.xml" />
         <option value="$PROJECT_DIR$/ibms_ba_server/pom.xml" />
+        <option value="$PROJECT_DIR$/ibms_queue_manage_server/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
