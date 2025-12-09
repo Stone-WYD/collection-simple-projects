@@ -1,31 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="7e3d358a-1160-4437-a838-17dce54177fe" name="更改" comment="增加文档">
-      <change afterPath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/pagehelp/PageHelperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ibms_ba_server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ibms_ba_server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-tmsp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-tmsp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-tmsp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-tmsp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/MultipleDataSourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/MultipleDataSourceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/testComponent/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/component/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/testComponent/wrapper/WrapperMpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-tmsp/src/test/java/com/njxnet/service/tmsp/component/wrapper/WrapperMpService.java" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -35,130 +9,21 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="2x29IkEAtYyMtyvs1mMbgqxYXer" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.zm-hk-middleware2 [clean].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/wyd/MyProject/collection-simple-projects/ibms_ba_server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "MavenSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Admin\Desktop\wyd\MyProject\collection-simple-projects\ibms_ba_server" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="configurationTypes">
-      <set>
-        <option value="MicronautRunConfigurationType" />
-        <option value="QuarkusRunConfigurationType" />
-        <option value="SpringBootApplicationConfigurationType" />
-      </set>
-    </option>
-  </component>
-  <component name="RunManager" selected="Spring Boot.AssetManageApplication">
-    <configuration name="AssetManageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="asset-manage" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wyd.AssetManageApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JavaplatformArchetypeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="service-tmsp" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.njxnet.service.tmsp.JavaplatformArchetypeApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SpringApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="ba" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jgdsun.ba.SpringApp" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ZmHkMiddlewareApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="zm-hk-middleware2" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wyd.zmhkmiddleware.ZmHkMiddlewareApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ZmHkMiddlewareApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="zm-hk-middleware" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wyd.zmhkmiddleware.ZmHkMiddlewareApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="7e3d358a-1160-4437-a838-17dce54177fe" name="更改" comment="" />
       <created>1717551937070</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1717551937070</updated>
-      <workItem from="1747125227274" duration="406000" />
-      <workItem from="1747125645677" duration="32000" />
-      <workItem from="1747125732328" duration="49000" />
-      <workItem from="1747125826510" duration="1304000" />
-      <workItem from="1747134304842" duration="185000" />
-      <workItem from="1747270605154" duration="28000" />
-      <workItem from="1748311924034" duration="1154000" />
     </task>
-    <task id="LOCAL-00001" summary="提交ba内容">
-      <option name="closed" value="true" />
-      <created>1747125769703</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1747125769703</updated>
-    </task>
-    <task id="LOCAL-00002" summary="提交两个javafx的项目，便于以后复用">
-      <option name="closed" value="true" />
-      <created>1748312101281</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1748312101281</updated>
-    </task>
-    <task id="LOCAL-00003" summary="增加文档">
-      <option name="closed" value="true" />
-      <created>1748313361865</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1748313361865</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="提交ba内容" />
-    <MESSAGE value="提交两个javafx的项目，便于以后复用" />
-    <MESSAGE value="增加文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加文档" />
   </component>
 </project>

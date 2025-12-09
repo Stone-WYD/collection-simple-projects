@@ -105,6 +105,16 @@ public class SyncServiceImpl2 implements SyncService {
                 // 不更新组织
                 // 更新人员
                 haiKangPersonService.updatePerson(hkPerson);
+                SynchronizationRecord record = new SynchronizationRecord();
+                record.setType(SyncRecordEnum.SYNC_TYPE_PERSON.getCode());
+                record.setBussinessId(syncInfoDTO.getZhrempl());
+                record.setExtend1(jobNo);
+                record.setExtend2(syncInfoDTO.getZhrpost());
+                record.setExtend3(syncInfoDTO.getZpsOrg());
+                record.setSyncDate(DateUtil.format(new Date(), DatePattern.NORM_DATETIME_PATTERN));
+                record.setSyncStatus(SYNC_STATUS_SUCCESS.getCode());
+                record.setSyncPerson(syncInfoDTO.getZemplnm());
+                synchronizationRecordService.save(record);
             } else {
                 if (!orgSet.contains(syncInfoDTO.getZpsOrg())) {
                     try {
@@ -120,7 +130,8 @@ public class SyncServiceImpl2 implements SyncService {
                 record.setType(SyncRecordEnum.SYNC_TYPE_PERSON.getCode());
                 record.setBussinessId(syncInfoDTO.getZhrempl());
                 record.setExtend1(jobNo);
-                record.setExtend2(syncInfoDTO.getZpsOrg());
+                record.setExtend2(syncInfoDTO.getZhrpost());
+                record.setExtend3(syncInfoDTO.getZpsOrg());
                 record.setSyncDate(DateUtil.format(new Date(), DatePattern.NORM_DATETIME_PATTERN));
                 record.setSyncStatus(SYNC_STATUS_SUCCESS.getCode());
                 record.setSyncPerson(syncInfoDTO.getZemplnm());

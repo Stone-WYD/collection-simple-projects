@@ -1,0 +1,458 @@
+INFO  2025-10-30 09:44:53.749 [-main][*][o.noear.solon.Solon]: 
+App: Start loading
+INFO  2025-10-30 09:44:54.280 [-main][*][o.n.n.c.InfoUtils]: 
+Nami: Bind the service com.jgdsun.qms.service.Ims4Service to url(http://47.103.216.72:9116)
+INFO  2025-10-30 09:44:54.597 [-main][*][o.n.s.s.s.i.SmHttpPlugin]: 
+solon.connector:main: smarthttp: Started ServerConnector@{HTTP/1.1,[http/1.1]}{http://localhost:8888}
+INFO  2025-10-30 09:44:54.597 [-main][*][o.n.s.s.s.i.SmHttpPlugin]: 
+Server:main: smarthttp: Started (smart http 2.5/3.6.0) @291ms
+INFO  2025-10-30 09:44:54.598 [-main][*][o.n.s.s.s.JobManager]: 
+JobManager started, job.size=1
+INFO  2025-10-30 09:44:54.600 [-main][*][o.noear.solon.Solon]: 
+App: End loading elapsed=1099ms pid=20664 v=3.6.0
+INFO  2025-10-30 09:44:54.806 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyDatabaseUtil]: 
+check db sql:select 1 from information_schema.schemata where schema_name='ibms_xxgt'
+INFO  2025-10-30 09:45:08.276 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: SELECT `ID`,`storey_id`,`name`,`protocol`,`ip`,`address`,`register_address`,`sort_no`,`position_x`,`position_y`,`addtime`,`enable`,`equipment_id`,`equipment_sn`,`status`,`typeinfo`,`stat`,`position_z`,`rotation_x`,`rotation_y`,`rotation_z` FROM `t_queue_manage`
+INFO  2025-10-30 09:45:08.299 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Time Elapsed: 22(ms)
+INFO  2025-10-30 09:45:08.315 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.b.j.e.i.e.DefaultJdbcResult]: 
+<== Total: 235
+INFO  2025-10-30 09:45:11.139 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: SELECT COUNT(*) FROM `t_queue_manage_status`
+INFO  2025-10-30 09:45:11.143 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Time Elapsed: 3(ms)
+INFO  2025-10-30 09:45:11.147 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.b.j.e.i.e.DefaultJdbcResult]: 
+<== Total: 1
+INFO  2025-10-30 09:45:13.339 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: SELECT t.`ID`,t.`status` FROM `t_queue_manage` t WHERE t.`status` = ?
+INFO  2025-10-30 09:45:13.341 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 2(String)
+INFO  2025-10-30 09:45:13.348 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Time Elapsed: 6(ms)
+INFO  2025-10-30 09:45:13.355 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.b.j.e.i.e.DefaultJdbcResult]: 
+<== Total: 147
+INFO  2025-10-30 09:47:15.018 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: INSERT INTO `t_queue_manage_status` (`ID`,`device_id`,`addtime`,`status`) VALUES (?,?,?,?)
+INFO  2025-10-30 09:47:15.019 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 17617888006071(String),1(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.021 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 17617888006072(String),2(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.021 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 17617888006073(String),3(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.021 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 17617888006074(String),4(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.021 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 17617888006075(String),5(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.021 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 17617888006076(String),6(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.021 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 17617888006078(String),8(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.021 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 17617888006079(String),9(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.021 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060710(String),10(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.022 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060712(String),12(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.022 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060713(String),13(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.022 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060715(String),15(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.022 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060716(String),16(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.022 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060717(String),17(String),2025-10-30T09:46:40.607(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.022 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060818(String),18(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.022 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060819(String),19(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.022 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060821(String),21(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.022 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060822(String),22(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.023 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060828(String),28(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.023 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060829(String),29(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.023 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060830(String),30(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.023 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060832(String),32(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.023 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060834(String),34(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.023 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060835(String),35(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.023 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060836(String),36(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.023 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060837(String),37(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.023 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060838(String),38(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.023 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060839(String),39(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.024 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060849(String),49(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.024 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060876(String),76(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.024 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178880060879(String),79(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.024 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800608103(String),103(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.024 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800608120(String),120(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.024 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800608121(String),121(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.024 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800608122(String),122(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.024 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800608123(String),123(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.024 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800608124(String),124(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.024 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800608125(String),125(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.024 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800608154(String),154(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.025 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800608155(String),155(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.025 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800608156(String),156(String),2025-10-30T09:46:40.608(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.025 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609157(String),157(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.025 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609158(String),158(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.025 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609160(String),160(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.025 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609161(String),161(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.025 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609162(String),162(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.025 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609163(String),163(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.025 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609164(String),164(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.025 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609165(String),165(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.026 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609166(String),166(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.026 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609167(String),167(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.026 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609168(String),168(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.026 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609169(String),169(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.026 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609170(String),170(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.026 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609171(String),171(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.026 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609172(String),172(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.026 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609173(String),173(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.026 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609174(String),174(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.026 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609175(String),175(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.026 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609176(String),176(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.027 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609177(String),177(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.027 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609178(String),178(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.027 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609179(String),179(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.027 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609180(String),180(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.027 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609181(String),181(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.027 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609182(String),182(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.027 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609183(String),183(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.027 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800609184(String),184(String),2025-10-30T09:46:40.609(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.027 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610185(String),185(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.027 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610186(String),186(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.027 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610187(String),187(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.028 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610188(String),188(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.028 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610189(String),189(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.028 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610190(String),190(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.028 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610191(String),191(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.028 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610192(String),192(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.028 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610193(String),193(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.028 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610194(String),194(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.028 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610195(String),195(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.028 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610196(String),196(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.028 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610197(String),197(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.028 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610198(String),198(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.029 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610199(String),199(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.029 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610200(String),200(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.029 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610201(String),201(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.029 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610202(String),202(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.029 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610204(String),204(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.029 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610205(String),205(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.029 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610206(String),206(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.029 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610207(String),207(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.029 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610208(String),208(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.029 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610209(String),209(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.029 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610210(String),210(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.030 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610211(String),211(String),2025-10-30T09:46:40.610(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.030 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800610212(String),212(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.030 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611213(String),213(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.030 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611214(String),214(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.030 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611215(String),215(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.030 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611216(String),216(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.030 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611217(String),217(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.030 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611218(String),218(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.030 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611219(String),219(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.030 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611220(String),220(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.031 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611221(String),221(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.031 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611222(String),222(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.031 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611223(String),223(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.031 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611225(String),225(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.031 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611226(String),226(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.031 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611227(String),227(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.031 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611228(String),228(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.031 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611229(String),229(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.031 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611230(String),230(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.031 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611231(String),231(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.032 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611232(String),232(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.032 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611233(String),233(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.032 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611234(String),234(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.032 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611235(String),235(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.032 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611236(String),236(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.032 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611237(String),237(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.032 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611238(String),238(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.032 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611240(String),240(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.032 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611241(String),241(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.032 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611242(String),242(String),2025-10-30T09:46:40.611(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.032 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800611243(String),243(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.033 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612245(String),245(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.033 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612247(String),247(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.033 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612250(String),250(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.033 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612252(String),252(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.033 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612258(String),258(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.033 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612259(String),259(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.033 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612260(String),260(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.033 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612261(String),261(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.033 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612262(String),262(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612263(String),263(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612265(String),265(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612266(String),266(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612267(String),267(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612268(String),268(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612269(String),269(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612270(String),270(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612271(String),271(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612272(String),272(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612273(String),273(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612274(String),274(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612275(String),275(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.034 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612276(String),276(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.035 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612277(String),277(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.035 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 1761788800612278(String),278(String),2025-10-30T09:46:40.612(LocalDateTime),1(String)
+INFO  2025-10-30 09:47:15.065 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Total: -296
+INFO  2025-10-30 09:47:15.077 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: UPDATE `t_queue_manage` SET `status` = ? WHERE `ID` IN (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+INFO  2025-10-30 09:47:15.077 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 2(String),1(String),2(String),3(String),4(String),5(String),6(String),8(String),9(String),10(String),12(String),13(String),15(String),16(String),17(String),18(String),19(String),21(String),22(String),28(String),29(String),30(String),32(String),34(String),35(String),36(String),37(String),38(String),39(String),49(String),76(String),79(String),103(String),120(String),121(String),122(String),123(String),124(String),125(String),154(String),155(String),156(String),157(String),158(String),160(String),161(String),162(String),163(String),164(String),165(String),166(String),167(String),168(String),169(String),170(String),171(String),172(String),173(String),174(String),175(String),176(String),177(String),178(String),179(String),180(String),181(String),182(String),183(String),184(String),185(String),186(String),187(String),188(String),189(String),190(String),191(String),192(String),193(String),194(String),195(String),196(String),197(String),198(String),199(String),200(String),201(String),202(String),204(String),205(String),206(String),207(String),208(String),209(String),210(String),211(String),212(String),213(String),214(String),215(String),216(String),217(String),218(String),219(String),220(String),221(String),222(String),223(String),225(String),226(String),227(String),228(String),229(String),230(String),231(String),232(String),233(String),234(String),235(String),236(String),237(String),238(String),240(String),241(String),242(String),243(String),245(String),247(String),250(String),252(String),258(String),259(String),260(String),261(String),262(String),263(String),265(String),266(String),267(String),268(String),269(String),270(String),271(String),272(String),273(String),274(String),275(String),276(String),277(String),278(String)
+INFO  2025-10-30 09:47:15.080 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Total: 148
+INFO  2025-10-30 09:47:16.198 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: INSERT INTO `t_queue_manage_status` (`ID`,`device_id`,`addtime`,`status`) VALUES (?,?,?,?)
+INFO  2025-10-30 09:47:16.198 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 176178883619711(String),11(String),2025-10-30T09:47:16.198(LocalDateTime),2(String)
+INFO  2025-10-30 09:47:16.198 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 17617888361987(String),7(String),2025-10-30T09:47:16.198(LocalDateTime),2(String)
+INFO  2025-10-30 09:47:16.199 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Total: -4
+INFO  2025-10-30 09:47:16.200 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: UPDATE `t_queue_manage` SET `status` = ? WHERE `ID` IN (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+INFO  2025-10-30 09:47:16.200 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 0(String),7(String),11(String),14(String),20(String),23(String),24(String),25(String),26(String),27(String),31(String),33(String),81(String),87(String),88(String),89(String),90(String),91(String),92(String),93(String),94(String),95(String),96(String),97(String),98(String),99(String),100(String),101(String),102(String),104(String),105(String),106(String),107(String),108(String),109(String),110(String),111(String),112(String),113(String),114(String),115(String),116(String),117(String),118(String),119(String),126(String),127(String),128(String),129(String),130(String),131(String),132(String),133(String),134(String),135(String),136(String),137(String),138(String),139(String),140(String),141(String),142(String),143(String),144(String),145(String),146(String),147(String),148(String),149(String),150(String),151(String),152(String),159(String),203(String),224(String),239(String),244(String),246(String),248(String),249(String),251(String),253(String),254(String),255(String),256(String),257(String),264(String),279(String)
+INFO  2025-10-30 09:47:16.201 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Total: 87
+INFO  2025-10-30 09:47:20.822 [-Thread-1][*][o.n.s.s.s.i.SmHttpPlugin]: 
+Server:main: smarthttp: Has Stopped (smart http 2.5/3.6.0)
+INFO  2025-10-30 09:47:20.822 [-Thread-1][*][o.n.s.s.s.JobManager]: 
+JobManager stopped
+INFO  2025-10-30 09:47:20.826 [-Thread-1][*][o.noear.solon.Solon]: 
+App: Stopped
+INFO  2025-10-30 09:47:24.865 [-main][*][o.noear.solon.Solon]: 
+App: Start loading
+INFO  2025-10-30 09:47:25.360 [-main][*][o.n.n.c.InfoUtils]: 
+Nami: Bind the service com.jgdsun.qms.service.Ims4Service to url(http://47.103.216.72:9116)
+INFO  2025-10-30 09:47:25.718 [-main][*][o.n.s.s.s.i.SmHttpPlugin]: 
+solon.connector:main: smarthttp: Started ServerConnector@{HTTP/1.1,[http/1.1]}{http://localhost:8888}
+INFO  2025-10-30 09:47:25.718 [-main][*][o.n.s.s.s.i.SmHttpPlugin]: 
+Server:main: smarthttp: Started (smart http 2.5/3.6.0) @331ms
+INFO  2025-10-30 09:47:25.719 [-main][*][o.n.s.s.s.JobManager]: 
+JobManager started, job.size=1
+INFO  2025-10-30 09:47:25.722 [-main][*][o.noear.solon.Solon]: 
+App: End loading elapsed=1099ms pid=20008 v=3.6.0
+INFO  2025-10-30 09:47:25.895 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyDatabaseUtil]: 
+check db sql:select 1 from information_schema.schemata where schema_name='ibms_xxgt'
+INFO  2025-10-30 09:47:28.809 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: SELECT `ID`,`storey_id`,`name`,`protocol`,`ip`,`address`,`register_address`,`sort_no`,`position_x`,`position_y`,`addtime`,`enable`,`equipment_id`,`equipment_sn`,`status`,`typeinfo`,`stat`,`position_z`,`rotation_x`,`rotation_y`,`rotation_z` FROM `t_queue_manage`
+INFO  2025-10-30 09:47:28.812 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Time Elapsed: 3(ms)
+INFO  2025-10-30 09:47:28.826 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.b.j.e.i.e.DefaultJdbcResult]: 
+<== Total: 235
+INFO  2025-10-30 09:47:32.970 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: SELECT COUNT(*) FROM `t_queue_manage_status`
+INFO  2025-10-30 09:47:32.972 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Time Elapsed: 2(ms)
+INFO  2025-10-30 09:47:32.975 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.b.j.e.i.e.DefaultJdbcResult]: 
+<== Total: 1
+INFO  2025-10-30 09:47:33.047 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: SELECT t.`ID`,t.`status` FROM `t_queue_manage` t WHERE t.`status` = ?
+INFO  2025-10-30 09:47:33.049 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 2(String)
+INFO  2025-10-30 09:47:33.051 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Time Elapsed: 1(ms)
+INFO  2025-10-30 09:47:33.052 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.b.j.e.i.e.DefaultJdbcResult]: 
+<== Total: 148
+WARN  2025-10-30 09:48:18.222 [-HikariPool-1 housekeeper][*][c.z.h.p.HikariPool]: 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=52s137ms915µs500ns).
+INFO  2025-10-30 09:48:18.246 [-Thread-1][*][o.n.s.s.s.i.SmHttpPlugin]: 
+Server:main: smarthttp: Has Stopped (smart http 2.5/3.6.0)
+INFO  2025-10-30 09:48:18.246 [-Thread-1][*][o.n.s.s.s.JobManager]: 
+JobManager stopped
+INFO  2025-10-30 09:48:18.254 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: INSERT INTO `t_queue_manage_status` (`ID`,`device_id`,`addtime`,`status`) VALUES (?,?,?,?)
+INFO  2025-10-30 09:48:18.255 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 17617888982331(String),1(String),2025-10-30T09:48:18.233(LocalDateTime),1(String)
+INFO  2025-10-30 09:48:18.256 [-Thread-1][*][o.noear.solon.Solon]: 
+App: Stopped
+INFO  2025-10-30 09:48:30.606 [-main][*][o.noear.solon.Solon]: 
+App: Start loading
+INFO  2025-10-30 09:48:31.050 [-main][*][o.n.n.c.InfoUtils]: 
+Nami: Bind the service com.jgdsun.qms.service.Ims4Service to url(http://47.103.216.72:9116)
+INFO  2025-10-30 09:48:31.351 [-main][*][o.n.s.s.s.i.SmHttpPlugin]: 
+solon.connector:main: smarthttp: Started ServerConnector@{HTTP/1.1,[http/1.1]}{http://localhost:8888}
+INFO  2025-10-30 09:48:31.351 [-main][*][o.n.s.s.s.i.SmHttpPlugin]: 
+Server:main: smarthttp: Started (smart http 2.5/3.6.0) @284ms
+INFO  2025-10-30 09:48:31.351 [-main][*][o.n.s.s.s.JobManager]: 
+JobManager started, job.size=1
+INFO  2025-10-30 09:48:31.353 [-main][*][o.noear.solon.Solon]: 
+App: End loading elapsed=986ms pid=21672 v=3.6.0
+INFO  2025-10-30 09:48:31.528 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyDatabaseUtil]: 
+check db sql:select 1 from information_schema.schemata where schema_name='ibms_xxgt'
+INFO  2025-10-30 09:48:34.219 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: SELECT `ID`,`storey_id`,`name`,`protocol`,`ip`,`address`,`register_address`,`sort_no`,`position_x`,`position_y`,`addtime`,`enable`,`equipment_id`,`equipment_sn`,`status`,`typeinfo`,`stat`,`position_z`,`rotation_x`,`rotation_y`,`rotation_z` FROM `t_queue_manage`
+INFO  2025-10-30 09:48:34.224 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Time Elapsed: 3(ms)
+INFO  2025-10-30 09:48:34.237 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.b.j.e.i.e.DefaultJdbcResult]: 
+<== Total: 235
+INFO  2025-10-30 09:48:34.245 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: SELECT COUNT(*) FROM `t_queue_manage_status`
+INFO  2025-10-30 09:48:34.246 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Time Elapsed: 1(ms)
+INFO  2025-10-30 09:48:34.249 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.b.j.e.i.e.DefaultJdbcResult]: 
+<== Total: 1
+INFO  2025-10-30 09:48:34.312 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: SELECT t.`ID`,t.`status` FROM `t_queue_manage` t WHERE t.`status` = ?
+INFO  2025-10-30 09:48:34.313 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 2(String)
+INFO  2025-10-30 09:48:34.314 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Time Elapsed: 1(ms)
+INFO  2025-10-30 09:48:34.315 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.b.j.e.i.e.DefaultJdbcResult]: 
+<== Total: 148
+INFO  2025-10-30 09:49:35.445 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: UPDATE `t_queue_manage` SET `status` = ? WHERE `ID` IN (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+INFO  2025-10-30 09:49:35.447 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 2(String),1(String),2(String),3(String),4(String),5(String),6(String),8(String),9(String),10(String),12(String),13(String),15(String),16(String),17(String),18(String),19(String),21(String),22(String),28(String),29(String),30(String),32(String),34(String),35(String),36(String),37(String),38(String),39(String),49(String),76(String),79(String),103(String),120(String),121(String),122(String),123(String),124(String),125(String),154(String),155(String),156(String),157(String),158(String),160(String),161(String),162(String),163(String),164(String),165(String),166(String),167(String),168(String),169(String),170(String),171(String),172(String),173(String),174(String),175(String),176(String),177(String),178(String),179(String),180(String),181(String),182(String),183(String),184(String),185(String),186(String),187(String),188(String),189(String),190(String),191(String),192(String),193(String),194(String),195(String),196(String),197(String),198(String),199(String),200(String),201(String),202(String),204(String),205(String),206(String),207(String),208(String),209(String),210(String),211(String),212(String),213(String),214(String),215(String),216(String),217(String),218(String),219(String),220(String),221(String),222(String),223(String),225(String),226(String),227(String),228(String),229(String),230(String),231(String),232(String),233(String),234(String),235(String),236(String),237(String),238(String),240(String),241(String),242(String),243(String),245(String),247(String),250(String),252(String),258(String),259(String),260(String),261(String),262(String),263(String),265(String),266(String),267(String),268(String),269(String),270(String),271(String),272(String),273(String),274(String),275(String),276(String),277(String),278(String)
+INFO  2025-10-30 09:49:35.461 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Total: 148
+INFO  2025-10-30 09:49:42.466 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Preparing: UPDATE `t_queue_manage` SET `status` = ? WHERE `ID` IN (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+INFO  2025-10-30 09:49:42.466 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+==> Parameters: 0(String),7(String),11(String),14(String),20(String),23(String),24(String),25(String),26(String),27(String),31(String),33(String),81(String),87(String),88(String),89(String),90(String),91(String),92(String),93(String),94(String),95(String),96(String),97(String),98(String),99(String),100(String),101(String),102(String),104(String),105(String),106(String),107(String),108(String),109(String),110(String),111(String),112(String),113(String),114(String),115(String),116(String),117(String),118(String),119(String),126(String),127(String),128(String),129(String),130(String),131(String),132(String),133(String),134(String),135(String),136(String),137(String),138(String),139(String),140(String),141(String),142(String),143(String),144(String),145(String),146(String),147(String),148(String),149(String),150(String),151(String),152(String),159(String),203(String),224(String),239(String),244(String),246(String),248(String),249(String),251(String),253(String),254(String),255(String),256(String),257(String),264(String),279(String)
+INFO  2025-10-30 09:49:42.467 [-Solon-scheduledExecutor-1][*][@job:remoteJob][c.e.q.c.u.EasyJdbcExecutorUtil]: 
+<== Total: 87
+INFO  2025-10-30 09:49:47.601 [-Thread-1][*][o.n.s.s.s.i.SmHttpPlugin]: 
+Server:main: smarthttp: Has Stopped (smart http 2.5/3.6.0)
+INFO  2025-10-30 09:49:47.601 [-Thread-1][*][o.n.s.s.s.JobManager]: 
+JobManager stopped
+INFO  2025-10-30 09:49:47.608 [-Thread-1][*][o.noear.solon.Solon]: 
+App: Stopped

@@ -5,17 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3f76f4d-51a6-4988-b1a7-a586bfff6d83" name="更改" comment="添加校验异常处理类">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wyd/asset_manage/entity/eq/RoleEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wyd/asset_manage/entity/eq/UserEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wyd/asset_manage/entity/eq/proxy/RoleEntityProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wyd/asset_manage/entity/eq/proxy/UserEntityProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2ebbae2f-a865-48bd-95f5-6a0571391edb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2ebbae2f-a865-48bd-95f5-6a0571391edb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-tmsp/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../service-tmsp/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-tmsp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../service-tmsp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-tmsp/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../service-tmsp/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/convert.db" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/convert.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/service/local/impl/SyncServiceImpl2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/java/com/wyd/zmhkmiddleware/business/service/local/impl/SyncServiceImpl2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/admin/data/menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/admin/data/menu.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/config/pear.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/config/pear.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/config/pear.config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/config/pear.config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../zm-hk-middleware2/src/main/resources/static/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,33 +62,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.AssetManageApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/wyd/MyProject/collection-simple-projects/service-tmsp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AssetManageApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/wyd/MyProject/collection-simple-projects/asset-manage&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="AssetManageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="asset-manage" />
@@ -118,6 +117,12 @@
       <workItem from="1743387690125" duration="622000" />
       <workItem from="1743658970522" duration="98000" />
       <workItem from="1743659112085" duration="5521000" />
+      <workItem from="1761035933106" duration="1770000" />
+      <workItem from="1761101316963" duration="598000" />
+      <workItem from="1761105304485" duration="595000" />
+      <workItem from="1761113933536" duration="598000" />
+      <workItem from="1761116612580" duration="235000" />
+      <workItem from="1761117633539" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="调整关于 liquibase 使用的一些内容">
       <option name="closed" value="true" />
