@@ -18,6 +18,8 @@ public class DemoDataListener extends AnalysisEventListener<DynamicPrcessPriceDa
      * 每隔5条存储数据库，实际使用中可以100条，然后清理list ，方便内存回收
      */
     private static final int BATCH_COUNT = 100;
+
+    private Integer headNum = 0;
     /**
      * 缓存的数据
      */
@@ -42,7 +44,8 @@ public class DemoDataListener extends AnalysisEventListener<DynamicPrcessPriceDa
     @Override
     public void invokeHeadMap(Map<Integer, String> headMap, AnalysisContext context) {
         // 一行一行表头地读取
-        System.out.println("表头：" + headMap);
+        headNum ++;
+        System.out.println("表index：" + headNum + "，表头：" + headMap);
         super.invokeHeadMap(headMap, context);
     }
 
