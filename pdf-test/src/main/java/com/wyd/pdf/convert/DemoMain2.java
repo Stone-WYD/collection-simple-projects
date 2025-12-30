@@ -17,7 +17,7 @@ import java.util.Map;
 
 import static com.wyd.pdf.convert.utils.ImageAndPdfMergeUtil.mergeImageFileToPdf;
 
-public class DemoMain {
+public class DemoMain2 {
 
     public static void main(String[] args) throws ParserConfigurationException {
         // ========== 步骤1：准备模板数据 ==========
@@ -67,4 +67,5 @@ public class DemoMain {
         String pdfPath = "D:/productOrder55.pdf"; // 生成的PDF路径
         mergeImageFileToPdf("C:\\Users\\11748\\Downloads\\NE240273-09-050101.pdf", image, pdfPath);
     }
+
 }
