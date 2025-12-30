@@ -1,15 +1,22 @@
 package com.wyd.pdf.convert;
 
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.bean.copier.CopyOptions;
+import cn.hutool.core.convert.Convert;
+import cn.hutool.core.convert.Converter;
+import cn.hutool.core.date.DateUtil;
+import com.wyd.pdf.convert.domain.PdfTemplateData;
+import com.wyd.pdf.convert.domain.ProcessData;
 import com.wyd.pdf.convert.utils.FreeMarkerUtil;
 import com.wyd.pdf.convert.utils.HtmlToImageUtil;
 import com.wyd.pdf.convert.utils.QrCodeUtil;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 import static com.wyd.pdf.convert.utils.ImageAndPdfMergeUtil.mergeImageFileToPdf;
 
@@ -51,45 +58,65 @@ public class DemoMain {
 
     public static void main(String[] args) throws ParserConfigurationException {
         // ========== 步骤1：准备模板数据 ==========
-        Map<String, Object> data = new HashMap<>();
+        Map<String, Object> dataMap = new HashMap<>();
 // 基础信息
-        data.put("companyName", "常州西洲机电科技有限公司");
-        data.put("pageNo", "6/7");
-        data.put("customerName", "征图印刷BU");
-        data.put("productName", "FLS-M021-连接背板A");
-        data.put("productDrawingNo", "RM-JJ-00051297-02");
-        data.put("productionQty", "42");
-        data.put("partDrawingNo", "RM-JJ-00051297-02-1");
-        data.put("bomCreator", "李以亮");
-        data.put("deliveryDate", "2025-08-14");
-        data.put("partName", "FLS-M021-连接背板A");
-        data.put("materialThickness", "12");
-        data.put("material", "SUS304精板");
-        data.put("taskNo", "OD250809006");
+//        data.put("companyName", "常州西洲机电科技有限公司");
+//        data.put("pageNo", "6/7");
+//        data.put("customerName", "征图印刷BU");
+//        data.put("productName", "FLS-M021-连接背板A");
+//        data.put("productDrawingNo", "RM-JJ-00051297-02");
+//        data.put("productionQty", "42");
+//        data.put("partDrawingNo", "RM-JJ-00051297-02-1");
+//        data.put("bomCreator", "李以亮");
+//        data.put("deliveryDate", "2025-08-14");
+//        data.put("partName", "FLS-M021-连接背板A");
+//        data.put("materialThickness", "12");
+//        data.put("material", "SUS304精板");
+//        data.put("taskNo", "OD250809006");
+        PdfTemplateData data = new PdfTemplateData();
+        data.setCompanyName("常州西洲机电科技有限公司");
+        data.setPageNo("6/7");
+        data.setCustomerName("征图印刷BU");
+        data.setProductName("FLS-M021-连接背板A");
+        data.setProductDrawingNo("RM-JJ-00051297-02");
+        data.setProductionQty(42);
+        data.setPartDrawingNo("RM-JJ-00051297-02-1");
+        data.setBomCreator("李以亮");
+        data.setDeliveryDate(LocalDateTime.now());
+        data.setPartName("FLS-M021-连接背板A");
+        data.setMaterialThickness(12);
+        data.setMaterial("SUS304精板");
+        data.setTaskNo("OD250809006");
 
-// 工序列表
-        List<Map<String, Object>> processes = new ArrayList<>();
-        processes.add(buildProcess("1", "外购", "", "", "", "", "", "", "", ""));
-        processes.add(buildProcess("2", "机加", "", "", "", "", "", "", "", ""));
-        processes.add(buildProcess("3", "组装", "", "", "", "", "", "", "", ""));
-        data.put("orderProcesses", processes);
+
+
+        // 工序列表
+        List<ProcessData> processDataList = new ArrayList<>();
+        ProcessData processData = new ProcessData();
+        processData.setProcessDate(LocalDateTime.now());
+        processData.setProcessName("外购");
+        processDataList.add(processData);
+        data.setOrderProcesses(processDataList);
+
+
+        Map<String, Object> map = BeanUtil.beanToMap(data);
 
 // 二维码（通过QrCodeUtil生成）
         String qrContent = "www.baidu.com";
-        data.put("qrCodeBase64", QrCodeUtil.generateQrCodeBase64(qrContent, 80, 80));
-        data.put("qrCodeSerialNo", "5.0000465");
+        map.put("qrCodeBase64", QrCodeUtil.generateQrCodeBase64(qrContent, 80, 80));
+        map.put("qrCodeSerialNo", "5.0000465");
 
 
 
         // ========== 步骤2：渲染FreeMarker模板生成HTML ==========
-        String html = FreeMarkerUtil.renderTemplate("produce_order.ftl", data);
+        String html = FreeMarkerUtil.renderTemplate("produce_order.ftl", map);
         System.out.println("渲染后的HTML：\n" + html);
 
         // ========== 步骤3：HTML转图片（可生成多张，这里演示1张） ==========
         BufferedImage image = HtmlToImageUtil.htmlToImage(html, 942, 595); // 宽800px，高600p
 
         // ========== 步骤4：图片拼接为PDF ==========
-        String pdfPath = "D:/productOrder4.pdf"; // 生成的PDF路径
+        String pdfPath = "D:/productOrder55.pdf"; // 生成的PDF路径
         mergeImageFileToPdf("C:\\Users\\11748\\Downloads\\NE240273-09-050101.pdf", image, pdfPath);
     }
 

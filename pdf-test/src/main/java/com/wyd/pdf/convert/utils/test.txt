@@ -1,0 +1,100 @@
+import org.w3c.dom.Document;
+import org.xhtmlrenderer.swing.Java2DRenderer;
+import org.xhtmlrenderer.swing.NaiveUserAgent;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.nio.charset.StandardCharsets;
+
+/**
+ * HTML转高分辨率图片工具方法（解决模糊问题）
+ * @param html 待渲染的XHTML字符串
+ * @param targetWidth 最终输出图片宽度（像素）
+ * @param targetHeight 最终输出图片高度（像素）
+ * @param dpi 渲染分辨率（推荐300，打印级；72为默认低分辨率）
+ * @return 高清晰度BufferedImage
+ * @throws ParserConfigurationException 解析器配置异常
+ */
+public static BufferedImage htmlToImage(String html, int targetWidth, int targetHeight, int dpi)
+        throws ParserConfigurationException {
+    // 1. 初始化XML解析器（兼容HTML标签）
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setValidating(false);
+    factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+
+    try {
+        // 2. 高分辨率渲染核心：计算缩放比（默认72 DPI → 目标DPI）
+        float scaleRatio = dpi / 72f; // 300 DPI则缩放比≈4.1667
+        int renderWidth = (int) (targetWidth * scaleRatio); // 高分辨率渲染宽度
+        int renderHeight = (int) (targetHeight * scaleRatio); // 高分辨率渲染高度
+
+        // 3. 解析HTML为Document
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(html.getBytes(StandardCharsets.UTF_8));
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(inputStream);
+
+        // 4. 初始化渲染器（高分辨率尺寸）
+        Java2DRenderer renderer = new Java2DRenderer(document, renderWidth, renderHeight);
+
+        // 核心优化1：开启抗锯齿、文本平滑等渲染质量配置
+        Graphics2D g2d = renderer.getGraphics2D();
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); // 抗锯齿
+        g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB); // 文本抗锯齿
+        g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY); // 渲染质量
+        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC); // 插值算法（缩放更清晰）
+
+        // 核心优化2：设置用户代理（避免资源加载问题，可选但推荐）
+        renderer.setUserAgent(new NaiveUserAgent());
+
+        // 5. 渲染高分辨率原始图片
+        BufferedImage highResImage = renderer.getImage();
+
+        // 6. 缩放到目标尺寸（若高分辨率尺寸≠目标尺寸，用高质量缩放）
+        BufferedImage targetImage = highResImage;
+        if (renderWidth != targetWidth || renderHeight != targetHeight) {
+            targetImage = scaleImage(highResImage, targetWidth, targetHeight);
+        }
+
+        // 7. 释放资源
+        renderer.dispose();
+        inputStream.close();
+        highResImage.flush(); // 释放高分辨率临时图片
+
+        return targetImage;
+    } catch (Exception e) {
+        throw new RuntimeException("HTML转高分辨率图片失败", e);
+    }
+}
+
+/**
+ * 高质量缩放图片（避免缩放后模糊）
+ * @param source 原始高分辨率图片
+ * @param targetWidth 目标宽度
+ * @param targetHeight 目标高度
+ * @return 缩放后的图片
+ */
+private static BufferedImage scaleImage(BufferedImage source, int targetWidth, int targetHeight) {
+    // 创建目标图片（使用ARGB格式，保留透明度）
+    BufferedImage target = new BufferedImage(targetWidth, targetHeight, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D g2d = target.createGraphics();
+
+    // 开启缩放优化
+    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+    g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+    g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+
+    // 绘制并缩放图片
+    g2d.drawImage(source, 0, 0, targetWidth, targetHeight, null);
+    g2d.dispose();
+
+    return target;
+}
+
+// 重载方法：默认使用300 DPI（打印级高分辨率）
+public static BufferedImage htmlToImage(String html, int width, int height) throws ParserConfigurationException {
+    return htmlToImage(html, width, height, 300); // 300 DPI为打印常用高分辨率
+}
