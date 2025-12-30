@@ -43,13 +43,13 @@
             position: absolute;
             top: 10px;
             right: 20px;
-            text-align: center;
-            z-index: 10;
+            /*text-align: center;*/
+            /*z-index: 10;*/
         }
         .qr-img {
             width: 100px;
             height: 100px;
-            border: 1px solid #eee;
+            /*border: 1px solid #eee;*/
         }
         .qr-serial {
             font-size: 10px;
