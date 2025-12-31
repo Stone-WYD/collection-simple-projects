@@ -1,28 +1,23 @@
-package com.wyd.pdf.convert;
+package com.wyd.pdf.convert.utils;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.extra.qrcode.QrCodeUtil;
 import cn.hutool.extra.qrcode.QrConfig;
 import com.wyd.pdf.convert.domain.MspProduceOrder;
 import com.wyd.pdf.convert.domain.MspProduceProcess;
-import com.wyd.pdf.convert.domain.PdfTemplateData;
-import com.wyd.pdf.convert.domain.ProcessData;
-import com.wyd.pdf.convert.utils.FreeMarkerUtil;
-import com.wyd.pdf.convert.utils.HtmlToImageUtil;
 
-import javax.xml.parsers.ParserConfigurationException;
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.wyd.pdf.convert.utils.ImageAndPdfMergeUtil.mergeImageFileToPdf;
+public class DemoMain3 {
 
-public class DemoMain2 {
-
-    public static void main(String[] args) throws ParserConfigurationException {
+    public static void main(String[] args) {
         System.out.println("JDK版本号（java.version）: " + System.getProperty("java.version"));
         // ========== 步骤1：准备模板数据 ==========
         MspProduceOrder produceOrder = buildTestProduceOrder();
@@ -43,13 +38,10 @@ public class DemoMain2 {
         BufferedImage image = HtmlToImageUtil.htmlToImage(html, 1123, 794); // 宽800px，高600p
 
         // ========== 步骤4：图片拼接为PDF ==========
-        String pdfPath = "D:/productOrder996.pdf"; // 生成的PDF路径
-        mergeImageFileToPdf("C:\\Users\\11748\\Downloads\\NE240273-09-050101.pdf", image, pdfPath);
+        String pdfPath = "D:/pic222.png"; // 生成的PDF路径
+        saveBufferedImage(image, pdfPath, "png");
     }
 
-    /**
-     * 构建完整的生产工单测试实例
-     */
     public static MspProduceOrder buildTestProduceOrder() {
         MspProduceOrder order = new MspProduceOrder();
 
@@ -86,13 +78,6 @@ public class DemoMain2 {
         order.setPrintFlag("N");            // 未打印
         order.setPriority(1);               // 优先级：紧急
 
-        // 日期类字段（基于当前时间生成合理的时间范围）
-        LocalDateTime now = LocalDateTime.now();
-        order.setOrderDeliveryDate("2025-12-12 12:00:00"); // 交期：7天后
-        order.setScheduleBeginDate("2025-12-12 12:00:00"); // 计划开始：1小时后
-        order.setScheduleEndDate("2025-12-12 12:00:00");    // 计划结束：5天后
-        order.setShowBeginDate("2025-12-12 12:00:00");                                     // 展示开始：当前时间
-        order.setShowEndDate("2025-12-12 12:00:00");        // 展示结束：6天后
 
         // 工序列表（构建3个测试工序）
         order.setProduceProcessList(buildTestProcessList(order.getParentId()));
@@ -122,8 +107,6 @@ public class DemoMain2 {
         process1.setSuccessNum(40);         // 合格数量
         process1.setFailNum(2);             // 不合格数量
         process1.setCurrentFinishNum(40);   // 完成数量（扣除不合格）
-        process1.setExceptBeginDate("2025-12-12 12:00:00");
-        process1.setExceptEndDate("2025-12-12 12:00:00");
         processList.add(process1);
 
         // 工序2：焊接
@@ -141,8 +124,6 @@ public class DemoMain2 {
         process2.setSuccessNum(38);
         process2.setFailNum(0);
         process2.setCurrentFinishNum(38);
-        process2.setExceptBeginDate("2025-12-12 12:00:00");
-        process2.setExceptEndDate("2025-12-12 12:00:00");
         processList.add(process2);
 
         // 工序3：打磨（过渡工序）
@@ -160,11 +141,43 @@ public class DemoMain2 {
         process3.setSuccessNum(0);
         process3.setFailNum(0);
         process3.setCurrentFinishNum(0);
-        process3.setExceptBeginDate("2025-12-12 12:00:00");
-        process3.setExceptEndDate("2025-12-12 12:00:00");
         processList.add(process3);
 
         return processList;
     }
 
+
+    public static void saveBufferedImage(BufferedImage image, String savePath, String format) {
+        if (image == null) {
+            throw new IllegalArgumentException("要保存的图片不能为空");
+        }
+        if (savePath == null || savePath.isEmpty()) {
+            throw new IllegalArgumentException("保存路径不能为空");
+        }
+        // 支持的格式：PNG/JPG/GIF（ImageIO内置支持，无需额外依赖）
+        if (!"PNG".equalsIgnoreCase(format) && !"JPG".equalsIgnoreCase(format) && !"JPEG".equalsIgnoreCase(format)) {
+            throw new IllegalArgumentException("仅支持PNG/JPG/JPEG格式");
+        }
+
+        File saveFile = new File(savePath);
+        try {
+            // 确保父目录存在（如D:/images/不存在则创建）
+            File parentDir = saveFile.getParentFile();
+            if (!parentDir.exists()) {
+                boolean mkdirsSuccess = parentDir.mkdirs();
+                if (!mkdirsSuccess) {
+                    throw new IOException("创建保存目录失败：" + parentDir.getAbsolutePath());
+                }
+            }
+
+            // 保存图片到文件（返回false表示格式不支持，此处已校验，可忽略）
+            boolean saveSuccess = ImageIO.write(image, format, saveFile);
+            if (!saveSuccess) {
+                throw new IOException("保存图片失败，格式不支持：" + format);
+            }
+            System.out.println("图片保存成功：" + saveFile.getAbsolutePath());
+        } catch (IOException e) {
+            throw new RuntimeException("保存图片异常", e);
+        }
+    }
 }
