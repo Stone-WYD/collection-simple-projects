@@ -1,10 +1,12 @@
-package com.wyd.pdf.convert.utils;
+package com.wyd.pdf.convert;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.extra.qrcode.QrCodeUtil;
 import cn.hutool.extra.qrcode.QrConfig;
 import com.wyd.pdf.convert.domain.MspProduceOrder;
 import com.wyd.pdf.convert.domain.MspProduceProcess;
+import com.wyd.pdf.convert.utils.FreeMarkerUtil;
+import com.wyd.pdf.convert.utils.HtmlToImageUtil;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
