@@ -1,7 +1,9 @@
 package com.wyd.pdf.convert.utils;
 
 import org.w3c.dom.Document;
+import org.xhtmlrenderer.layout.SharedContext;
 import org.xhtmlrenderer.swing.Java2DRenderer;
+import org.xhtmlrenderer.util.ImageUtil;
 
 import javax.imageio.ImageIO;
 import javax.xml.parsers.DocumentBuilder;
@@ -12,6 +14,8 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * HTML转图片工具类
@@ -48,77 +52,54 @@ public class HtmlToImageUtil2 {
         }
     }
 
-    /**
-     * 深拷贝BufferedImage（创建独立的图片实例）
-     * @param originalImage 原始图片
-     * @return 复制后的新图片（独立资源，与原图片无关联）
-     */
-    public static BufferedImage copyBufferedImage(BufferedImage originalImage) {
-        if (originalImage == null) {
-            throw new IllegalArgumentException("原始图片不能为空");
-        }
 
-        // 1. 创建新的BufferedImage，与原图片同宽、同高、同图像类型
-        BufferedImage copiedImage = new BufferedImage(
-                originalImage.getWidth(),
-                originalImage.getHeight(),
-                originalImage.getType() // 保持图片类型一致（如RGB、ARGB等）
-        );
+    private static final float A4_WIDTH_INCH = 210f / 25.4f;  // 8.2677英寸
+    private static final float A4_HEIGHT_INCH = 297f / 25.4f; // 11.6929英寸
 
-        // 2. 通过Graphics2D将原图片绘制到新图片上（深拷贝像素数据）
-        Graphics2D g2d = copiedImage.createGraphics();
+    public static BufferedImage htmlToA4Image(String html, int dpi) {
+
+
+        // 1. 初始化XML解析器（用于解析HTML为Document）
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        // 关闭XML验证（兼容HTML标签）
+        factory.setValidating(false);
+        // dtd 文件起到校验作用，不是刚需
+        // factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
         try {
-            // 开启抗锯齿，保证复制后的图片清晰度
-            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-            // 绘制原图片到新图片（从坐标0,0开始，覆盖整个画布）
-            g2d.drawImage(originalImage, 0, 0, null);
-        } finally {
-            // 必须释放Graphics2D资源，避免内存泄漏
-            g2d.dispose();
-        }
+            // 将HTML字符串转为输入流（Flying Saucer要求XHTML规范，需确保HTML标签闭合）
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(html.getBytes(StandardCharsets.UTF_8));
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document document = builder.parse(inputStream);
 
-        return copiedImage;
-    }
+            // 2. 换算A4纸对应的像素数（核心：物理尺寸→像素）
+            int a4PixelWidth = Math.round(A4_WIDTH_INCH * dpi);  // ≈2480像素
+            int a4PixelHeight = Math.round(A4_HEIGHT_INCH * dpi); // ≈3508像素
+            // 初始化渲染器
+            Java2DRenderer renderer = new Java2DRenderer(document, a4PixelHeight, a4PixelWidth);
 
-    /**
-     * 保存BufferedImage到指定路径
-     * @param image 要保存的图片
-     * @param savePath 保存路径（如 "D:/images/copied_image.png"）
-     * @param format 图片格式（推荐PNG/JPG，PNG无压缩损失，JPG需注意质量）
-     */
-    public static void saveBufferedImage(BufferedImage image, String savePath, String format) {
-        if (image == null) {
-            throw new IllegalArgumentException("要保存的图片不能为空");
-        }
-        if (savePath == null || savePath.isEmpty()) {
-            throw new IllegalArgumentException("保存路径不能为空");
-        }
-        // 支持的格式：PNG/JPG/GIF（ImageIO内置支持，无需额外依赖）
-        if (!"PNG".equalsIgnoreCase(format) && !"JPG".equalsIgnoreCase(format) && !"JPEG".equalsIgnoreCase(format)) {
-            throw new IllegalArgumentException("仅支持PNG/JPG/JPEG格式");
-        }
+            // 4. 关键：设置DPI匹配换算基准（源码init()默认72DPI，需覆盖）
+            SharedContext sharedContext = renderer.getSharedContext();
+            sharedContext.setPrint(true);
+            sharedContext.setDPI(dpi); // 必须和换算用的300DPI一致！
+            // 可选：开启抗锯齿，提升文字/二维码清晰度（源码支持设置渲染提示）
+            // 1. 创建渲染提示Map（针对你的工艺流程卡优化）
+            Map<RenderingHints.Key, Object> hints = new HashMap<>();
+            // 核心：开启全局抗锯齿（消除文字/表格/二维码锯齿）
+            hints.put(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            // 文字抗锯齿（针对宋体等文字的高清渲染）
+            hints.put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB);
+            // 图像插值（二维码/图片缩放时更清晰）
+            hints.put(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+            // 线条平滑（表格边框更细腻）
+            hints.put(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
+            renderer.setRenderingHints(hints);
 
-        File saveFile = new File(savePath);
-        try {
-            // 确保父目录存在（如D:/images/不存在则创建）
-            File parentDir = saveFile.getParentFile();
-            if (!parentDir.exists()) {
-                boolean mkdirsSuccess = parentDir.mkdirs();
-                if (!mkdirsSuccess) {
-                    throw new IOException("创建保存目录失败：" + parentDir.getAbsolutePath());
-                }
-            }
-
-            // 保存图片到文件（返回false表示格式不支持，此处已校验，可忽略）
-            boolean saveSuccess = ImageIO.write(image, format, saveFile);
-            if (!saveSuccess) {
-                throw new IOException("保存图片失败，格式不支持：" + format);
-            }
-            System.out.println("图片保存成功：" + saveFile.getAbsolutePath());
-        } catch (IOException e) {
-            throw new RuntimeException("保存图片异常", e);
+            // 5. 触发渲染（源码getImage()首次调用才会渲染）
+            BufferedImage a4Image = renderer.getImage();
+            inputStream.close(); // 释放输入流
+            return a4Image;
+        } catch (Exception e) {
+            throw new RuntimeException("HTML转图片失败", e);
         }
     }
-
 }

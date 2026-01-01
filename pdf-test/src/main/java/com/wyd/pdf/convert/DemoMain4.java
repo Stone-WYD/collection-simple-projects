@@ -34,14 +34,14 @@ public class DemoMain4  {
 
 
         // ========== 步骤2：渲染FreeMarker模板生成HTML ==========
-        String html = FreeMarkerUtil.renderTemplate("test.ftl", map);
+        String html = FreeMarkerUtil.renderTemplate("demo4.ftl", map);
         System.out.println("渲染后的HTML：\n" + html);
 
         // ========== 步骤3：HTML转图片（可生成多张，这里演示1张） ==========
-        BufferedImage image = HtmlToImageUtil2.htmlToImage(html, 1123, 794); // 宽800px，高600p
+        BufferedImage image = HtmlToImageUtil2.htmlToA4Image(html, 80); // 宽800px，高600p
 
         // ========== 步骤4：图片拼接为PDF ==========
-        String pdfPath = "D:/66666666.png"; // 生成的PDF路径
+        String pdfPath = "D:/a4454.png"; // 生成的PDF路径
         saveBufferedImage(image, pdfPath, "png");
     }
 
