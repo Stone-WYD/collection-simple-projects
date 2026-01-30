@@ -6,7 +6,6 @@ import cn.hutool.extra.qrcode.QrConfig;
 import com.wyd.pdf.convert.domain.MspProduceOrder;
 import com.wyd.pdf.convert.domain.MspProduceProcess;
 import com.wyd.pdf.convert.utils.FreeMarkerUtil;
-import com.wyd.pdf.convert.utils.HtmlToImageUtil;
 import com.wyd.pdf.convert.utils.HtmlToImageUtil2;
 
 import javax.imageio.ImageIO;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class DemoMain4  {
+public class DemoMain5Html2Pdf {
 
     public static void main(String[] args) {
         System.out.println("JDK版本号（java.version）: " + System.getProperty("java.version"));
