@@ -2,14 +2,18 @@ package com.wyd.pdf.pdf2excel;
 
 import com.wyd.pdf.pdf2excel.impl.XzDrawInstanceBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class TestPdfText {
 
     public static void main(String[] args) {
-        DrawInstance drawInstance = new XzDrawInstanceBuilder()
+        Set<DrawInstance> roots = new XzDrawInstanceBuilder()
         .build("D:\\Tencent\\xwechat_files\\wxid_jfqlvgtpx8ju22_57d4\\msg\\file\\2026-01\\PDF合并.pdf");
         // 打印所有层级信息
+        List<DrawInstance> rootList = new ArrayList<>(roots);
+        DrawInstance drawInstance = rootList.get(0);
         if (drawInstance != null) {
             printHierarchy(drawInstance, 0);
         } else {

@@ -97,19 +97,20 @@ public class XzDrawInstanceBuilder extends DrawInstanceBuilder {
                 if (pageContent.contains("攻牙")) {
                     processSequence.add("钳工");
                 }
-                // 折弯
-                if ((pageContent.contains("上") || pageContent.contains("下")) &&
-                        (pageContent.contains("°") && pageContent.contains("R"))) {
-                    processSequence.add("折弯");
-                }
                 // 有焊接表，则添加焊接
                 if (pageContent.contains("项目号 零件号 厚度 外形尺寸 数量 材料")) {
                     processSequence.add("焊接");
                 }
             }
+
+            // 折弯
+            if ((content.contains("上") || content.contains("下")) &&
+                    (content.contains("°") && content.contains("R"))) {
+                processSequence.add("折弯");
+            }
         });
 
-        List<DrawInstance> plus = new ArrayList<>();
+        Set<DrawInstance> plus = new HashSet<>();
         result.forEach(instance -> {
             String parentDrawingNumber = instance.getParentDrawingNumber();
             if (ObjectUtil.isNull(instanceMap.get(parentDrawingNumber))) {
@@ -126,7 +127,7 @@ public class XzDrawInstanceBuilder extends DrawInstanceBuilder {
 
     // 当前具体实现：通过parentDrawingNumber和焊接关系表得知
     @Override
-    public DrawInstance buildHierarchy(List<DrawInstance> instances) {
+    public Set<DrawInstance> buildHierarchy(List<DrawInstance> instances) {
         // todo 到这里了
         if (CollectionUtil.isEmpty(instances)) {
             return null;
@@ -196,25 +197,20 @@ public class XzDrawInstanceBuilder extends DrawInstanceBuilder {
             }
         });
         // 查找root
-        DrawInstance root = null;
+        Set<DrawInstance> roots = new HashSet<>();
         for (DrawInstance instance : instances) {
             if (instance.getParentDrawingNumber() == null) {
-                root = instance;
-                break;
+                roots.add(instance);
             }
         }
-        if (root == null) {
-            return null;
-        }
-
-        return root;
+        return roots;
     }
 
     // 当前具体实现：根据 攻牙、折弯线确定钳工、折弯工序，根据是否有焊接表确定焊接工序，根据是否有子物料确定下料工序
     @Override
-    public void determineProcess(DrawInstance root) {
+    public void determineProcess(Set<DrawInstance> root) {
         if (root != null) {
-            processInstance(root);
+            root.forEach(this::processInstance);
         }
     }
 
@@ -259,7 +255,7 @@ public class XzDrawInstanceBuilder extends DrawInstanceBuilder {
         }
 
         // 拼接完整工序到 processString
-        String processString = String.join("->", orderedProcesses);
+        String processString = String.join("-", orderedProcesses);
         instance.setProcessString(processString);
 
         // 递归处理子实例
