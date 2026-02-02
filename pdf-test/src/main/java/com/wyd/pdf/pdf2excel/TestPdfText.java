@@ -22,7 +22,11 @@ public class TestPdfText {
     }
 
     private static void printHierarchy(DrawInstance instance, int level) {
-        String indent = "  ".repeat(level);
+        StringBuilder indent = new StringBuilder();
+        for (int i = 0; i < level; i++) {
+            indent.append("  ");
+        }
+
         String prefix = level == 0 ? "" : "└─ ";
         boolean childFlag = instance.getChildren() != null && !instance.getChildren().isEmpty();
 

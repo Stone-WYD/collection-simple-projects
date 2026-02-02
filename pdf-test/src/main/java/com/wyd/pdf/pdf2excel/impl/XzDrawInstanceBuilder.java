@@ -52,13 +52,15 @@ public class XzDrawInstanceBuilder extends DrawInstanceBuilder {
         contentList.forEach(content -> {
             DrawInstance drawInstance = new DrawInstance();
             drawInstance.setOriginalText(content);
-            // 文字“图样名称” 上一行是图号
+            // 文字“文件保存” 后固定行数有图号和图名称
             String[] lines = content.split("\n");
             for (int i = 0; i < lines.length; i++) {
                 String pageContent = lines[i].trim();
-                if (pageContent.contains("图样名称")) {
-                    String drawNumber = lines[i - 1].trim();
+                if (pageContent.contains("文件保存")) {
+                    String drawNumber = lines[i + 4].trim();
                     drawInstance.setDrawingNumber(drawNumber);
+                    String drawName = lines[i + 5].trim();
+                    drawInstance.setDrawingName(drawName);
                     if (instanceMap.get(drawNumber) != null) {
                         drawInstance = instanceMap.get(drawNumber);
                         String originalText = drawInstance.getOriginalText();
@@ -74,7 +76,6 @@ public class XzDrawInstanceBuilder extends DrawInstanceBuilder {
                     break;
                 }
             }
-
 
             // 尽可能获取可知工序信息
             if (CollectionUtil.isEmpty(drawInstance.getProcessSequence())) {
@@ -108,6 +109,21 @@ public class XzDrawInstanceBuilder extends DrawInstanceBuilder {
                     (content.contains("°") && content.contains("R"))) {
                 processSequence.add("折弯");
             }
+
+            // 焊接件
+            String drawingName = drawInstance.getDrawingName();
+            if (StrUtil.isNotEmpty(drawingName) && drawingName.contains("焊接机架")) {
+                processSequence.add("焊接");
+                processSequence.add("龙门");
+                processSequence.add("喷塑");
+                processSequence.add("转组装");
+            }
+            if (StrUtil.isNotEmpty(drawingName) && drawingName.contains("门板焊接件")) {
+                processSequence.add("焊接");
+                processSequence.add("喷塑");
+                processSequence.add("转组装");
+            }
+
         });
 
         Set<DrawInstance> plus = new HashSet<>();
@@ -235,14 +251,16 @@ public class XzDrawInstanceBuilder extends DrawInstanceBuilder {
         if (processes.contains("钳工")) orderedProcesses.add("钳工");
         if (processes.contains("折弯")) orderedProcesses.add("折弯");
         if (processes.contains("焊接")) orderedProcesses.add("焊接");
+        if (processes.contains("龙门")) orderedProcesses.add("龙门");
+        if (processes.contains("喷塑")) orderedProcesses.add("喷塑");
+        if (processes.contains("组装")) orderedProcesses.add("组装");
+        if (processes.contains("转组装")) orderedProcesses.add("转组装");
 
         // 如果有父级，添加 "转" + 父级第一道工序
         if (instance.getParent() != null) {
             Set<String> parentProcesses = instance.getParent().getProcessSequence();
             if (parentProcesses != null && !parentProcesses.isEmpty()) {
                 List<String> parentOrdered = new ArrayList<>();
-/*                if (parentProcesses.contains("切管")) parentOrdered.add("切管");
-                if (parentProcesses.contains("下料")) parentOrdered.add("下料");*/
                 if (parentProcesses.contains("钳工")) parentOrdered.add("钳工");
                 if (parentProcesses.contains("折弯")) parentOrdered.add("折弯");
                 if (parentProcesses.contains("焊接")) parentOrdered.add("焊接");

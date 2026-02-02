@@ -41,7 +41,7 @@ public class PDFPageTraversal {
 
     // 测试主方法
     public static void main(String[] args) {
-        String pdfPath = "D:\\Tencent\\xwechat_files\\wxid_jfqlvgtpx8ju22_57d4\\msg\\file\\2026-01\\NE252039-02-010001.PDF"; // 替换为你的PDF路径
+        String pdfPath = "D:\\Tencent\\xwechat_files\\wxid_jfqlvgtpx8ju22_57d4\\msg\\file\\2026-02\\零件1.pdf"; // 替换为你的PDF路径
         try {
             Map<Integer, String> pageTextResult = extractPerPageText(pdfPath);
 

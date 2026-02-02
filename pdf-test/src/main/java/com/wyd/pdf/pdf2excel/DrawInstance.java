@@ -17,6 +17,8 @@ public class DrawInstance {
 
     private String drawingNumber;
 
+    private String drawingName;
+
     private String parentDrawingNumber;
 
     private Set<String> processSequence;
