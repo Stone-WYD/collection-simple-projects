@@ -56,11 +56,9 @@ public class XzDrawInstanceBuilder extends DrawInstanceBuilder {
             String[] lines = content.split("\n");
             for (int i = 0; i < lines.length; i++) {
                 String pageContent = lines[i].trim();
-                if (pageContent.contains("文件保存")) {
-                    String drawNumber = lines[i + 4].trim();
+                if (pageContent.contains("图号=")) {
+                    String drawNumber = pageContent.replace("图号=", "");
                     drawInstance.setDrawingNumber(drawNumber);
-                    String drawName = lines[i + 5].trim();
-                    drawInstance.setDrawingName(drawName);
                     if (instanceMap.get(drawNumber) != null) {
                         drawInstance = instanceMap.get(drawNumber);
                         String originalText = drawInstance.getOriginalText();
@@ -150,9 +148,7 @@ public class XzDrawInstanceBuilder extends DrawInstanceBuilder {
         }
         // 先根据图号建立实例之间的关系
         Map<String, DrawInstance> instanceMap = new HashMap<>();
-        instances.forEach(instance -> {
-            instanceMap.put(instance.getDrawingNumber(), instance);
-        });
+        instances.forEach(instance -> instanceMap.put(instance.getDrawingNumber(), instance));
         // 再根据parentDrawingNumber建立实例之间的关系
         instances.forEach(instance -> {
             String parentDrawingNumber = instance.getParentDrawingNumber();

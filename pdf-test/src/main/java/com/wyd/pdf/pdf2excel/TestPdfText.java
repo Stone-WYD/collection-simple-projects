@@ -10,7 +10,7 @@ public class TestPdfText {
 
     public static void main(String[] args) {
         Set<DrawInstance> roots = new XzDrawInstanceBuilder()
-        .build("D:\\Tencent\\xwechat_files\\wxid_jfqlvgtpx8ju22_57d4\\msg\\file\\2026-01\\PDF合并.pdf");
+        .build("C:\\Users\\11748\\Downloads\\PDF合并(1).pdf");
         // 打印所有层级信息
         List<DrawInstance> rootList = new ArrayList<>(roots);
         DrawInstance drawInstance = rootList.get(0);
